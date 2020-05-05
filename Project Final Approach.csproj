@@ -77,7 +77,7 @@
     <Compile Include="GXPEngine\Utils\Time.cs" />
     <Compile Include="GXPEngine\Utils\Utils.cs" />
     <Compile Include="GXPEngine\Vec2.cs" />
-    <Compile Include="MyGame.cs" />
+    <Compile Include="MainGame.cs" />
   </ItemGroup>
   <ItemGroup />
 </Project>
