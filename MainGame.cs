@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class MainGame : Game
 {
 
-	MainHub _testRoom;
+	MainHub _mainHub;
 
 	// TODO:
 	// - Add a settings mechanic so everyone can change certain settings quickly
@@ -14,8 +14,8 @@ public class MainGame : Game
 
 	public MainGame () : base(1024, 768, false, false)
 	{
-		_testRoom = new MainHub();
-		AddChild(_testRoom);
+		_mainHub = new MainHub();
+		AddChild(_mainHub);
 	}
 
 	static void Main() {
