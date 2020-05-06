@@ -18,13 +18,6 @@ public class Player : AnimationSprite
     Vec2 _oldPosition { get; set; }
     Vec2 _velocity;
 
-    //private float _dX;
-    //private float _dY;
-
-    private float _centerX;
-    private float _centerY;
-
-
     public Player(float x, float y) : base("barry.png", 7, 1)
     {
         //SetOrigin(width / 2, height / 2);
@@ -56,23 +49,9 @@ public class Player : AnimationSprite
         _oldPosition = _position;
 
         movement();
-        //updatePos();
         updateScreenPos();
 
-        _centerX = x + width / 2;
-        _centerY = y + height / 2;
-
-
-        _MoveCallc();
-    }
-
-    //------------------------------------------------------------------------------------------------------------------------
-    //														updatePos()
-    //------------------------------------------------------------------------------------------------------------------------
-    private void updatePos()
-    {
-        x = _position.x;
-        y = _position.y;
+        moveCalc();
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -135,6 +114,9 @@ public class Player : AnimationSprite
 
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
+    //														OnCollision()
+    //------------------------------------------------------------------------------------------------------------------------
     void OnCollision(GameObject _other)
     {
         if (_other is CollisionTile)
@@ -164,7 +146,10 @@ public class Player : AnimationSprite
         }
     }
 
-    private void _MoveCallc()
+    //------------------------------------------------------------------------------------------------------------------------
+    //														moveCalc()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void moveCalc()
     {
         if (_pointUP.isColliding)
         {
@@ -194,6 +179,14 @@ public class Player : AnimationSprite
                 _velocity.x = 0;
             }
         }
+        movingStuff();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    //														movingStuff()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void movingStuff()
+    {
         _pointLeft.isColliding = false;
         _pointRight.isColliding = false;
         _pointUP.isColliding = false;
@@ -201,5 +194,4 @@ public class Player : AnimationSprite
         x += _velocity.x * SPEED;
         y += _velocity.y * SPEED;
     }
-
 }

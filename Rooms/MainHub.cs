@@ -15,14 +15,15 @@ class MainHub : GameObject
 		_fileName = @"Screens/MainHub/MainHub.tmx";
 
 		Map _levelData = MapParser.ReadMap(_fileName);
-		spawnTiles(_levelData);
+		spawnCollisionTiles(_levelData);
+		spawnBackgroundTiles(_levelData);
 		spawnObjects(_levelData);
 	}
 
 	//------------------------------------------------------------------------------------------------------------------------
-	//														spawnTiles()
+	//														spawnBackgroundTiles()
 	//------------------------------------------------------------------------------------------------------------------------
-	private void spawnTiles(Map levelData)
+	private void spawnBackgroundTiles(Map levelData)
 	{
 		// Check if there are layers
 		if (levelData.Layers == null || levelData.Layers.Length == 0)
@@ -30,6 +31,37 @@ class MainHub : GameObject
 
 		// Setting the mainlayer to the first layer
 		Layer mainLayer = levelData.Layers[0];
+
+		short[,] tileNumbers = mainLayer.GetTileArray();
+
+		for (int row = 0; row < mainLayer.Height; row++)
+		{
+			for (int col = 0; col < mainLayer.Width; col++)
+			{
+				int tileNumber = tileNumbers[col, row];
+				if (tileNumber > 0)
+				{
+					BackgroundTile tile = new BackgroundTile("square.png", 1, 1);
+					tile.SetFrame(tileNumber - 1);
+					tile.x = col * tile.width + tile.width / 2;
+					tile.y = row * tile.height + tile.height / 2;
+					AddChild(tile);
+				}
+			}
+		}
+	}
+
+	//------------------------------------------------------------------------------------------------------------------------
+	//														spawnCollisionTiles()
+	//------------------------------------------------------------------------------------------------------------------------
+	private void spawnCollisionTiles(Map levelData)
+	{
+		// Check if there are layers
+		if (levelData.Layers == null || levelData.Layers.Length == 0)
+			return;
+
+		// Setting the mainlayer to the first layer
+		Layer mainLayer = levelData.Layers[1];
 
 		short[,] tileNumbers = mainLayer.GetTileArray();
 
