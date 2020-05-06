@@ -79,6 +79,7 @@
     <Compile Include="GXPEngine\Vec2.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Objects\Player.cs" />
+    <Compile Include="Other\CollisionPoint.cs" />
     <Compile Include="Other\CollisionTile.cs" />
     <Compile Include="Rooms\MainHub.cs" />
   </ItemGroup>

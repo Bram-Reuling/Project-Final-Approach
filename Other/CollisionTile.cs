@@ -9,6 +9,7 @@ namespace GXPEngine
     {
         public CollisionTile(string filename, int cols, int rows) : base(filename, cols, rows)
         {
+            SetOrigin(width / 2, height / 2);
         }
     }
 }

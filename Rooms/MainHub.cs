@@ -42,8 +42,8 @@ class MainHub : GameObject
 				{
 					CollisionTile tile = new CollisionTile("square.png", 1, 1);
 					tile.SetFrame(tileNumber - 1);
-					tile.x = col * tile.width;
-					tile.y = row * tile.height;
+					tile.x = col * tile.width + tile.width / 2;
+					tile.y = row * tile.height + tile.height / 2;
 					AddChild(tile);
 				}
 			}
