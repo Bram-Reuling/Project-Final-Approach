@@ -102,6 +102,13 @@ class MainHub : GameObject
 					_player = new Player(obj.X, obj.Y);
 					AddChild(_player);
 					break;
+				case "Door":
+					DoorTile _door = new DoorTile("colors.png", 1, 1);
+					_door.SetFrame(0);
+					_door.x = obj.X + _door.width / 2;
+					_door.y = obj.Y - _door.height / 2;
+					AddChild(_door);
+					break;
 			}
 		}
 	}

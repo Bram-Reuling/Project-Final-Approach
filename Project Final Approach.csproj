@@ -82,6 +82,7 @@
     <Compile Include="Other\BackgroundTile.cs" />
     <Compile Include="Other\CollisionPoint.cs" />
     <Compile Include="Other\CollisionTile.cs" />
+    <Compile Include="Other\DoorTile.cs" />
     <Compile Include="Rooms\MainHub.cs" />
   </ItemGroup>
   <ItemGroup />
