@@ -79,7 +79,7 @@
     <Compile Include="GXPEngine\Vec2.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Objects\Player.cs" />
-    <Compile Include="Rooms\TestRoom.cs" />
+    <Compile Include="Rooms\MainHub.cs" />
   </ItemGroup>
   <ItemGroup />
 </Project>
