@@ -18,7 +18,9 @@ public class Player : AnimationSprite
     Vec2 _oldPosition { get; set; }
     Vec2 _velocity;
 
-    public Player(float x, float y) : base("barry.png", 7, 1)
+    MainGame _game;
+
+    public Player(float x, float y, MainGame tempGame) : base("barry.png", 7, 1)
     {
         //SetOrigin(width / 2, height / 2);
         SetXY(x, y);
@@ -37,6 +39,8 @@ public class Player : AnimationSprite
         AddChild(_pointDown);
         AddChild(_pointRight);
         AddChild(_pointLeft);
+
+        _game = tempGame;
 
     }
 
@@ -119,31 +123,49 @@ public class Player : AnimationSprite
     //------------------------------------------------------------------------------------------------------------------------
     void OnCollision(GameObject _other)
     {
+        collisionTile(_other);
+        collisionDoor(_other);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    //														collisionDoor()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void collisionDoor(GameObject other)
+    {
+        if (other is DoorTile)
+        {
+            Console.WriteLine("DOOR HIT");
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    //														collisionTile()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void collisionTile(GameObject _other)
+    {
         if (_other is CollisionTile)
         {
-
-            if (_other is CollisionTile)
+            CollisionTile colltile = _other as CollisionTile;
+            if (x + width + _velocity.x * SPEED <= colltile.x + SPEED)
             {
-                CollisionTile colltile = _other as CollisionTile;
-                if (x + width + _velocity.x * SPEED <= colltile.x + SPEED)
-                {
-                    _velocity.x = 0;
+                _velocity.x = 0;
 
-                }
-                else if (x + _velocity.x * SPEED >= colltile.x + colltile.width - SPEED)
-                {
-                    _velocity.x = 0;
-                }
-                if (y + height + _velocity.y * SPEED <= colltile.y + SPEED)
-                {
-                    _velocity.y = 0;
-                }
-                else if (y + _velocity.y * SPEED >= colltile.y + height - SPEED)
-                {
-                    _velocity.y = 0;
-                }
+            }
+            else if (x + _velocity.x * SPEED >= colltile.x + colltile.width - SPEED)
+            {
+                _velocity.x = 0;
+            }
+            if (y + height + _velocity.y * SPEED <= colltile.y + SPEED)
+            {
+                _velocity.y = 0;
+            }
+            else if (y + _velocity.y * SPEED >= colltile.y + height - SPEED)
+            {
+                _velocity.y = 0;
             }
         }
+
+        //_game.SwitchRoom("Bar");
     }
 
     //------------------------------------------------------------------------------------------------------------------------

@@ -7,6 +7,7 @@ public class MainGame : Game
 {
 
 	MainHub _mainHub;
+	BarHub _barHub;
 
 	// TODO:
 	// - Add a settings mechanic so everyone can change certain settings quickly
@@ -14,11 +15,37 @@ public class MainGame : Game
 
 	public MainGame () : base(1024, 768, false, false)
 	{
-		_mainHub = new MainHub();
-		AddChild(_mainHub);
+		// Start of the game
+		SwitchRoom("Main");
 	}
 
 	static void Main() {
 		new MainGame().Start();
+	}
+
+	public void SwitchRoom(string _roomToSwitchTo)
+	{
+		switch(_roomToSwitchTo)
+		{
+			case "Main":
+				if (_barHub != null)
+				{
+					_barHub.LateDestroy();
+				}
+
+				game.name = "Test";
+				_mainHub = new MainHub(this);
+				AddChild(_mainHub);
+				break;
+			case "Bar":
+				if (_mainHub != null)
+				{
+					_mainHub.LateDestroy();
+				}
+
+				_barHub = new BarHub(this);
+				AddChild(_barHub);
+				break;
+		}
 	}
 }
