@@ -2,12 +2,12 @@
 using GXPEngine;
 using GXPEngine.Core;
 
-class TestRoom : GameObject
+class MainHub : GameObject
 {
 
 	Player _player;
 
-	public TestRoom()
+	public MainHub()
 	{
 		_player = new Player();
 		LateAddChild(_player);
