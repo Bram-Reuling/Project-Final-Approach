@@ -83,6 +83,8 @@
     <Compile Include="Other\CollisionPoint.cs" />
     <Compile Include="Other\CollisionTile.cs" />
     <Compile Include="Other\DoorTile.cs" />
+    <Compile Include="Rooms\BarHub.cs" />
+    <Compile Include="Rooms\Hub.cs" />
     <Compile Include="Rooms\MainHub.cs" />
   </ItemGroup>
   <ItemGroup />
