@@ -14,7 +14,7 @@ namespace GXPEngine
         {
             this.x = x - width / 2;
             this.y = y - height / 2;
-            this.visible = false;
+            this.visible = true;
         }
 
 
