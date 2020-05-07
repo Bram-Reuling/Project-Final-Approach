@@ -87,5 +87,7 @@
     <Compile Include="Rooms\Hub.cs" />
     <Compile Include="Rooms\MainHub.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Games\Arkanoid\" />
+  </ItemGroup>
 </Project>

@@ -30,10 +30,10 @@ public class Player : AnimationSprite
 
         _animationDrawsBetweenFrames = 16;
         _step = 0;
-        _pointUP = new CollisionPoint("PointHorizontal.png", this.width / 2, -SPEED);
+        _pointUP = new CollisionPoint("PointHorizontal.png", this.width / 2, SPEED);
         _pointDown = new CollisionPoint("PointHorizontal.png", this.width / 2, this.height + SPEED);
-        _pointLeft = new CollisionPoint("PointVertical.png", -SPEED, this.height / 2);
-        _pointRight = new CollisionPoint("PointVertical.png", this.width + SPEED, this.height / 2);
+        _pointLeft = new CollisionPoint("PointVertical.png", SPEED, this.height / 2 + SPEED);
+        _pointRight = new CollisionPoint("PointVertical.png", this.width - SPEED, this.height / 2 + SPEED);
         AddChild(_pointUP);
         AddChild(_pointDown);
         AddChild(_pointRight);

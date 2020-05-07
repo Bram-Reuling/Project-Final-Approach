@@ -68,7 +68,7 @@ class Hub : GameObject
 				if (tileNumber > 0)
 				{
 					bgTile = new BackgroundTile(_bgSpriteSheet, _bgCols, _bgRows);
-					bgTile.SetFrame(tileNumber - 1);
+					bgTile.SetFrame(tileNumber - 4);
 					bgTile.x = col * bgTile.width + bgTile.width / 2;
 					bgTile.y = row * bgTile.height + bgTile.height / 2;
 					AddChild(bgTile);
@@ -103,6 +103,37 @@ class Hub : GameObject
 					cTile.x = col * cTile.width + cTile.width / 2;
 					cTile.y = row * cTile.height + cTile.height / 2;
 					AddChild(cTile);
+				}
+			}
+		}
+	}
+
+	//------------------------------------------------------------------------------------------------------------------------
+	//														spawnBackgroundTiles()
+	//------------------------------------------------------------------------------------------------------------------------
+	public void SpawnOverlapTiles(Map levelData)
+	{
+		// Check if there are layers
+		if (levelData.Layers == null || levelData.Layers.Length == 0)
+			return;
+
+		// Setting the mainlayer to the first layer
+		Layer mainLayer = levelData.Layers[2];
+
+		short[,] tileNumbers = mainLayer.GetTileArray();
+
+		for (int row = 0; row < mainLayer.Height; row++)
+		{
+			for (int col = 0; col < mainLayer.Width; col++)
+			{
+				int tileNumber = tileNumbers[col, row];
+				if (tileNumber > 0)
+				{
+					bgTile = new BackgroundTile(_bgSpriteSheet, _bgCols, _bgRows);
+					bgTile.SetFrame(tileNumber - 4);
+					bgTile.x = col * bgTile.width + bgTile.width / 2;
+					bgTile.y = row * bgTile.height + bgTile.height / 2;
+					AddChild(bgTile);
 				}
 			}
 		}

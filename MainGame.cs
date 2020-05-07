@@ -13,7 +13,7 @@ public class MainGame : Game
     // - Add a settings mechanic so everyone can change certain settings quickly
     //   without starting Visual Studio and load the project.
 
-    public MainGame() : base(1024, 768, false, false)
+    public MainGame() : base(1024, 768, false, true)
     {
         // Start of the game
         SwitchRoom("Main");
