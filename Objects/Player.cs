@@ -28,7 +28,7 @@ public class Player : AnimationSprite
         _moveSpeed = 5;
         _moveSpeedY = _moveSpeed;
 
-        _animationDrawsBetweenFrames = 32;
+        _animationDrawsBetweenFrames = 16;
         _step = 0;
         _pointUP = new CollisionPoint("PointHorizontal.png", this.width / 2, -SPEED);
         _pointDown = new CollisionPoint("PointHorizontal.png", this.width / 2, this.height + SPEED);
@@ -38,6 +38,8 @@ public class Player : AnimationSprite
         AddChild(_pointDown);
         AddChild(_pointRight);
         AddChild(_pointLeft);
+
+        SetFrame(0);
 
         _game = tempGame;
 
@@ -77,6 +79,10 @@ public class Player : AnimationSprite
         {
             _velocity.x = -1;
             Mirror(false, false);
+            if (currentFrame < 6)
+            {
+                SetFrame(6);
+            }
         }
         if (Input.GetKey(Key.D))
         {
@@ -113,6 +119,19 @@ public class Player : AnimationSprite
         {
             _velocity.x = 0;
             _velocity.y = 0;
+            if (currentFrame <= 5)
+            {
+                _step++;
+                if (_step > _animationDrawsBetweenFrames)
+                {
+                    NextFrame();
+                    _step = 0;
+                }
+            }
+            if (currentFrame > 5)
+            {
+                SetFrame(0);
+            }
         }
 
     }
