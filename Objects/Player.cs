@@ -20,7 +20,7 @@ public class Player : AnimationSprite
 
     MainGame _game;
 
-    public Player(float x, float y, MainGame tempGame) : base("barry.png", 7, 1)
+    public Player(float x, float y, MainGame tempGame) : base("Sprites/Packy.png", 6, 7)
     {
         SetXY(x, y);
         _position = new Vec2(x, y);
@@ -76,12 +76,12 @@ public class Player : AnimationSprite
         if (Input.GetKey(Key.A))
         {
             _velocity.x = -1;
-            Mirror(true, false);
+            Mirror(false, false);
         }
         if (Input.GetKey(Key.D))
         {
             _velocity.x = 1;
-            Mirror(false, false);
+            Mirror(true, false);
         }
         if (Input.GetKey(Key.W))
         {
