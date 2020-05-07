@@ -15,6 +15,8 @@ namespace GXPEngine
             width = (int)obj.Width;
             height = (int)obj.Height;
 
+            visible = false;
+
             SetOrigin(width / 2, height / 8);
             _goto = obj.GetStringProperty("GoTo");
         }
