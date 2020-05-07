@@ -6,46 +6,48 @@ using System.Collections.Generic;
 public class MainGame : Game
 {
 
-	MainHub _mainHub;
-	BarHub _barHub;
+    MainHub _mainHub;
+    BarHub _barHub;
 
-	// TODO:
-	// - Add a settings mechanic so everyone can change certain settings quickly
-	//   without starting Visual Studio and load the project.
+    // TODO:
+    // - Add a settings mechanic so everyone can change certain settings quickly
+    //   without starting Visual Studio and load the project.
 
-	public MainGame () : base(1024, 768, false, false)
-	{
-		// Start of the game
-		SwitchRoom("Main");
-	}
+    public MainGame() : base(1024, 768, false, false)
+    {
+        // Start of the game
+        SwitchRoom("Main");
+    }
 
-	static void Main() {
-		new MainGame().Start();
-	}
+    static void Main()
+    {
+        new MainGame().Start();
+    }
 
-	public void SwitchRoom(string _roomToSwitchTo)
-	{
-		switch(_roomToSwitchTo)
-		{
-			case "Main":
-				if (_barHub != null)
-				{
-					_barHub.LateDestroy();
-				}
+    public void SwitchRoom(string _roomToSwitchTo)
+    {
+        switch (_roomToSwitchTo)
+        {
+            case "Main":
+                if (_barHub != null)
+                {
+                    _barHub.LateRemove();
+                    _barHub = null;
+                }
 
-				game.name = "Test";
-				_mainHub = new MainHub(this);
-				AddChild(_mainHub);
-				break;
-			case "Bar":
-				if (_mainHub != null)
-				{
-					_mainHub.LateDestroy();
-				}
+                _mainHub = new MainHub(this);
+                LateAddChild(_mainHub);
+                break;
+            case "Bar":
+                if (_mainHub != null)
+                {
+                    _mainHub.LateRemove();
+                    _mainHub = null;
+                }
 
-				_barHub = new BarHub(this);
-				AddChild(_barHub);
-				break;
-		}
-	}
+                _barHub = new BarHub(this);
+                LateAddChild(_barHub);
+                break;
+        }
+    }
 }

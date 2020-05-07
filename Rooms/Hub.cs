@@ -22,6 +22,12 @@ class Hub : GameObject
 
 	MainGame _game { get; set; }
 
+	BackgroundTile bgTile;
+	CollisionTile cTile;
+	DoorTile _door;
+	Player _player;
+
+
 	public Hub(string bgSpriteSheet, int bgCols, int bgRows, string colSpriteSheet, int colCols, int colRows, string objSpriteSheet, int objCols, int objRows, MainGame tempGame)
 	{
 		_bgSpriteSheet = bgSpriteSheet;
@@ -61,11 +67,11 @@ class Hub : GameObject
 				int tileNumber = tileNumbers[col, row];
 				if (tileNumber > 0)
 				{
-					BackgroundTile tile = new BackgroundTile(_bgSpriteSheet, _bgCols, _bgRows);
-					tile.SetFrame(tileNumber - 1);
-					tile.x = col * tile.width + tile.width / 2;
-					tile.y = row * tile.height + tile.height / 2;
-					AddChild(tile);
+					bgTile = new BackgroundTile(_bgSpriteSheet, _bgCols, _bgRows);
+					bgTile.SetFrame(tileNumber - 1);
+					bgTile.x = col * bgTile.width + bgTile.width / 2;
+					bgTile.y = row * bgTile.height + bgTile.height / 2;
+					AddChild(bgTile);
 				}
 			}
 		}
@@ -92,11 +98,11 @@ class Hub : GameObject
 				int tileNumber = tileNumbers[col, row];
 				if (tileNumber > 0)
 				{
-					CollisionTile tile = new CollisionTile(_colSpriteSheet, _colCols, _colRows);
-					tile.SetFrame(tileNumber - 1);
-					tile.x = col * tile.width + tile.width / 2;
-					tile.y = row * tile.height + tile.height / 2;
-					AddChild(tile);
+					cTile = new CollisionTile(_colSpriteSheet, _colCols, _colRows);
+					cTile.SetFrame(tileNumber - 1);
+					cTile.x = col * cTile.width + cTile.width / 2;
+					cTile.y = row * cTile.height + cTile.height / 2;
+					AddChild(cTile);
 				}
 			}
 		}
@@ -118,18 +124,28 @@ class Hub : GameObject
 		{
 			switch (obj.Name)
 			{
-				case "Player":
-					Player _player = new Player(obj.X, obj.Y, _game);
-					AddChild(_player);
-					break;
 				case "Door":
-					DoorTile _door = new DoorTile(_objSpriteSheet, _objCols, _objRows);
+					_door = new DoorTile(_objSpriteSheet, _objCols, _objRows, obj);
 					_door.SetFrame(obj.GetIntProperty("Type") - 1);
 					_door.x = obj.X + _door.width / 2;
 					_door.y = obj.Y - _door.height / 2;
 					AddChild(_door);
 					break;
+				case "Player":
+					_player = new Player(obj.X, obj.Y, _game);
+					AddChild(_player);
+					break;
 			}
 		}
+	}
+
+	public void DeleteRoom()
+	{
+		bgTile.LateDestroy();
+		cTile.LateDestroy();
+		_door.LateDestroy();
+		_player.LateDestroy();
+		LateDestroy();
+
 	}
 }

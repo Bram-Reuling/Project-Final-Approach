@@ -22,7 +22,6 @@ public class Player : AnimationSprite
 
     public Player(float x, float y, MainGame tempGame) : base("barry.png", 7, 1)
     {
-        //SetOrigin(width / 2, height / 2);
         SetXY(x, y);
         _position = new Vec2(x, y);
 
@@ -134,7 +133,8 @@ public class Player : AnimationSprite
     {
         if (other is DoorTile)
         {
-            Console.WriteLine("DOOR HIT");
+            DoorTile dTile = other as DoorTile;
+            _game.SwitchRoom(dTile._goto);
         }
     }
 
@@ -164,8 +164,6 @@ public class Player : AnimationSprite
                 _velocity.y = 0;
             }
         }
-
-        //_game.SwitchRoom("Bar");
     }
 
     //------------------------------------------------------------------------------------------------------------------------

@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TiledMapParser;
 
 namespace GXPEngine
 {
     class DoorTile : AnimationSprite
     {
-        public DoorTile(string filename, int cols, int rows) : base(filename, cols, rows)
+        public string _goto { get; set; }
+
+        public DoorTile(string filename, int cols, int rows, TiledObject obj) : base(filename, cols, rows)
         {
-            SetOrigin(width / 2, height / 2);
+            width = (int)obj.Width;
+            height = (int)obj.Height;
+
+            SetOrigin(width / 2, height / 8);
+            _goto = obj.GetStringProperty("GoTo");
         }
     }
 }
