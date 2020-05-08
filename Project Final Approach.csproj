@@ -38,7 +38,24 @@
   <ItemGroup>
     <Compile Include="Components\Arrow.cs" />
     <Compile Include="Components\LineSegment.cs" />
-    <Compile Include="Games\Arkanoid\ArkanoidHub.cs" />
+    <Compile Include="Games\Arkanoid\Buttons\Button.cs" />
+    <Compile Include="Games\Arkanoid\Buttons\MainMenuButton.cs" />
+    <Compile Include="Games\Arkanoid\Buttons\QuitButton.cs" />
+    <Compile Include="Games\Arkanoid\Buttons\StartButton.cs" />
+    <Compile Include="Games\Arkanoid\HUD Items\DeathText.cs" />
+    <Compile Include="Games\Arkanoid\HUD Items\Lives.cs" />
+    <Compile Include="Games\Arkanoid\HUD Items\Logo.cs" />
+    <Compile Include="Games\Arkanoid\HUD Items\Score.cs" />
+    <Compile Include="Games\Arkanoid\Items\Ball.cs" />
+    <Compile Include="Games\Arkanoid\Items\Block.cs" />
+    <Compile Include="Games\Arkanoid\Items\PlayerArkanoid.cs" />
+    <Compile Include="Games\Arkanoid\Items\PowerUp.cs" />
+    <Compile Include="Games\Arkanoid\Items\PowerUpHealth.cs" />
+    <Compile Include="Games\Arkanoid\Items\PowerUpLarge.cs" />
+    <Compile Include="Games\Arkanoid\Misc\TrailBall.cs" />
+    <Compile Include="Games\Arkanoid\Screens\DeathScreen.cs" />
+    <Compile Include="Games\Arkanoid\Screens\LevelScreen.cs" />
+    <Compile Include="Games\Arkanoid\Screens\MainMenuScreen.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GXPEngine\AddOns\Camera.cs" />
     <Compile Include="GXPEngine\AddOns\EasyDraw.cs" />

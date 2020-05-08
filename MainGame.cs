@@ -8,7 +8,7 @@ public class MainGame : Game
 
     MainHub _mainHub;
     BarHub _barHub;
-    ArkanoidHub _arkanoid;
+    //ArkanoidHub _arkanoid;
 
     // TODO:
     // - Add a settings mechanic so everyone can change certain settings quickly
@@ -16,6 +16,7 @@ public class MainGame : Game
 
     public MainGame() : base(1024, 768, false, true)
     {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
         // Start of the game
         SwitchRoom("Main");
     }
@@ -55,6 +56,7 @@ public class MainGame : Game
     //------------------------------------------------------------------------------------------------------------------------
     private void LoadRace()
     {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Road Racer");
         Console.WriteLine("Loading Race");
         Console.WriteLine("Race Loaded!");
     }
@@ -64,6 +66,7 @@ public class MainGame : Game
     //------------------------------------------------------------------------------------------------------------------------
     private void LoadArkanoid()
     {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Arkanoid");
         Console.WriteLine("Loading Arkanoid");
         if (_mainHub != null)
         {
@@ -71,8 +74,8 @@ public class MainGame : Game
             _mainHub = null;
         }
 
-        _arkanoid = new ArkanoidHub(this);
-        LateAddChild(_arkanoid);
+        //_arkanoid = new ArkanoidHub(this);
+        //LateAddChild(_arkanoid);
         Console.WriteLine("Arkanoid Loaded!");
     }
 
@@ -81,6 +84,7 @@ public class MainGame : Game
     //------------------------------------------------------------------------------------------------------------------------
     private void LoadBar()
     {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Multiplayer Hub");
         Console.WriteLine("Loading Bar");
         if (_mainHub != null)
         {
@@ -98,6 +102,7 @@ public class MainGame : Game
     //------------------------------------------------------------------------------------------------------------------------
     private void LoadMain()
     {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Main Hub");
         Console.WriteLine("Loading Main Hub");
         if (_barHub != null)
         {
@@ -105,11 +110,11 @@ public class MainGame : Game
             _barHub = null;
         }
 
-        if (_arkanoid != null)
-        {
-            _arkanoid.LateRemove();
-            _arkanoid = null;
-        }
+        //if (_arkanoid != null)
+        //{
+        //    _arkanoid.LateRemove();
+        //    _arkanoid = null;
+        //}
 
         _mainHub = new MainHub(this);
         LateAddChild(_mainHub);
