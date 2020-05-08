@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Components\Arrow.cs" />
     <Compile Include="Components\LineSegment.cs" />
+    <Compile Include="Games\Arkanoid\ArkanoidHub.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GXPEngine\AddOns\Camera.cs" />
     <Compile Include="GXPEngine\AddOns\EasyDraw.cs" />
@@ -89,7 +90,5 @@
     <Compile Include="Rooms\Hub.cs" />
     <Compile Include="Rooms\MainHub.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Games\Arkanoid\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
