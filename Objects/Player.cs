@@ -4,32 +4,52 @@ using GXPEngine.Core;
 
 public class Player : AnimationSprite
 {
-    private CollisionPoint _pointUP;
-    private CollisionPoint _pointDown;
-    private CollisionPoint _pointRight;
-    private CollisionPoint _pointLeft;
-    private const int SPEED = 7;
-    private int _moveSpeed { get; set; }
-    private int _moveSpeedY { get; set; }
-    private int _animationDrawsBetweenFrames { get; set; }
-    private int _step { get; set; }
+    private readonly CollisionPoint _pointUP;
+    private readonly CollisionPoint _pointDown;
+    private readonly CollisionPoint _pointRight;
+    private readonly CollisionPoint _pointLeft;
+    private const int SPEED = 3;
+    private int moveSpeed;
 
-    Vec2 _position;
-    Vec2 _oldPosition { get; set; }
-    Vec2 _velocity;
+    private int GetMoveSpeed()
+    {
+        return moveSpeed;
+    }
 
-    MainGame _game;
+    private void SetMoveSpeed(int value)
+    {
+        moveSpeed = value;
+    }
+
+    private int AnimationDrawsBetweenFrames { get; set; }
+    private int Step { get; set; }
+
+    private Vec2 _position;
+    private Vec2 oldPosition;
+
+    private Vec2 GetOldPosition()
+    {
+        return oldPosition;
+    }
+
+    private void SetOldPosition(Vec2 value)
+    {
+        oldPosition = value;
+    }
+
+    private Vec2 _velocity;
+
+    readonly MainGame _game;
 
     public Player(float x, float y, MainGame tempGame) : base("Sprites/Packy.png", 6, 7)
     {
         SetXY(x, y);
         _position = new Vec2(x, y);
 
-        _moveSpeed = 5;
-        _moveSpeedY = _moveSpeed;
+        SetMoveSpeed(5);
 
-        _animationDrawsBetweenFrames = 16;
-        _step = 0;
+        AnimationDrawsBetweenFrames = 3;
+        Step = 0;
         _pointUP = new CollisionPoint("PointHorizontal.png", this.width / 2, SPEED);
         _pointDown = new CollisionPoint("PointHorizontal.png", this.width / 2, this.height + SPEED);
         _pointLeft = new CollisionPoint("PointVertical.png", SPEED, this.height / 2 + SPEED);
@@ -51,11 +71,11 @@ public class Player : AnimationSprite
     void Update()
     {
 
-        _oldPosition = _position;
+        SetOldPosition(_position);
 
         movement();
         updateScreenPos();
-
+        noInputCheck();
         moveCalc();
     }
 
@@ -78,24 +98,89 @@ public class Player : AnimationSprite
         if (Input.GetKey(Key.A))
         {
             _velocity.x = -1;
-            Mirror(false, false);
-            if (currentFrame < 6)
-            {
-                SetFrame(6);
-            }
+            WalkAnimLeftRight();
         }
         if (Input.GetKey(Key.D))
         {
             _velocity.x = 1;
+            WalkAnimLeftRight();
             Mirror(true, false);
         }
         if (Input.GetKey(Key.W))
         {
             _velocity.y = -1;
+            WalkAnimUp();
         }
         if (Input.GetKey(Key.S))
         {
             _velocity.y = 1;
+            WalkAnimDown();
+        }
+
+        normalizeVelocity();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    //														WalkAnimUp()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void WalkAnimUp()
+    {
+        if (currentFrame < 30 || currentFrame > 40)
+        {
+            SetFrame(30);
+        }
+
+        if (currentFrame <= 41 && currentFrame > 29)
+        {
+            Step++;
+            if (Step > AnimationDrawsBetweenFrames)
+            {
+                NextFrame();
+                Step = 0;
+            }
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    //														WalkAnimDown()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void WalkAnimDown()
+    {
+        if (currentFrame < 18 || currentFrame > 28)
+        {
+            SetFrame(18);
+        }
+
+        if (currentFrame <= 29 && currentFrame > 17)
+        {
+            Step++;
+            if (Step > AnimationDrawsBetweenFrames)
+            {
+                NextFrame();
+                Step = 0;
+            }
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
+    //														WalkAnimLeftRight()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void WalkAnimLeftRight()
+    {
+        Mirror(false, false);
+        if (currentFrame < 6 || currentFrame > 16)
+        {
+            SetFrame(6);
+        }
+
+        if (currentFrame <= 17 && currentFrame > 5)
+        {
+            Step++;
+            if (Step > AnimationDrawsBetweenFrames)
+            {
+                NextFrame();
+                Step = 0;
+            }
         }
     }
 
@@ -106,7 +191,6 @@ public class Player : AnimationSprite
     {
         // Normalize the velocity to have the same movement on diagonal as non-diagonal
         _velocity.Normalize();
-        _velocity *= _moveSpeed;
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -121,11 +205,11 @@ public class Player : AnimationSprite
             _velocity.y = 0;
             if (currentFrame <= 5)
             {
-                _step++;
-                if (_step > _animationDrawsBetweenFrames)
+                Step++;
+                if (Step > AnimationDrawsBetweenFrames)
                 {
                     NextFrame();
-                    _step = 0;
+                    Step = 0;
                 }
             }
             if (currentFrame > 5)
@@ -153,7 +237,7 @@ public class Player : AnimationSprite
         if (other is DoorTile)
         {
             DoorTile dTile = other as DoorTile;
-            _game.SwitchRoom(dTile._goto);
+            _game.SwitchRoom(dTile.Goto);
         }
     }
 
