@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Components\Arrow.cs" />
     <Compile Include="Components\LineSegment.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GXPEngine\AddOns\Camera.cs" />
     <Compile Include="GXPEngine\AddOns\EasyDraw.cs" />
     <Compile Include="GXPEngine\AddOns\HierarchyManager.cs" />

@@ -8,7 +8,7 @@ namespace GXPEngine
 {
     class DoorTile : AnimationSprite
     {
-        public string _goto { get; set; }
+        public string Goto { get; set; }
 
         public DoorTile(string filename, int cols, int rows, TiledObject obj) : base(filename, cols, rows)
         {
@@ -18,7 +18,7 @@ namespace GXPEngine
             visible = false;
 
             SetOrigin(width / 2, height / 8);
-            _goto = obj.GetStringProperty("GoTo");
+            Goto = obj.GetStringProperty("GoTo");
         }
     }
 }
