@@ -48,6 +48,12 @@ public class MainGame : Game
                 _barHub = new BarHub(this);
                 LateAddChild(_barHub);
                 break;
+            case "Arkanoid":
+                Console.WriteLine("Loading Arkanoid");
+                break;
+            case "Race":
+                Console.WriteLine("Loading Race");
+                break;
         }
     }
 }

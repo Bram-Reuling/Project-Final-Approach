@@ -80,6 +80,7 @@
     <Compile Include="GXPEngine\Vec2.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Objects\Player.cs" />
+    <Compile Include="Other\ActivityTile.cs" />
     <Compile Include="Other\BackgroundTile.cs" />
     <Compile Include="Other\CollisionPoint.cs" />
     <Compile Include="Other\CollisionTile.cs" />

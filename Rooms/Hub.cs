@@ -25,6 +25,8 @@ class Hub : GameObject
 	BackgroundTile bgTile;
 	CollisionTile cTile;
 	DoorTile _door;
+	ActivityTile _activity;
+
 	Player _player;
 
 
@@ -165,6 +167,13 @@ class Hub : GameObject
 				case "Player":
 					_player = new Player(obj.X, obj.Y, _game);
 					AddChild(_player);
+					break;
+				case "Activity":
+					_activity = new ActivityTile(_objSpriteSheet, _objCols, _objRows, obj, _game);
+					_activity.SetFrame(obj.GetIntProperty("Type") - 1);
+					_activity.x = obj.X + _activity.width;
+					_activity.y = obj.Y + _activity.height;
+					AddChild(_activity);
 					break;
 			}
 		}

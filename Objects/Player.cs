@@ -39,7 +39,9 @@ public class Player : AnimationSprite
 
     private Vec2 _velocity;
 
-    readonly MainGame _game;
+    private readonly MainGame _game;
+
+    private bool _activityIsLoading;
 
     public Player(float x, float y, MainGame tempGame) : base("Sprites/Packy.png", 6, 7)
     {
@@ -62,6 +64,8 @@ public class Player : AnimationSprite
         SetFrame(0);
 
         _game = tempGame;
+
+        _activityIsLoading = false;
 
     }
 
@@ -227,6 +231,7 @@ public class Player : AnimationSprite
     {
         collisionTile(_other);
         collisionDoor(_other);
+        collisionActivity(_other);
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -242,6 +247,30 @@ public class Player : AnimationSprite
     }
 
     //------------------------------------------------------------------------------------------------------------------------
+    //														collisionActivity()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void collisionActivity(GameObject other)
+    {
+        if (other is ActivityTile)
+        {
+            ActivityTile aTile = other as ActivityTile;
+            if (Input.GetKey('E'))
+            {
+                if (!_activityIsLoading)
+                {
+                    _game.SwitchRoom(aTile.Activity);
+                    _activityIsLoading = true;
+                }
+            }
+
+            if (!Input.GetKey('E'))
+            {
+                _activityIsLoading = false;
+            }
+        }
+    }
+
+    //------------------------------------------------------------------------------------------------------------------------
     //														collisionTile()
     //------------------------------------------------------------------------------------------------------------------------
     private void collisionTile(GameObject _other)
@@ -249,23 +278,31 @@ public class Player : AnimationSprite
         if (_other is CollisionTile)
         {
             CollisionTile colltile = _other as CollisionTile;
-            if (x + width + _velocity.x * SPEED <= colltile.x + SPEED)
-            {
-                _velocity.x = 0;
+            ResolveCollision(colltile);
+        }
+    }
 
-            }
-            else if (x + _velocity.x * SPEED >= colltile.x + colltile.width - SPEED)
-            {
-                _velocity.x = 0;
-            }
-            if (y + height + _velocity.y * SPEED <= colltile.y + SPEED)
-            {
-                _velocity.y = 0;
-            }
-            else if (y + _velocity.y * SPEED >= colltile.y + height - SPEED)
-            {
-                _velocity.y = 0;
-            }
+    //------------------------------------------------------------------------------------------------------------------------
+    //														ResolveCollision()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void ResolveCollision(CollisionTile colltile)
+    {
+        if (x + width + _velocity.x * SPEED <= colltile.x + SPEED)
+        {
+            _velocity.x = 0;
+
+        }
+        else if (x + _velocity.x * SPEED >= colltile.x + colltile.width - SPEED)
+        {
+            _velocity.x = 0;
+        }
+        if (y + height + _velocity.y * SPEED <= colltile.y + SPEED)
+        {
+            _velocity.y = 0;
+        }
+        else if (y + _velocity.y * SPEED >= colltile.y + height - SPEED)
+        {
+            _velocity.y = 0;
         }
     }
 
