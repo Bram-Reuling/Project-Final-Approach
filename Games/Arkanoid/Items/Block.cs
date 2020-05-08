@@ -18,7 +18,7 @@ class Block : AnimationSprite
     private Sound _destroyableBlockSound;
     private SoundChannel _destroyableBlockChannel;
 
-    public Block(LevelScreen _levelInst, TiledObject _obj, PlayerArkanoid _playerInst) : base("Breakout-006-A.png", 5, 5)
+    public Block(LevelScreen _levelInst, TiledObject _obj, PlayerArkanoid _playerInst) : base("ArkanoidSprites/Breakout-006-A.png", 5, 5)
     {
         SetXY(_obj.X, _obj.Y);
         _blockHealth = _obj.GetIntProperty("health");
@@ -26,13 +26,15 @@ class Block : AnimationSprite
         _level = _levelInst;
         _player = _playerInst;
 
+        Console.WriteLine(_playerInst);
+
         _canBlockBeDestroyed = _obj.GetBoolProperty("canBeDestroyed");
         SetFrame(_obj.GetIntProperty("type"));
         _points = _obj.GetIntProperty("points");
 
         _level.TotalScore(_points);
 
-        _destroyableBlockSound = new Sound("sounds/blockhit.wav");
+        _destroyableBlockSound = new Sound("ArkanoidSounds/blockhit.wav");
     }
 
     void Update()
@@ -44,7 +46,7 @@ class Block : AnimationSprite
     {
         if (_blockHealth == 0)
         {
-            _player.score += _points;
+            //_player.score += _points;
 
             destroyBlock();
         }

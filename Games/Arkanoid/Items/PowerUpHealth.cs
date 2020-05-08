@@ -6,7 +6,7 @@ using GXPEngine;
 
 class PowerUpHealth : PowerUp
 {
-    public PowerUpHealth(float xPos, float yPos) : base("checkers.png", "sounds/poweruphealth.wav", xPos, yPos, 2)
+    public PowerUpHealth(float xPos, float yPos) : base("checkers.png", "ArkanoidSounds/poweruphealth.wav", xPos, yPos, 2)
     {
     }
 
