@@ -3,7 +3,7 @@
  <tileset firstgid="1" source="../../Tiled Tilesets/Colors.tsx"/>
  <tileset firstgid="2" source="../../Tiled Tilesets/Square.tsx"/>
  <objectgroup id="3" name="Object Layer 1">
-  <object id="5" name="Player" x="288" y="416" width="32" height="32"/>
+  <object id="5" name="Player" x="864" y="384" width="32" height="32"/>
   <object id="7" name="Door" gid="1" x="992" y="448" width="32" height="128">
    <properties>
     <property name="GoTo" value="Main"/>
