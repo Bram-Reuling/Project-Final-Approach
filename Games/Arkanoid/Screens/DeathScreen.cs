@@ -6,7 +6,7 @@ class DeathScreen : GameObject
     private MainMenuButton _mainMenuButton;
     private QuitButton _quitButton;
 
-    private MainMenuScreen _mainMenu;
+    private MainMenuScreenArkanoid _mainMenu;
 
     private DeathText _deathText;
 
@@ -59,7 +59,7 @@ class DeathScreen : GameObject
     {
         if (_isMainMenuLoaded == false)
         {
-            _mainMenu = new MainMenuScreen();
+            _mainMenu = new MainMenuScreenArkanoid();
             AddChild(_mainMenu);
             _isMainMenuLoaded = true;
         }

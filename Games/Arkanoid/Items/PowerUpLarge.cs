@@ -6,7 +6,7 @@ using GXPEngine;
 
 class PowerUpLarge : PowerUp
 {
-    public PowerUpLarge(float xPos, float yPos) : base("circle.png", "sounds/poweruplarge.wav", xPos, yPos, 2)
+    public PowerUpLarge(float xPos, float yPos) : base("circle.png", "ArkanoidSounds/poweruplarge.wav", xPos, yPos, 2)
     {
     }
 

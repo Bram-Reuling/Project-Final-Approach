@@ -8,7 +8,7 @@ public class MainGame : Game
 
     MainHub _mainHub;
     BarHub _barHub;
-    //ArkanoidHub _arkanoid;
+    MainMenuScreenArkanoid _arkanoid;
 
     // TODO:
     // - Add a settings mechanic so everyone can change certain settings quickly
@@ -74,8 +74,8 @@ public class MainGame : Game
             _mainHub = null;
         }
 
-        //_arkanoid = new ArkanoidHub(this);
-        //LateAddChild(_arkanoid);
+        _arkanoid = new MainMenuScreenArkanoid();
+        LateAddChild(_arkanoid);
         Console.WriteLine("Arkanoid Loaded!");
     }
 
@@ -110,11 +110,11 @@ public class MainGame : Game
             _barHub = null;
         }
 
-        //if (_arkanoid != null)
-        //{
-        //    _arkanoid.LateRemove();
-        //    _arkanoid = null;
-        //}
+        if (_arkanoid != null)
+        {
+            _arkanoid.LateRemove();
+            _arkanoid = null;
+        }
 
         _mainHub = new MainHub(this);
         LateAddChild(_mainHub);

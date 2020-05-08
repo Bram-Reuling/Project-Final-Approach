@@ -1,7 +1,7 @@
 ﻿using GXPEngine;
 using TiledMapParser;
 using System;
-//using System.Timers;
+using System.Timers;
 
 class LevelScreen : GameObject
 {
@@ -11,17 +11,17 @@ class LevelScreen : GameObject
     private PlayerArkanoid _player;
     private Ball _ball;
 
-    private MainMenuScreen _mainMenu; 
+    private MainMenuScreenArkanoid _mainMenu; 
     private DeathScreen _deathScreen; 
 
     private int _maxScore; // Total points you can get per level
     private String _nextLevel; 
 
-    //private System.Timers.Timer _levelStartTimer; 
+    private System.Timers.Timer _levelStartTimer; 
 
     private SoundChannel _backgroundMusicChannel; 
 
-    public LevelScreen(string filename, MainMenuScreen _menuInst) 
+    public LevelScreen(string filename, MainMenuScreenArkanoid _menuInst) 
     {
         Map leveldata = MapParser.ReadMap(filename); // Reads the data of the .tmx file
         spawnObjects(leveldata); // Calls SpawnObjects method to spawn the objects from the .tmx file in the level.
@@ -32,13 +32,13 @@ class LevelScreen : GameObject
         //  Creates an timer for four seconds which activates at te beginning of the level
         //  and calls the function _timerOver at the end of the timer. 
         //----------------------------------------------------------------------------------------
-        //_levelStartTimer = new System.Timers.Timer(4000);
-        //_levelStartTimer.Elapsed += startLevel;
-        //_levelStartTimer.AutoReset = false;
-        //_levelStartTimer.Enabled = true;
+        _levelStartTimer = new System.Timers.Timer(4000);
+        _levelStartTimer.Elapsed += startLevel;
+        _levelStartTimer.AutoReset = false;
+        _levelStartTimer.Enabled = true;
 
         // Plays an audio file as background music
-        Sound backgroundMusic = new Sound("sounds/backgroundmusic2.mp3", true, true);
+        Sound backgroundMusic = new Sound("ArkanoidSounds/backgroundmusic2.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 0.1f;
     }
@@ -48,11 +48,11 @@ class LevelScreen : GameObject
         loadNewLevelOnMaxScore();
     }
 
-    //private void startLevel(object sender, ElapsedEventArgs e)
-    //{
-    //    // Activates the ball
-    //    _ball.BallReset();
-    //}
+    private void startLevel(object sender, ElapsedEventArgs e)
+    {
+        // Activates the ball
+        _ball.BallReset();
+    }
 
     // Adds all the points of the blocks to _maxScore
     public void TotalScore(int _points)
@@ -73,7 +73,7 @@ class LevelScreen : GameObject
         _nextLevel = objectGroup.GetStringProperty("NextLevel"); // Gives the _nextLevel variable the file name of the next level 
         Console.WriteLine(_nextLevel);
         if (_nextLevel == null)
-            _nextLevel = "levels/level1.tmx";
+            _nextLevel = "ArkanoidLevels/level1.tmx";
 
         objectCheck(objectGroup);
     }
@@ -88,6 +88,7 @@ class LevelScreen : GameObject
                 case "Player":
                     // Creating the player
                     _player = new PlayerArkanoid(obj, this);
+                    //Console.WriteLine(_player);
                     AddChild(_player);
                     break;
                 case "Block":

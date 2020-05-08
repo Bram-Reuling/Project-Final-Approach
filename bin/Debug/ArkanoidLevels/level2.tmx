@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.1" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="15" height="30" tilewidth="64" tileheight="32" infinite="0" nextlayerid="4" nextobjectid="654">
+ <properties>
+  <property name="NextLevel" type="file" value=""/>
+ </properties>
+ <tileset firstgid="1" source="../TILESETS/Breakout-006-A.tsx"/>
+ <layer id="1" name="Tile Layer 1" width="15" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Object Layer 1">
+  <properties>
+   <property name="LevelName" type="int" value="3"/>
+   <property name="NextLevel" value=""/>
+  </properties>
+  <object id="3" name="Player" x="447.36" y="861.406" width="61.869" height="31.7277">
+   <properties>
+    <property name="lives" type="int" value="3"/>
+    <property name="moveSpeed" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="4" name="Ball" x="448" y="800" width="64" height="32">
+   <properties>
+    <property name="speedX" type="int" value="7"/>
+    <property name="speedY" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="494" name="Block" gid="1" x="256" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="495" name="Block" gid="1" x="192" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="496" name="Block" gid="1" x="640" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="497" name="Block" gid="1" x="704" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="498" name="Block" gid="1" x="256" y="160" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="499" name="Block" gid="1" x="320" y="160" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="500" name="Block" gid="1" x="384" y="192" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="501" name="Block" gid="1" x="320" y="192" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="502" name="Block" gid="1" x="640" y="160" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="503" name="Block" gid="1" x="576" y="160" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="504" name="Block" gid="1" x="512" y="192" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="505" name="Block" gid="1" x="576" y="192" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="506" name="Block" gid="1" x="384" y="224" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="507" name="Block" gid="1" x="448" y="224" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="508" name="Block" gid="1" x="512" y="224" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="509" name="Block" gid="1" x="448" y="256" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="510" name="Block" gid="1073741825" x="448" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="511" name="Block" gid="1073741825" x="512" y="416" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="512" name="Block" gid="1073741825" x="448" y="416" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="513" name="Block" gid="1073741825" x="384" y="416" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="514" name="Block" gid="1073741825" x="576" y="448" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="515" name="Block" gid="1073741825" x="512" y="448" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="516" name="Block" gid="1073741825" x="320" y="448" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="517" name="Block" gid="1073741825" x="384" y="448" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="518" name="Block" gid="1073741825" x="576" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="519" name="Block" gid="1073741825" x="640" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="520" name="Block" gid="1073741825" x="320" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="521" name="Block" gid="1073741825" x="256" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="522" name="Block" gid="1073741825" x="704" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="523" name="Block" gid="1073741825" x="640" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="524" name="Block" gid="1073741825" x="192" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="525" name="Block" gid="1073741825" x="256" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="530" name="Block" gid="25" x="448" y="320" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="531" name="Block" gid="11" x="0" y="192" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="532" name="Block" gid="11" x="0" y="224" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="533" name="Block" gid="11" x="0" y="448" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="534" name="Block" gid="11" x="0" y="416" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="535" name="Block" gid="11" x="64" y="416" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="536" name="Block" gid="11" x="64" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="537" name="Block" gid="11" x="64" y="256" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="538" name="Block" gid="11" x="64" y="224" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="539" name="Block" gid="11" x="128" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="540" name="Block" gid="11" x="128" y="352" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="541" name="Block" gid="11" x="128" y="288" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="542" name="Block" gid="11" x="128" y="256" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="543" name="Block" gid="11" x="192" y="288" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="544" name="Block" gid="11" x="192" y="320" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="545" name="Block" gid="11" x="192" y="352" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="546" name="Block" gid="11" x="256" y="320" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="548" name="Block" gid="5" x="0" y="320" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="549" name="Block" gid="5" x="64" y="320" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="550" name="Block" gid="5" x="128" y="320" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="551" name="Block" gid="5" x="0" y="288" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="552" name="Block" gid="5" x="0" y="256" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="553" name="Block" gid="5" x="0" y="352" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="554" name="Block" gid="5" x="0" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="555" name="Block" gid="5" x="64" y="288" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="556" name="Block" gid="5" x="64" y="352" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="557" name="Block" gid="1073741835" x="704" y="288" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="558" name="Block" gid="1073741835" x="960" y="416" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="559" name="Block" gid="1073741835" x="896" y="384" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="560" name="Block" gid="1073741835" x="960" y="384" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="561" name="Block" gid="1073741829" x="960" y="352" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="562" name="Block" gid="1073741835" x="832" y="352" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="563" name="Block" gid="1073741835" x="896" y="352" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="564" name="Block" gid="1073741829" x="896" y="320" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="565" name="Block" gid="1073741829" x="960" y="320" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="566" name="Block" gid="1073741835" x="768" y="320" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="567" name="Block" gid="1073741835" x="832" y="320" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="568" name="Block" gid="1073741829" x="832" y="288" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="569" name="Block" gid="1073741829" x="896" y="288" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="570" name="Block" gid="1073741829" x="960" y="288" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="571" name="Block" gid="1073741835" x="768" y="288" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="572" name="Block" gid="1073741829" x="896" y="256" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="573" name="Block" gid="1073741829" x="960" y="256" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="574" name="Block" gid="1073741835" x="768" y="256" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="575" name="Block" gid="1073741835" x="832" y="256" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="576" name="Block" gid="1073741829" x="960" y="224" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="577" name="Block" gid="1073741835" x="832" y="224" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="578" name="Block" gid="1073741835" x="896" y="224" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="579" name="Block" gid="1073741835" x="896" y="192" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="580" name="Block" gid="1073741835" x="960" y="192" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="581" name="Block" gid="1073741835" x="960" y="160" width="64" height="32" rotation="180">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="584" name="Block" gid="18" x="320" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="585" name="Block" gid="18" x="384" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="587" name="Block" gid="18" x="384" y="160" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="588" name="Block" gid="18" x="448" y="160" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="589" name="Block" gid="18" x="448" y="192" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="590" name="Block" gid="18" x="448" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="593" name="Block" gid="18" x="512" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="594" name="Block" gid="18" x="512" y="160" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="595" name="Block" gid="18" x="576" y="128" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="599" name="Block" gid="1073741842" x="320" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="602" name="Block" gid="1073741842" x="384" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="603" name="Block" gid="1073741842" x="384" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="605" name="Block" gid="1073741842" x="448" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="606" name="Block" gid="1073741842" x="448" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="607" name="Block" gid="1073741842" x="448" y="448" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="609" name="Block" gid="1073741842" x="512" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="610" name="Block" gid="1073741842" x="512" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="612" name="Block" gid="1073741842" x="576" y="512" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="points" type="int" value="100"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="614" name="Block" gid="25" x="64" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="615" name="Block" gid="25" x="0" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="616" name="Block" gid="25" x="832" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="617" name="Block" gid="25" x="896" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="621" name="Block" gid="21" x="256" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="623" name="Block" gid="21" x="384" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="625" name="Block" gid="21" x="512" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="627" name="Block" gid="21" x="640" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="629" name="Block" gid="21" x="192" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="630" name="Block" gid="21" x="320" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="631" name="Block" gid="21" x="448" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="632" name="Block" gid="21" x="576" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="633" name="Block" gid="21" x="704" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="points" type="int" value="300"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="634" name="Block" gid="25" x="0" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="635" name="Block" gid="25" x="64" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="636" name="Block" gid="25" x="192" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="637" name="Block" gid="25" x="128" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="638" name="Block" gid="25" x="384" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="639" name="Block" gid="25" x="448" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="640" name="Block" gid="25" x="320" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="641" name="Block" gid="25" x="256" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="642" name="Block" gid="25" x="640" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="643" name="Block" gid="25" x="704" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="644" name="Block" gid="25" x="576" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="645" name="Block" gid="25" x="512" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="646" name="Block" gid="25" x="768" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="647" name="Block" gid="25" x="896" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="648" name="Block" gid="25" x="832" y="96" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="649" name="Block" gid="25" x="128" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="650" name="Block" gid="25" x="768" y="544" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+  <object id="651" name="Score" x="192" y="32" width="64" height="32"/>
+  <object id="652" name="Lives" x="704" y="32" width="64" height="32"/>
+ </objectgroup>
+ <objectgroup id="3" name="dd" offsetx="-1152" offsety="-32">
+  <object id="144" name="Block" gid="1" x="64" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="145" name="Block" gid="2" x="128" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="146" name="Block" gid="3" x="192" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="147" name="Block" gid="4" x="256" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="148" name="Block" gid="5" x="320" y="384" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="149" name="Block" gid="6" x="64" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="150" name="Block" gid="7" x="128" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="6"/>
+   </properties>
+  </object>
+  <object id="151" name="Block" gid="8" x="192" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="7"/>
+   </properties>
+  </object>
+  <object id="152" name="Block" gid="9" x="256" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="8"/>
+   </properties>
+  </object>
+  <object id="153" name="Block" gid="10" x="320" y="480" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="9"/>
+   </properties>
+  </object>
+  <object id="154" name="Block" gid="11" x="64" y="576" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="10"/>
+   </properties>
+  </object>
+  <object id="155" name="Block" gid="12" x="128" y="576" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="11"/>
+   </properties>
+  </object>
+  <object id="156" name="Block" gid="13" x="192" y="576" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="12"/>
+   </properties>
+  </object>
+  <object id="157" name="Block" gid="14" x="256" y="576" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="13"/>
+   </properties>
+  </object>
+  <object id="158" name="Block" gid="15" x="320" y="576" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="14"/>
+   </properties>
+  </object>
+  <object id="159" name="Block" gid="16" x="64" y="672" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="15"/>
+   </properties>
+  </object>
+  <object id="160" name="Block" gid="17" x="128" y="672" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="16"/>
+   </properties>
+  </object>
+  <object id="161" name="Block" gid="18" x="192" y="672" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="17"/>
+   </properties>
+  </object>
+  <object id="162" name="Block" gid="19" x="256" y="672" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="18"/>
+   </properties>
+  </object>
+  <object id="163" name="Block" gid="20" x="320" y="672" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="type" type="int" value="19"/>
+   </properties>
+  </object>
+  <object id="164" name="Block" gid="21" x="64" y="768" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="2"/>
+    <property name="type" type="int" value="20"/>
+   </properties>
+  </object>
+  <object id="165" name="Block" gid="22" x="128" y="768" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="3"/>
+    <property name="type" type="int" value="21"/>
+   </properties>
+  </object>
+  <object id="166" name="Block" gid="23" x="192" y="768" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="22"/>
+   </properties>
+  </object>
+  <object id="167" name="Block" gid="24" x="256" y="768" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="true"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="23"/>
+   </properties>
+  </object>
+  <object id="168" name="Block" gid="25" x="320" y="768" width="64" height="32">
+   <properties>
+    <property name="canBeDestroyed" type="bool" value="false"/>
+    <property name="health" type="int" value="1"/>
+    <property name="type" type="int" value="24"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

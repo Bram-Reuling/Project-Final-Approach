@@ -14,6 +14,7 @@ class QuitButton : Button
 
     public void QuitGame()
     {
+        // TODO: make this go back to the main hub
         System.Environment.Exit(0);
     }
 }

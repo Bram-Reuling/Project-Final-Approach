@@ -24,7 +24,7 @@ class Ball : Sprite
 
     // Constructor that needs an instance of type Block, a TiledObject instance and a Level instance.
     // Again this is used so I can call certain methods from those classes and get property information of Ball from Tiled.
-    public Ball(Block _tempBlock, TiledObject _obj, PlayerArkanoid _playerInst) : base("assets/ball.png", addCollider: true)
+    public Ball(Block _tempBlock, TiledObject _obj, PlayerArkanoid _playerInst) : base("ArkanoidSprites/ball.png", addCollider: true)
     {
         // Scales the sprite of Ball to 25% of its original width and height.
         this.scale = 0.25f;
