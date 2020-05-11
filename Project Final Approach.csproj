@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buttons\ImageButton.cs" />
     <Compile Include="Components\Arrow.cs" />
     <Compile Include="Components\LineSegment.cs" />
     <Compile Include="Games\Arkanoid\Buttons\Button.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="GXPEngine\Utils\Utils.cs" />
     <Compile Include="GXPEngine\Vec2.cs" />
     <Compile Include="MainGame.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Other\ActivityTile.cs" />
     <Compile Include="Other\BackgroundTile.cs" />

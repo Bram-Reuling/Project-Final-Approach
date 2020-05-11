@@ -1,12 +1,15 @@
 ﻿using System;
+using System.Drawing;
 using GXPEngine;
 
 class MainMenuRoadRacer : GameObject
 {
-    private StartButton _startButton;
-    private QuitButton _quitButton;
+    private ImageButton _startButton;
+    private ImageButton _quitButton;
     private Logo _roadRaceLogo;
     private LevelRoadRacer _level;
+
+    private Overlay _overlay;
 
     private bool _isLevelLoaded;
 
@@ -14,11 +17,22 @@ class MainMenuRoadRacer : GameObject
 
     public MainMenuRoadRacer(MainGame game) : base()
     {
-        _startButton = new StartButton(game.width / 2, game.height / 2 - 50);
+
+        _roadRaceLogo = new Logo(game.width / 2, game.height / 2, "RoadRacerSprites/logo.png");
+        AddChild(_roadRaceLogo);
+
+        _startButton = new ImageButton("Road Racer Buttons/Start.png", 2, 1);
+        _startButton.scale = 0.6f;
+        _startButton.SetXY(game.width / 2, game.height / 2 - 50);
         AddChild(_startButton);
 
-        _quitButton = new QuitButton(game.width / 2, game.height / 2 + 50);
+        _quitButton = new ImageButton("Road Racer Buttons/Exit.png", 2, 1);
+        _quitButton.scale = 0.6f;
+        _quitButton.SetXY(game.width / 2, game.height / 2 + 50);
         AddChild(_quitButton);
+
+        _overlay = new Overlay();
+        AddChild(_overlay);
 
         _isLevelLoaded = false;
 
@@ -59,7 +73,8 @@ class MainMenuRoadRacer : GameObject
         if (_isLevelLoaded == false)
         {
             _level = new LevelRoadRacer();
-            AddChild(_level);
+            game.AddChild(_level);
+            this.LateDestroy();
             _isLevelLoaded = true;
         }
     }

@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using GXPEngine;
 
 class DeathScreen : GameObject
 {
-    private MainMenuButton _mainMenuButton;
-    private QuitButton _quitButton;
+    private ImageButton _mainMenuButton;
+    private ImageButton _quitButton;
 
     private MainMenuScreenArkanoid _mainMenu;
 
@@ -16,10 +17,14 @@ class DeathScreen : GameObject
 
     public DeathScreen() : base()
     {
-        _mainMenuButton = new MainMenuButton(game.width / 2, game.height / 2 - 50);
+        _mainMenuButton = new ImageButton("Arkanoid Buttons/Menu.png", 2, 1);
+        _mainMenuButton.scale = 0.6f;
+        _mainMenuButton.SetXY(game.width / 2, game.height / 2 - 50);
         AddChild(_mainMenuButton);
 
-        _quitButton = new QuitButton(game.width / 2, game.height / 2 + 50);
+        _quitButton = new ImageButton("Arkanoid Buttons/Exit.png", 2, 1);
+        _quitButton.scale = 0.6f;
+        _quitButton.SetXY(game.width / 2, game.height / 2 + 50);
         AddChild(_quitButton);
 
         _deathText = new DeathText(game.width / 2, game.height / 2 - 150);
