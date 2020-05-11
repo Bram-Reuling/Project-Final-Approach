@@ -9,6 +9,7 @@ public class MainGame : Game
     MainHub _mainHub;
     BarHub _barHub;
     MainMenuScreenArkanoid _arkanoid;
+    MainMenuRoadRacer _roadRacer;
 
     // TODO:
     // - Add a settings mechanic so everyone can change certain settings quickly
@@ -58,6 +59,14 @@ public class MainGame : Game
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Road Racer");
         Console.WriteLine("Loading Race");
+        if (_mainHub != null)
+        {
+            _mainHub.LateRemove();
+            _mainHub = null;
+        }
+
+        _roadRacer = new MainMenuRoadRacer();
+        LateAddChild(_roadRacer);
         Console.WriteLine("Race Loaded!");
     }
 

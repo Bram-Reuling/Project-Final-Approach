@@ -57,6 +57,10 @@
     <Compile Include="Games\Arkanoid\Screens\DeathScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\LevelScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\MainMenuScreenArkanoid.cs" />
+    <Compile Include="Games\Road Racer\Items\RoadTile.cs" />
+    <Compile Include="Games\Road Racer\Screens\LevelRoadRacer.cs" />
+    <Compile Include="Games\Road Racer\Screens\MainMenuRoadRacer.cs" />
+    <Compile Include="Games\Road Racer\Screens\Overlay.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GXPEngine\AddOns\Camera.cs" />
     <Compile Include="GXPEngine\AddOns\EasyDraw.cs" />
