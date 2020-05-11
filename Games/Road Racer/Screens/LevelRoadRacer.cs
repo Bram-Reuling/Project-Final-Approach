@@ -7,6 +7,9 @@ class LevelRoadRacer : GameObject
 {
     RoadTile _rTile;
 	Overlay _overlay;
+
+	PlayerRoadRacer _player;
+
 	private string _fileName { get; set; }
 
 	public LevelRoadRacer()
@@ -17,6 +20,12 @@ class LevelRoadRacer : GameObject
 
 		_overlay = new Overlay();
 		AddChild(_overlay);
+		_player = new PlayerRoadRacer();
+		AddChild(_player);
+	}
+
+	void Update()
+	{
 	}
 
 	private void spawnRoad(Map levelData)

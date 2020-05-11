@@ -6,6 +6,7 @@ class MainMenuScreenArkanoid : GameObject
     StartButton _startButton;
     QuitButton _quitButton;
     Logo _arkanoidLogo;
+    Overlay _overlay;
 
     private SoundChannel _backgroundMusicChannel;
 
@@ -17,20 +18,23 @@ class MainMenuScreenArkanoid : GameObject
     MainGame _game;
     public MainMenuScreenArkanoid(MainGame game) : base()
     {
-        _arkanoidLogo = new Logo(game.width / 2, game.height / 2 - 200);
+        _arkanoidLogo = new Logo(game.width / 2, game.height / 2);
         AddChild(_arkanoidLogo);
 
-        _startButton = new StartButton(game.width / 2, game.height / 2 - 50);
+        _startButton = new StartButton(game.width / 2 - 250, game.height / 2 - 50);
         AddChild(_startButton);
 
-        _quitButton = new QuitButton(game.width / 2, game.height / 2 + 50);
+        _quitButton = new QuitButton(game.width / 2 - 250, game.height / 2 + 50);
         AddChild(_quitButton);
+
+        _overlay = new Overlay();
+        AddChild(_overlay);
 
         _isLevelLoaded = false;
 
-        Sound backgroundMusic = new Sound("ArkanoidSounds/backgroundmusic.mp3", true, true);
+        Sound backgroundMusic = new Sound("ArkanoidSounds/MenuSound.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
-        _backgroundMusicChannel.Volume = 0.1f;
+        _backgroundMusicChannel.Volume = 0.2f;
 
         _game = game;
     }
@@ -64,15 +68,19 @@ class MainMenuScreenArkanoid : GameObject
         _arkanoidLogo.visible = false;
         _startButton.visible = false;
         _quitButton.visible = false;
+        _overlay.visible = false;
     }
 
     private void startGame()
     {
         if (_isLevelLoaded == false)
         {
+
             _level = new LevelScreen(_levelFileName, this);
-            AddChild(_level);
+            game.AddChild(_level);
             _isLevelLoaded = true;
+
+            this.LateDestroy();
         }
     }
 

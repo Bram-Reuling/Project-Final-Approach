@@ -19,7 +19,11 @@ class LevelScreen : GameObject
 
     private System.Timers.Timer _levelStartTimer; 
 
-    private SoundChannel _backgroundMusicChannel; 
+    private SoundChannel _backgroundMusicChannel;
+
+    private bool _isLevelStarted;
+
+    Overlay _overlay;
 
     public LevelScreen(string filename, MainMenuScreenArkanoid _menuInst) 
     {
@@ -28,27 +32,28 @@ class LevelScreen : GameObject
 
         _mainMenu = _menuInst; // Sets variable of type MainMenuScreen to an instance of the class
 
-        //----------------------------------------------------------------------------------------
-        //  Creates an timer for four seconds which activates at te beginning of the level
-        //  and calls the function _timerOver at the end of the timer. 
-        //----------------------------------------------------------------------------------------
-        _levelStartTimer = new System.Timers.Timer(4000);
-        _levelStartTimer.Elapsed += startLevel;
-        _levelStartTimer.AutoReset = false;
-        _levelStartTimer.Enabled = true;
-
         // Plays an audio file as background music
-        Sound backgroundMusic = new Sound("ArkanoidSounds/backgroundmusic2.mp3", true, true);
+        Sound backgroundMusic = new Sound("ArkanoidSounds/LevelStart.mp3", false, true);
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 0.1f;
+        _isLevelStarted = false;
     }
 
     void Update()
     {
         loadNewLevelOnMaxScore();
+
+        if (_backgroundMusicChannel.IsPlaying == false)
+        {
+            if (!_isLevelStarted)
+            {
+                startLevel();
+                _isLevelStarted = true;
+            }
+        }
     }
 
-    private void startLevel(object sender, ElapsedEventArgs e)
+    private void startLevel()
     {
         // Activates the ball
         _ball.BallReset();
@@ -99,6 +104,8 @@ class LevelScreen : GameObject
                     // Creating the ball
                     _ball = new Ball(_block, obj, _player);
                     AddChild(_ball);
+                    _overlay = new Overlay();
+                    AddChild(_overlay);
                     break;
                 case "Score":
                     // Creating the HUD element: Score
@@ -112,6 +119,7 @@ class LevelScreen : GameObject
                     break;
             }
         }
+
     }
 
     // Loads the death screen if the player has no lives anymore
@@ -122,7 +130,7 @@ class LevelScreen : GameObject
 
         // Creates new instance of DeathScreen
         _deathScreen = new DeathScreen();
-        _mainMenu.AddChild(_deathScreen);
+        game.AddChild(_deathScreen);
 
         // Destroys current level
         destroyCurrentLevel();

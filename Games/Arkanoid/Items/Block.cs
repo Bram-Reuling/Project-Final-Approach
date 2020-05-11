@@ -34,7 +34,7 @@ class Block : AnimationSprite
 
         _level.TotalScore(_points);
 
-        _destroyableBlockSound = new Sound("ArkanoidSounds/blockhit.wav");
+        _destroyableBlockSound = new Sound("ArkanoidSounds/BallHitBox.mp3");
     }
 
     void Update()
