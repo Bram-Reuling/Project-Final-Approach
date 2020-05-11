@@ -13,6 +13,8 @@ public class MainGame : Game
 
     private SoundChannel _backgroundMusicChannel;
 
+    MainMenu _mainMenu;
+
     // TODO:
     // - Add a settings mechanic so everyone can change certain settings quickly
     //   without starting Visual Studio and load the project.
@@ -21,7 +23,7 @@ public class MainGame : Game
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
         // Start of the game
-        SwitchRoom("Main");
+        SwitchRoom("");
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -51,7 +53,17 @@ public class MainGame : Game
             case "Race":
                 LoadRace();
                 break;
+            default:
+                LoadMenu();
+                break;
         }
+    }
+
+    private void LoadMenu()
+    {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
+        _mainMenu = new MainMenu(this);
+        LateAddChild(_mainMenu);
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -141,6 +153,8 @@ public class MainGame : Game
             _roadRacer.LateRemove();
             _roadRacer = null;
         }
+
+        _mainMenu = null;
 
         _mainHub = new MainHub(this);
         LateAddChild(_mainHub);

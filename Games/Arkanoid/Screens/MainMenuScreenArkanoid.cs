@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using GXPEngine;
 
 class MainMenuScreenArkanoid : GameObject
 {
-    StartButton _startButton;
-    QuitButton _quitButton;
+    ImageButton _startButton;
+    ImageButton _quitButton;
     Logo _arkanoidLogo;
     Overlay _overlay;
 
@@ -18,13 +19,17 @@ class MainMenuScreenArkanoid : GameObject
     MainGame _game;
     public MainMenuScreenArkanoid(MainGame game) : base()
     {
-        _arkanoidLogo = new Logo(game.width / 2, game.height / 2);
+        _arkanoidLogo = new Logo(game.width / 2, game.height / 2, "ArkanoidSprites/logo.png");
         AddChild(_arkanoidLogo);
 
-        _startButton = new StartButton(game.width / 2 - 250, game.height / 2 - 50);
+        _startButton = new ImageButton("Arkanoid Buttons/Start.png", 2, 1);
+        _startButton.scale = 0.6f;
+        _startButton.SetXY(game.width / 2 - 250, game.height / 2 - 50);
         AddChild(_startButton);
 
-        _quitButton = new QuitButton(game.width / 2 - 250, game.height / 2 + 50);
+        _quitButton = new ImageButton("Arkanoid Buttons/Exit.png", 2, 1);
+        _quitButton.scale = 0.6f;
+        _quitButton.SetXY(game.width / 2 - 250, game.height / 2 + 50);
         AddChild(_quitButton);
 
         _overlay = new Overlay();
@@ -67,7 +72,7 @@ class MainMenuScreenArkanoid : GameObject
     {
         _arkanoidLogo.visible = false;
         _startButton.visible = false;
-        _quitButton.visible = false;
+        //_quitButton.visible = false;
         _overlay.visible = false;
     }
 
