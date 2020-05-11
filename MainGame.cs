@@ -11,6 +11,8 @@ public class MainGame : Game
     MainMenuScreenArkanoid _arkanoid;
     MainMenuRoadRacer _roadRacer;
 
+    private SoundChannel _backgroundMusicChannel;
+
     // TODO:
     // - Add a settings mechanic so everyone can change certain settings quickly
     //   without starting Visual Studio and load the project.
@@ -63,9 +65,10 @@ public class MainGame : Game
         {
             _mainHub.LateRemove();
             _mainHub = null;
+            _backgroundMusicChannel.Stop();
         }
 
-        _roadRacer = new MainMenuRoadRacer();
+        _roadRacer = new MainMenuRoadRacer(this);
         LateAddChild(_roadRacer);
         Console.WriteLine("Race Loaded!");
     }
@@ -81,9 +84,10 @@ public class MainGame : Game
         {
             _mainHub.LateRemove();
             _mainHub = null;
+            _backgroundMusicChannel.Stop();
         }
 
-        _arkanoid = new MainMenuScreenArkanoid();
+        _arkanoid = new MainMenuScreenArkanoid(this);
         LateAddChild(_arkanoid);
         Console.WriteLine("Arkanoid Loaded!");
     }
@@ -99,10 +103,16 @@ public class MainGame : Game
         {
             _mainHub.LateRemove();
             _mainHub = null;
+            _backgroundMusicChannel.Stop();
         }
 
         _barHub = new BarHub(this);
         LateAddChild(_barHub);
+
+        Sound backgroundMusic = new Sound("Sounds/MultiplayerHub.mp3", true, true);
+        _backgroundMusicChannel = backgroundMusic.Play();
+        _backgroundMusicChannel.Volume = 0.1f;
+
         Console.WriteLine("Bar Loaded!");
     }
 
@@ -117,6 +127,7 @@ public class MainGame : Game
         {
             _barHub.LateRemove();
             _barHub = null;
+            _backgroundMusicChannel.Stop();
         }
 
         if (_arkanoid != null)
@@ -125,8 +136,19 @@ public class MainGame : Game
             _arkanoid = null;
         }
 
+        if (_roadRacer != null)
+        {
+            _roadRacer.LateRemove();
+            _roadRacer = null;
+        }
+
         _mainHub = new MainHub(this);
         LateAddChild(_mainHub);
+
+        Sound backgroundMusic = new Sound("Sounds/MainHub.mp3", true, true);
+        _backgroundMusicChannel = backgroundMusic.Play();
+        _backgroundMusicChannel.Volume = 0.1f;
+
         Console.WriteLine("Main Hub Loaded!");
     }
 }

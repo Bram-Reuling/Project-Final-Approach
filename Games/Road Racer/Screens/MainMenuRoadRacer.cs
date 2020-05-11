@@ -10,7 +10,9 @@ class MainMenuRoadRacer : GameObject
 
     private bool _isLevelLoaded;
 
-    public MainMenuRoadRacer() : base()
+    MainGame _game;
+
+    public MainMenuRoadRacer(MainGame game) : base()
     {
         _startButton = new StartButton(game.width / 2, game.height / 2 - 50);
         AddChild(_startButton);
@@ -19,6 +21,8 @@ class MainMenuRoadRacer : GameObject
         AddChild(_quitButton);
 
         _isLevelLoaded = false;
+
+        _game = game;
     }
 
     void Update()
@@ -38,7 +42,7 @@ class MainMenuRoadRacer : GameObject
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                _quitButton.QuitGame();
+                _game.SwitchRoom("Main");
             }
         }
     }
@@ -58,14 +62,5 @@ class MainMenuRoadRacer : GameObject
             AddChild(_level);
             _isLevelLoaded = true;
         }
-    }
-
-    // Dont know if this is necessary
-    public void LoadNewLevel(String _nextLevel)
-    {
-        //_level.LateDestroy();
-
-        //_level = new LevelScreen(_nextLevel, this);
-        //AddChild(_level);
     }
 }
