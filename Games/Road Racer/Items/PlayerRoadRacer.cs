@@ -5,6 +5,7 @@ class PlayerRoadRacer : AnimationSprite
 {
 
 	private bool _keyIsPressed;
+    private int _leftrightcount=0;
 
 	public PlayerRoadRacer() : base("RoadRacerSprites/Car.png", 4, 1)
 	{
@@ -17,19 +18,21 @@ class PlayerRoadRacer : AnimationSprite
 	{
 		if (Input.GetKey(Key.A))
 		{
-			if (!_keyIsPressed)
-			{
+			if (!_keyIsPressed && (_leftrightcount >= 0))
+            {
 				x -= 130;
 				_keyIsPressed = true;
+                _leftrightcount--;
 			}
 		}
 
 		if (Input.GetKey(Key.D))
 		{
-			if (!_keyIsPressed)
-			{
+			if (!_keyIsPressed && (_leftrightcount <= 0))
+            {
 				x += 130;
 				_keyIsPressed = true;
+                _leftrightcount++;
 			}
 		}
 
