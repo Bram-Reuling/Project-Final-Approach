@@ -12,6 +12,9 @@ class PlayerArkanoid : Sprite
 
     private LevelScreen _level;
 
+    private Sound _playerHitSound;
+    private SoundChannel _playerHitChannel;
+
     public PlayerArkanoid(TiledObject _obj, LevelScreen _levelInst) : base("ArkanoidSprites/paddle.png")
     {
         this.scale = 0.2f;
@@ -23,6 +26,8 @@ class PlayerArkanoid : Sprite
         score = 0;
 
         _level = _levelInst;
+
+        _playerHitSound = new Sound("ArkanoidSounds/BallHitPaddle.mp3");
     }
 
     void Update()
@@ -120,6 +125,12 @@ class PlayerArkanoid : Sprite
     private void timerOver(object sender, ElapsedEventArgs e)
     {
         this.scaleX = 0.2f;
+    }
+
+    public void GotHit()
+    {
+        _playerHitChannel = _playerHitSound.Play();
+        _playerHitChannel.Volume = 0.1f;
     }
 }
 

@@ -12,6 +12,8 @@ class DeathScreen : GameObject
 
     private bool _isMainMenuLoaded;
 
+    private SoundChannel _backgroundMusicChannel;
+
     public DeathScreen() : base()
     {
         _mainMenuButton = new MainMenuButton(game.width / 2, game.height / 2 - 50);
@@ -24,6 +26,10 @@ class DeathScreen : GameObject
         AddChild(_deathText);
 
         _isMainMenuLoaded = false;
+
+        Sound backgroundMusic = new Sound("ArkanoidSounds/EndLmao.mp3", true, true);
+        _backgroundMusicChannel = backgroundMusic.Play();
+        _backgroundMusicChannel.Volume = 0.2f;
     }
 
     void Update()
@@ -40,11 +46,15 @@ class DeathScreen : GameObject
             {
                 toMainMenu();
                 hideMenu();
+                _backgroundMusicChannel.Stop();
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
                 MainGame _game = game as MainGame;
                 _game.SwitchRoom("Main");
+                _backgroundMusicChannel.Stop();
+
+                this.LateDestroy();
             }
         }
     }
@@ -61,8 +71,9 @@ class DeathScreen : GameObject
         if (_isMainMenuLoaded == false)
         {
             _mainMenu = new MainMenuScreenArkanoid(game as MainGame);
-            AddChild(_mainMenu);
+            game.AddChild(_mainMenu);
             _isMainMenuLoaded = true;
+            this.LateDestroy();
         }
     }
 }

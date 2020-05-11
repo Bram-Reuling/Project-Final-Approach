@@ -10,6 +10,7 @@ class Logo : Sprite
     {
         SetOrigin(width / 2, height / 2);
         SetXY(_xPos, _yPos);
+        scale = 0.95f;
     }
 }
 

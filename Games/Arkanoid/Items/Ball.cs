@@ -138,6 +138,12 @@ class Ball : Sprite
             Block blockHit = (Block)_other;
             blockHit.GotHit();
         }
+
+        if (!_isBlock)
+        {
+            PlayerArkanoid playerHit = (PlayerArkanoid)_other;
+            playerHit.GotHit();
+        }
     }
 
     private void addTrail()
