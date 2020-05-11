@@ -51,7 +51,7 @@ class Hub : GameObject
 	//------------------------------------------------------------------------------------------------------------------------
 	//														spawnBackgroundTiles()
 	//------------------------------------------------------------------------------------------------------------------------
-	public void SpawnBackgroundTiles(Map levelData)
+	public void SpawnBackgroundTiles(Map levelData, bool mainHub)
 	{
 		// Check if there are layers
 		if (levelData.Layers == null || levelData.Layers.Length == 0)
@@ -70,7 +70,13 @@ class Hub : GameObject
 				if (tileNumber > 0)
 				{
 					bgTile = new BackgroundTile(_bgSpriteSheet, _bgCols, _bgRows);
-					bgTile.SetFrame(tileNumber - 4);
+					if (mainHub)
+					{
+						bgTile.SetFrame(tileNumber - 4);
+					} else
+					{
+						bgTile.SetFrame(tileNumber - 2);
+					}
 					bgTile.x = col * bgTile.width + bgTile.width / 2;
 					bgTile.y = row * bgTile.height + bgTile.height / 2;
 					AddChild(bgTile);
@@ -177,15 +183,5 @@ class Hub : GameObject
 					break;
 			}
 		}
-	}
-
-	public void DeleteRoom()
-	{
-		bgTile.LateDestroy();
-		cTile.LateDestroy();
-		_door.LateDestroy();
-		_player.LateDestroy();
-		LateDestroy();
-
 	}
 }

@@ -13,7 +13,7 @@ class MainHub : Hub
 
 		Map _levelData = MapParser.ReadMap(_fileName);
 		SpawnCollisionTiles(_levelData);
-		SpawnBackgroundTiles(_levelData);
+		SpawnBackgroundTiles(_levelData, true);
 		SpawnObjects(_levelData);
 		SpawnOverlapTiles(_levelData);
 

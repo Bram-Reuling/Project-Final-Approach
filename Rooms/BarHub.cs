@@ -11,8 +11,8 @@ class BarHub : Hub
 		_fileName = @"Screens/BarHub/BarHub.tmx";
 
 		Map _levelData = MapParser.ReadMap(_fileName);
-		SpawnBackgroundTiles(_levelData);
 		SpawnCollisionTiles(_levelData);
+		SpawnBackgroundTiles(_levelData, false);
 		SpawnObjects(_levelData);
 		SpawnOverlapTiles(_levelData);
 
