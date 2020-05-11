@@ -43,7 +43,8 @@ class DeathScreen : GameObject
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                _quitButton.QuitGame();
+                MainGame _game = game as MainGame;
+                _game.SwitchRoom("Main");
             }
         }
     }
@@ -59,7 +60,7 @@ class DeathScreen : GameObject
     {
         if (_isMainMenuLoaded == false)
         {
-            _mainMenu = new MainMenuScreenArkanoid();
+            _mainMenu = new MainMenuScreenArkanoid(game as MainGame);
             AddChild(_mainMenu);
             _isMainMenuLoaded = true;
         }

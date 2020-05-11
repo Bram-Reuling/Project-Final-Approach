@@ -13,7 +13,9 @@ class MainMenuScreenArkanoid : GameObject
     private String _levelFileName = "ArkanoidLevels/level1.tmx";
 
     private bool _isLevelLoaded;
-    public MainMenuScreenArkanoid() : base()
+
+    MainGame _game;
+    public MainMenuScreenArkanoid(MainGame game) : base()
     {
         _arkanoidLogo = new Logo(game.width / 2, game.height / 2 - 200);
         AddChild(_arkanoidLogo);
@@ -29,6 +31,8 @@ class MainMenuScreenArkanoid : GameObject
         Sound backgroundMusic = new Sound("ArkanoidSounds/backgroundmusic.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 0.1f;
+
+        _game = game;
     }
 
     void Update()
@@ -49,7 +53,8 @@ class MainMenuScreenArkanoid : GameObject
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                _quitButton.QuitGame();
+                _game.SwitchRoom("Main");
+                _backgroundMusicChannel.Stop();
             }
         }
     }
