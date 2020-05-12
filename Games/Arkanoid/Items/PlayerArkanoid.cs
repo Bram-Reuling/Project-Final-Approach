@@ -108,10 +108,8 @@ class PlayerArkanoid : Sprite
             this.scaleX = 0.3f;
 
             // Timer
-            System.Timers.Timer _powerUpTimer = new System.Timers.Timer(10000);
-            _powerUpTimer.Elapsed += timerOver;
-            _powerUpTimer.AutoReset = false;
-            _powerUpTimer.Enabled = true;
+
+            LateAddChild(new Timer(10000, timerOver));
         } 
         else if (other is PowerUpHealth)
         {
@@ -122,7 +120,7 @@ class PlayerArkanoid : Sprite
         }
     }
 
-    private void timerOver(object sender, ElapsedEventArgs e)
+    private void timerOver()
     {
         this.scaleX = 0.2f;
     }

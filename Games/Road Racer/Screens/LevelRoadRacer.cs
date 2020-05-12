@@ -10,6 +10,11 @@ class LevelRoadRacer : GameObject
 
 	PlayerRoadRacer _player;
 
+	Obstacles _obst;
+
+	private DeathScreenRoad _deathScreen;
+
+
 	private string _fileName { get; set; }
 
 	public LevelRoadRacer()
@@ -18,9 +23,13 @@ class LevelRoadRacer : GameObject
 		Map _levelData = MapParser.ReadMap(_fileName);
 		spawnRoad(_levelData);
 
+		_obst = new Obstacles();
+		_obst.SetXY(game.width / 2, 0);
+		AddChild(_obst);
+
 		_overlay = new Overlay();
 		AddChild(_overlay);
-		_player = new PlayerRoadRacer();
+		_player = new PlayerRoadRacer(this);
 		AddChild(_player);
 	}
 
@@ -54,5 +63,13 @@ class LevelRoadRacer : GameObject
 				}
 			}
 		}
+	}
+
+	public void LoadDeathScreen()
+	{
+		_deathScreen = new DeathScreenRoad();
+		game.LateAddChild(_deathScreen);
+
+		this.LateDestroy();
 	}
 }
