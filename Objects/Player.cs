@@ -11,6 +11,8 @@ public class Player : AnimationSprite
     private const int SPEED = 3;
     private int moveSpeed;
 
+    ConversationBox _c;
+
     private int GetMoveSpeed()
     {
         return moveSpeed;
@@ -254,11 +256,25 @@ public class Player : AnimationSprite
         if (other is ActivityTile)
         {
             ActivityTile aTile = other as ActivityTile;
+
+            string activity = aTile.Activity;
+
+            if (activity == "Arkanoid")
+            {
+                _c = new ConversationBox("Text/Arkanoid.txt", this);
+                LateAddChild(_c);
+            }
+
+            if (activity == "Race")
+            {
+                _c = new ConversationBox("Text/RoadRacer.txt", this);
+            }
+
             if (Input.GetKey('E'))
             {
                 if (!_activityIsLoading)
                 {
-                    _game.SwitchRoom(aTile.Activity);
+                    _game.SwitchRoom(activity);
                     _activityIsLoading = true;
                 }
             }

@@ -20,8 +20,23 @@ class ConversationBox : GameObject
 	bool _endTutorial;
 
 	MainHub _mainHub;
+	Player _player;
 
 	public ConversationBox(string file, MainHub _tempHub)
+	{
+		_mainHub = _tempHub;
+
+		InitializeBox(file);
+	}
+
+	public ConversationBox(string file, Player _temPlayer)
+	{
+		_player = _temPlayer;
+
+		InitializeBox(file);
+	}
+
+	private void InitializeBox(string file)
 	{
 		index = 0;
 		_endTut = 0;
@@ -35,13 +50,11 @@ class ConversationBox : GameObject
 
 		_buttonIsPressed = false;
 
-		_mainHub = _tempHub;
-
 		while ((line = reader.ReadLine()) != null)
 		{
 			string[] items = line.Split('\n');
 
-			foreach(string item in items)
+			foreach (string item in items)
 			{
 				if (item.StartsWith("T:"))
 				{
@@ -83,7 +96,7 @@ class ConversationBox : GameObject
 
 				}
 
-				if (_endTutorial)
+				if (_endTutorial && _mainHub != null)
 				{
 					_mainHub.DeleteTut();
 				}
@@ -106,7 +119,7 @@ class ConversationBox : GameObject
 				_buttonIsPressed = false;
 			}
 
-			if (index == _numberOfLines - 1)
+			if (index == _numberOfLines - 1 && _mainHub != null)
 			{
 				_endTutorial = true;
 				Console.WriteLine("End");
