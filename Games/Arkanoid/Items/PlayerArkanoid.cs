@@ -41,13 +41,13 @@ class PlayerArkanoid : Sprite
         //Movement of Player
 
         //If the input is LEFT KEY then move left
-        if (Input.GetKey(Key.LEFT))
+        if (Input.GetKey(Key.A))
         {
             x -= _moveSpeedPlayer;
         }
 
         //If the input is RIGHT KEY then move right
-        if (Input.GetKey(Key.RIGHT))
+        if (Input.GetKey(Key.D))
         {
             x += _moveSpeedPlayer;
         }

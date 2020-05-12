@@ -62,6 +62,9 @@
     <Compile Include="Buttons\ImageButton.cs" />
     <Compile Include="Components\Arrow.cs" />
     <Compile Include="Components\LineSegment.cs" />
+    <Compile Include="Conversation\ConversationBox.cs" />
+    <Compile Include="Conversation\Text.cs" />
+    <Compile Include="Conversation\TextBoxImg.cs" />
     <Compile Include="Games\Arkanoid\Buttons\Button.cs" />
     <Compile Include="Games\Arkanoid\Buttons\MainMenuButton.cs" />
     <Compile Include="Games\Arkanoid\Buttons\QuitButton.cs" />
@@ -164,4 +167,5 @@
   <ItemGroup>
     <Content Include="icon.ico" />
   </ItemGroup>
+  <ItemGroup />
 </Project>

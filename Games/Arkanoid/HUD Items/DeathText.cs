@@ -27,6 +27,6 @@ class DeathText : Canvas
 
         graphics.Clear(Color.Empty);
 
-        graphics.DrawString("GAME OVER", _font, Brushes.White, width / 2, height / 2, _stringFormatCenter);
+        graphics.DrawString("GAME  OVER", _font, Brushes.White, width / 2, height / 2, _stringFormatCenter);
     }
 }

@@ -13,6 +13,8 @@ public class MainGame : Game
 
     private SoundChannel _backgroundMusicChannel;
 
+    public bool _displayTutorial { get; set; }
+
     MainMenu _mainMenu;
 
     // TODO:
@@ -23,6 +25,7 @@ public class MainGame : Game
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
         // Start of the game
+        _displayTutorial = true;
         SwitchRoom("");
     }
 
@@ -123,7 +126,7 @@ public class MainGame : Game
 
         Sound backgroundMusic = new Sound("Sounds/MultiplayerHub.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
-        _backgroundMusicChannel.Volume = 0.1f;
+        _backgroundMusicChannel.Volume = 1f;
 
         Console.WriteLine("Bar Loaded!");
     }
@@ -161,7 +164,7 @@ public class MainGame : Game
 
         Sound backgroundMusic = new Sound("Sounds/MainHub.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
-        _backgroundMusicChannel.Volume = 0.1f;
+        _backgroundMusicChannel.Volume = 1f;
 
         Console.WriteLine("Main Hub Loaded!");
     }

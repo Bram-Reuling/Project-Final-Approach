@@ -3,7 +3,7 @@ using GXPEngine;
 
 class OpponentCars : AnimationSprite
 {
-	public OpponentCars() : base("RoadRacerSprites/Car.png",4,1)
+	public OpponentCars() : base("RoadRacerSprites/CarEnemy.png",4,1)
 	{
 		SetOrigin(width / 2, height / 2);
 	}

@@ -7,7 +7,12 @@ class MainHub : Hub
 	private string _fileName { get; set; }
 	public bool _firstInstance { get; set; }
 
-	public MainHub(MainGame _game) : base("Sprites/MainHub.png", 32, 24, "Sprites/MainHub.png", 32, 24, "colors.png", 1, 1, _game)
+	bool _displayTut;
+
+	ConversationBox _c;
+	MainGame _game;
+
+	public MainHub(MainGame tempGame) : base("Sprites/MainHub.png", 32, 24, "Sprites/MainHub.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
 		_fileName = @"Screens/MainHub/MainHub.tmx";
 
@@ -17,6 +22,22 @@ class MainHub : Hub
 		SpawnObjects(_levelData);
 		SpawnOverlapTiles(_levelData);
 
+		_game = tempGame;
+		_displayTut = _game._displayTutorial;
+
+		if (_displayTut)
+		{
+			_c = new ConversationBox("Text/Tutorial.txt", this);
+			AddChild(_c);
+		}
+
 		_firstInstance = false;
+	}
+
+	public void DeleteTut()
+	{
+		_game._displayTutorial = false;
+		_c.LateDestroy();
+		_c = null;
 	}
 }
