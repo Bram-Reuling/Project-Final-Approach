@@ -80,6 +80,7 @@
     <Compile Include="Games\Arkanoid\Screens\DeathScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\LevelScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\MainMenuScreenArkanoid.cs" />
+    <Compile Include="Games\Road Racer\Items\Obstacles.cs" />
     <Compile Include="Games\Road Racer\Items\PlayerRoadRacer.cs" />
     <Compile Include="Games\Road Racer\Items\RoadTile.cs" />
     <Compile Include="Games\Road Racer\Screens\LevelRoadRacer.cs" />
