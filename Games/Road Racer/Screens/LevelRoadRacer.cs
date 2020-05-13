@@ -14,10 +14,11 @@ class LevelRoadRacer : GameObject
 
 	private DeathScreenRoad _deathScreen;
 
+	MainGame _game;
 
 	private string _fileName { get; set; }
 
-	public LevelRoadRacer()
+	public LevelRoadRacer(MainGame tempGame)
 	{
 		_fileName = @"RoadRacerLevel/RoadRacer.tmx";
 		Map _levelData = MapParser.ReadMap(_fileName);
@@ -31,6 +32,8 @@ class LevelRoadRacer : GameObject
 		AddChild(_overlay);
 		_player = new PlayerRoadRacer(this);
 		AddChild(_player);
+
+		_game = tempGame;
 	}
 
 	void Update()
@@ -67,9 +70,11 @@ class LevelRoadRacer : GameObject
 
 	public void LoadDeathScreen()
 	{
-		_deathScreen = new DeathScreenRoad();
-		game.LateAddChild(_deathScreen);
 
-		this.LateDestroy();
+		_game.SwitchRoom("RDeath");
+		//_deathScreen = new DeathScreenRoad();
+		//game.LateAddChild(_deathScreen);
+
+		//this.LateDestroy();
 	}
 }
