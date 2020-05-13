@@ -131,32 +131,48 @@ public class MainGame : Game
         {
             case "Main":
                 LoadMain();
+                GC.Collect(2);
                 break;
             case "Bar":
                 LoadBar();
+                GC.Collect(2);
                 break;
             case "Arkanoid":
                 LoadArkanoidMenu();
+                GC.Collect(2);
                 break;
             case "ALevelOne":
                 LoadArkanoidLevelOne();
+                GC.Collect(2);
                 break;
             case "ADeath":
                 LoadArkanoidDeathScreen();
+                GC.Collect(2);
                 break;
             case "Race":
                 LoadRoadRaceMenu();
+                GC.Collect(2);
                 break;
             case "RLevel":
                 LoadRoadRacerLevel();
+                GC.Collect(2);
                 break;
             case "RDeath":
                 LoadRoadRacerDeathScreen();
+                GC.Collect(2);
                 break;
             case "Dance":
                 break;
+            case "OpenShop":
+                //Console.WriteLine("YES");
+                OpenShop();
+                break;
+            case "CloseShop":
+                CloseShop();
+                break;
             default:
                 LoadMenu();
+                GC.Collect(2);
                 break;
         }
     }
@@ -166,6 +182,22 @@ public class MainGame : Game
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
         _mainMenu = new MainMenu(this);
         LateAddChild(_mainMenu);
+    }
+
+    private void OpenShop()
+    {
+        if (_mainHub != null)
+        {
+            _mainHub.OpenShop();
+        }
+    }
+
+    private void CloseShop()
+    {
+        if (_mainHub != null)
+        {
+            _mainHub.CloseShop();
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------------

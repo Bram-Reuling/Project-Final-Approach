@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="125">
+<map version="1.2" tiledversion="1.3.4" orientation="orthogonal" renderorder="right-down" width="32" height="24" tilewidth="32" tileheight="32" infinite="0" nextlayerid="6" nextobjectid="126">
  <tileset firstgid="1" source="../../Tiled Tilesets/Square.tsx"/>
  <tileset firstgid="2" source="../../Tiled Tilesets/Colors.tsx"/>
  <tileset firstgid="3" source="Checkers.tsx"/>
@@ -50,6 +50,13 @@
   <object id="124" name="Activity" gid="2" x="704" y="192" width="64" height="96">
    <properties>
     <property name="Activity" value="Race"/>
+    <property name="ButtonToStart" value="E"/>
+    <property name="Type" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="125" name="Activity" gid="2" x="224" y="608" width="96" height="96">
+   <properties>
+    <property name="Activity" value="OpenShop"/>
     <property name="ButtonToStart" value="E"/>
     <property name="Type" type="int" value="1"/>
    </properties>

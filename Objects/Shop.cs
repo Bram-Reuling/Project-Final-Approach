@@ -17,13 +17,17 @@ public class Shop : Sprite
 	ImageButton _order;
 	ImageButton _back;
 
-	public Shop() : base("Sprites/ShopOverlay.png")
+	MainGame _game;
+
+	public Shop(MainGame tempGame) : base("Sprites/ShopOverlay.png")
 	{
 		LoadInstances();
 
 		SetPositions();
 
 		AddToTheGame();
+
+		_game = tempGame;
 	}
 
 	private void AddToTheGame()
@@ -77,6 +81,7 @@ public class Shop : Sprite
 	void Update()
 	{
 		CheckForHover();
+		CheckForClick();
 	}
 
 	private void CheckForHover()
@@ -93,5 +98,13 @@ public class Shop : Sprite
 
 		_order.BrighterOnHoverBack();
 		_back.BrighterOnHoverBack();
+	}
+
+	private void CheckForClick()
+	{
+		if (_back.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+		{
+			_game.SwitchRoom("CloseShop");
+		}
 	}
 }

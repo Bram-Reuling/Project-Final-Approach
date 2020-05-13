@@ -44,9 +44,6 @@ class MainHub : Hub
 
 		_firstInstance = false;
 
-		//_shop = new Shop();
-		//AddChild(_shop);
-
 		_shopKeeper = new ShopKeeper();
 		AddChild(_shopKeeper);
 	}
@@ -56,5 +53,20 @@ class MainHub : Hub
 		_game._displayTutorial = false;
 		_c.LateDestroy();
 		_c = null;
+	}
+
+	public void OpenShop()
+	{
+		if (_shop == null)
+		{
+			_shop = new Shop(_game);
+			LateAddChild(_shop);
+		}
+	}
+
+	public void CloseShop()
+	{
+		_shop.LateDestroy();
+		_shop = null;
 	}
 }

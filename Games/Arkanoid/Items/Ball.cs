@@ -58,8 +58,6 @@ class Ball : Sprite
         updateBallPosition();
 
         collisionWithWalls();
-
-        addTrail();
     }
 
     private void collisionWithWalls()
@@ -144,12 +142,5 @@ class Ball : Sprite
             PlayerArkanoid playerHit = (PlayerArkanoid)_other;
             playerHit.GotHit();
         }
-    }
-
-    private void addTrail()
-    {
-
-        TrailBall trail = new TrailBall(this);
-        parent.AddChild(trail);
     }
 }

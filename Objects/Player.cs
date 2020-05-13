@@ -92,6 +92,7 @@ public class Player : AnimationSprite
         _hub._aArkanoid.visible = false;
         _hub._aRoadRacer.visible = false;
         _hub._dance.visible = false;
+        _hub._shopBox.visible = false;
 
         danceAnim();
 
@@ -318,6 +319,11 @@ public class Player : AnimationSprite
             if (activity == "Dance")
             {
                 _hub._dance.visible = true;
+            }
+
+            if (activity == "OpenShop")
+            {
+                _hub._shopBox.visible = true;
             }
 
             if (Input.GetKey('E'))
