@@ -27,16 +27,59 @@ public class MainGame : Game
     StreamReader reader;
     List<string> _textLines;
 
-    int tickets;
+    public int tickets;
+    public bool _sufficientTickets;
 
     public MainGame() : base(1024, 768, false, true)
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
 
         ReadSettingsFile();
+        ticketCheck(tickets);
 
         // Start of the game
         SwitchRoom("");
+    }
+
+    public void AddTickets(int numberOfTickets)
+    {
+        int newTickets = tickets + numberOfTickets;
+
+        ticketCheck(newTickets);
+
+        lineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
+
+        ReadSettingsFile();
+    }
+
+    public void SubtrackTickets(int numberOfTickets)
+    {
+        int newTickets = tickets - numberOfTickets;
+
+        ticketCheck(newTickets);
+
+        lineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
+
+        ReadSettingsFile();
+    }
+
+    private void ticketCheck(int tempTickets)
+    {
+        if (tempTickets > 0)
+        {
+            _sufficientTickets = true;
+        }
+        else
+        {
+            _sufficientTickets = false;
+        }
+    }
+
+    static void lineChanger(string newText, string fileName, int line_to_edit)
+    {
+        string[] arrLine = File.ReadAllLines(fileName);
+        arrLine[line_to_edit - 1] = newText;
+        File.WriteAllLines(fileName, arrLine);
     }
 
     private void ReadSettingsFile()

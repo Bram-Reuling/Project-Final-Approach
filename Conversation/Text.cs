@@ -1,6 +1,7 @@
 ﻿using System;
 using GXPEngine;
 using System.Drawing;
+using System.Drawing.Text;
 
 class Text : Canvas
 {
@@ -9,12 +10,16 @@ class Text : Canvas
 	private string _text;
 	private bool _isConversation;
 
+	PrivateFontCollection pfc = new PrivateFontCollection();
+
 	public Text(int _xPos, int _yPos, int tempWidth, int tempHeight, bool isConv) : base(tempWidth, tempHeight)
 	{
 		SetOrigin(this.width / 2, this.height / 2);
 		SetXY(_xPos, _yPos);
 
-		_font = new Font("Arial", 15, FontStyle.Regular);
+		pfc.AddFontFile("Fonts/ARCADE_N.TTF");
+
+		_font = new Font(pfc.Families[0], 10, FontStyle.Regular);
 
 		_text = "Null";
 
@@ -39,7 +44,9 @@ class Text : Canvas
 				graphics.DrawString(stringArray[0] + "\n" + stringArray[1].TrimStart('8'), _font, Brushes.White, width / 2, 90, _stringFormatCenter);
 			else if (stringArray.Length == 3)
 				graphics.DrawString(stringArray[0] + "\n" + stringArray[1].TrimStart('8') + "\n" + stringArray[2].TrimStart('8'), _font, Brushes.White, width / 2, 90, _stringFormatCenter);
-			graphics.DrawString("Press E to continue, Press Q to go back", _font, Brushes.White, width / 2, 165, _stringFormatCenter);
+			else if (stringArray.Length == 4)
+				graphics.DrawString(stringArray[0] + "\n" + stringArray[1].TrimStart('8') + "\n" + stringArray[2].TrimStart('8') + "\n" + stringArray[3].TrimStart('8'), _font, Brushes.White, width / 2, 90, _stringFormatCenter);
+			graphics.DrawString("Press E to continue, \nPress Q to go back", _font, Brushes.White, width / 2, 165, _stringFormatCenter);
 		}
 		else
 		{

@@ -279,6 +279,7 @@ public class Player : AnimationSprite
                 {
                     _game.SwitchRoom(activity);
                     _activityIsLoading = true;
+                    _game.SubtrackTickets(50);
                 }
             }
 
