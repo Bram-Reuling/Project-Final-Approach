@@ -42,6 +42,8 @@ class ArkanoidDeathScreen : GameObject
     void Update()
     {
         mouseInputButtons();
+        _mainMenuButton.BrighterOnHover();
+        _quitButton.BrighterOnHover();
     }
 
     // Checks for mouse input for the buttons.

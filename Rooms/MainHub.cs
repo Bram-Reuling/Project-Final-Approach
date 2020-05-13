@@ -14,6 +14,8 @@ class MainHub : Hub
 	TicketDisplay _tickets;
 	Clock _clock;
 
+	Shop _shop;
+
 	public MainHub(MainGame tempGame) : base("Sprites/MainHub.png", 32, 24, "Sprites/MainHub.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
 		_fileName = @"Screens/MainHub/MainHub.tmx";
@@ -40,6 +42,9 @@ class MainHub : Hub
 		}
 
 		_firstInstance = false;
+
+		//_shop = new Shop();
+		//AddChild(_shop);
 	}
 
 	public void DeleteTut()
