@@ -11,8 +11,6 @@ public class Player : AnimationSprite
     private const int SPEED = 3;
     private int moveSpeed;
 
-    ConversationBox _c;
-
     private int GetMoveSpeed()
     {
         return moveSpeed;
@@ -44,8 +42,9 @@ public class Player : AnimationSprite
     private readonly MainGame _game;
 
     private bool _activityIsLoading;
+    Hub _hub;
 
-    public Player(float x, float y, MainGame tempGame) : base("Sprites/Packy.png", 6, 7)
+    public Player(float x, float y, MainGame tempGame, Hub _tempHub) : base("Sprites/Packy.png", 6, 7)
     {
         SetXY(x, y);
         _position = new Vec2(x, y);
@@ -69,6 +68,8 @@ public class Player : AnimationSprite
 
         _activityIsLoading = false;
 
+        _hub = _tempHub;
+
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -83,6 +84,9 @@ public class Player : AnimationSprite
         updateScreenPos();
         noInputCheck();
         moveCalc();
+
+        _hub._aArkanoid.visible = false;
+        _hub._aRoadRacer.visible = false;
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -261,13 +265,12 @@ public class Player : AnimationSprite
 
             if (activity == "Arkanoid")
             {
-                _c = new ConversationBox("Text/Arkanoid.txt", this);
-                LateAddChild(_c);
+                _hub._aArkanoid.visible = true;
             }
 
             if (activity == "Race")
             {
-                _c = new ConversationBox("Text/RoadRacer.txt", this);
+                _hub._aRoadRacer.visible = true;
             }
 
             if (Input.GetKey('E'))

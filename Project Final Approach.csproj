@@ -62,6 +62,7 @@
     <Compile Include="Buttons\ImageButton.cs" />
     <Compile Include="Components\Arrow.cs" />
     <Compile Include="Components\LineSegment.cs" />
+    <Compile Include="Conversation\ActivityBox.cs" />
     <Compile Include="Conversation\ConversationBox.cs" />
     <Compile Include="Conversation\Text.cs" />
     <Compile Include="Conversation\TextBoxImg.cs" />

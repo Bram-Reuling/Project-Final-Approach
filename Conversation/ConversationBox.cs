@@ -11,16 +11,13 @@ class ConversationBox : GameObject
 	StreamReader reader;
 	List<string> _textLines;
 
-	bool _started;
 	int index;
-	int _endTut;
 	Text _text;
 
 	bool _buttonIsPressed;
 	bool _endTutorial;
 
 	MainHub _mainHub;
-	Player _player;
 
 	public ConversationBox(string file, MainHub _tempHub)
 	{
@@ -29,23 +26,14 @@ class ConversationBox : GameObject
 		InitializeBox(file);
 	}
 
-	public ConversationBox(string file, Player _temPlayer)
-	{
-		_player = _temPlayer;
-
-		InitializeBox(file);
-	}
-
 	private void InitializeBox(string file)
 	{
 		index = 0;
-		_endTut = 0;
 
 		reader = File.OpenText(file);
 		_textLines = new List<string>();
 		string line;
 
-		_started = false;
 		_endTutorial = false;
 
 		_buttonIsPressed = false;
@@ -68,7 +56,7 @@ class ConversationBox : GameObject
 		TextBoxImg _box = new TextBoxImg(game.width / 2, game.height - 100);
 		LateAddChild(_box);
 
-		_text = new Text(game.width / 2, game.height - 130, _box.width, _box.height);
+		_text = new Text(game.width / 2, game.height - 130, _box.width, _box.height, true);
 		LateAddChild(_text);
 	}
 
@@ -122,7 +110,7 @@ class ConversationBox : GameObject
 			if (index == _numberOfLines - 1 && _mainHub != null)
 			{
 				_endTutorial = true;
-				Console.WriteLine("End");
+				//Console.WriteLine("End");
 			}
 			else
 			{
