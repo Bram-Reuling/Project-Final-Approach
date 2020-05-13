@@ -11,6 +11,8 @@ public class Player : AnimationSprite
     private const int SPEED = 3;
     private int moveSpeed;
 
+    private bool _dance;
+
     private int GetMoveSpeed()
     {
         return moveSpeed;
@@ -44,7 +46,7 @@ public class Player : AnimationSprite
     private bool _activityIsLoading;
     Hub _hub;
 
-    public Player(float x, float y, MainGame tempGame, Hub _tempHub) : base("Sprites/Packy.png", 6, 7)
+    public Player(float x, float y, MainGame tempGame, Hub _tempHub) : base("Sprites/Packy.png", 6, 18)
     {
         SetXY(x, y);
         _position = new Vec2(x, y);
@@ -70,6 +72,8 @@ public class Player : AnimationSprite
 
         _hub = _tempHub;
 
+        _dance = false;
+
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -87,6 +91,36 @@ public class Player : AnimationSprite
 
         _hub._aArkanoid.visible = false;
         _hub._aRoadRacer.visible = false;
+
+        danceAnim();
+
+        Console.WriteLine(currentFrame);
+    }
+
+    private void danceAnim()
+    {
+        if (Input.GetKey(Key.R) && _dance == false)
+        {
+            _dance = true;
+        }
+
+        if (_dance)
+        {
+            Step++;
+            if (Step > AnimationDrawsBetweenFrames)
+            {
+                if (currentFrame <= 41 || currentFrame >= 105)
+                {
+                    SetFrame(42);
+                }
+
+                if (currentFrame >= 42 && currentFrame <= 105)
+                {
+                    NextFrame();
+                    Step = 0;
+                }
+            }
+        }
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -109,22 +143,26 @@ public class Player : AnimationSprite
         {
             _velocity.x = -1;
             WalkAnimLeftRight();
+            _dance = false;
         }
         if (Input.GetKey(Key.D))
         {
             _velocity.x = 1;
             WalkAnimLeftRight();
             Mirror(true, false);
+            _dance = false;
         }
         if (Input.GetKey(Key.W))
         {
             _velocity.y = -1;
             WalkAnimUp();
+            _dance = false;
         }
         if (Input.GetKey(Key.S))
         {
             _velocity.y = 1;
             WalkAnimDown();
+            _dance = false;
         }
 
         normalizeVelocity();
@@ -213,18 +251,21 @@ public class Player : AnimationSprite
         {
             _velocity.x = 0;
             _velocity.y = 0;
-            if (currentFrame <= 5)
+            if (!_dance)
             {
-                Step++;
-                if (Step > AnimationDrawsBetweenFrames)
+                if (currentFrame <= 5)
                 {
-                    NextFrame();
-                    Step = 0;
+                    Step++;
+                    if (Step > AnimationDrawsBetweenFrames)
+                    {
+                        NextFrame();
+                        Step = 0;
+                    }
                 }
-            }
-            if (currentFrame > 5)
-            {
-                SetFrame(0);
+                if (currentFrame > 5)
+                {
+                    SetFrame(0);
+                }
             }
         }
 
