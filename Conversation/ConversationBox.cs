@@ -11,9 +11,7 @@ class ConversationBox : GameObject
 	StreamReader reader;
 	List<string> _textLines;
 
-	bool _started;
 	int index;
-	int _endTut;
 	Text _text;
 
 	bool _buttonIsPressed;
@@ -23,25 +21,28 @@ class ConversationBox : GameObject
 
 	public ConversationBox(string file, MainHub _tempHub)
 	{
+		_mainHub = _tempHub;
+
+		InitializeBox(file);
+	}
+
+	private void InitializeBox(string file)
+	{
 		index = 0;
-		_endTut = 0;
 
 		reader = File.OpenText(file);
 		_textLines = new List<string>();
 		string line;
 
-		_started = false;
 		_endTutorial = false;
 
 		_buttonIsPressed = false;
-
-		_mainHub = _tempHub;
 
 		while ((line = reader.ReadLine()) != null)
 		{
 			string[] items = line.Split('\n');
 
-			foreach(string item in items)
+			foreach (string item in items)
 			{
 				if (item.StartsWith("T:"))
 				{
@@ -55,7 +56,7 @@ class ConversationBox : GameObject
 		TextBoxImg _box = new TextBoxImg(game.width / 2, game.height - 100);
 		LateAddChild(_box);
 
-		_text = new Text(game.width / 2, game.height - 130, _box.width, _box.height);
+		_text = new Text(game.width / 2, game.height - 130, _box.width, _box.height, true);
 		LateAddChild(_text);
 	}
 
@@ -83,7 +84,7 @@ class ConversationBox : GameObject
 
 				}
 
-				if (_endTutorial)
+				if (_endTutorial && _mainHub != null)
 				{
 					_mainHub.DeleteTut();
 				}
@@ -106,10 +107,10 @@ class ConversationBox : GameObject
 				_buttonIsPressed = false;
 			}
 
-			if (index == _numberOfLines - 1)
+			if (index == _numberOfLines - 1 && _mainHub != null)
 			{
 				_endTutorial = true;
-				Console.WriteLine("End");
+				//Console.WriteLine("End");
 			}
 			else
 			{

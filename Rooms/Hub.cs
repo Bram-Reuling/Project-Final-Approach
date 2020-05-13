@@ -2,7 +2,7 @@
 using GXPEngine;
 using TiledMapParser;
 
-class Hub : GameObject
+public class Hub : GameObject
 {
 
 	// Tileset files
@@ -26,6 +26,9 @@ class Hub : GameObject
 	CollisionTile cTile;
 	DoorTile _door;
 	ActivityTile _activity;
+
+	public ActivityBox _aArkanoid;
+	public ActivityBox _aRoadRacer;
 
 	Player _player;
 
@@ -145,6 +148,14 @@ class Hub : GameObject
 				}
 			}
 		}
+
+		_aArkanoid = new ActivityBox("Text/Arkanoid.txt");
+		AddChild(_aArkanoid);
+		_aArkanoid.visible = false;
+
+		_aRoadRacer = new ActivityBox("Text/RoadRacer.txt");
+		AddChild(_aRoadRacer);
+		_aRoadRacer.visible = false;
 	}
 
 	//------------------------------------------------------------------------------------------------------------------------
@@ -171,7 +182,7 @@ class Hub : GameObject
 					AddChild(_door);
 					break;
 				case "Player":
-					_player = new Player(obj.X, obj.Y, _game);
+					_player = new Player(obj.X, obj.Y, _game, this);
 					AddChild(_player);
 					break;
 				case "Activity":
