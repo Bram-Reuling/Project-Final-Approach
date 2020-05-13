@@ -47,10 +47,10 @@ public class MainGame : Game
                 LoadBar();
                 break;
             case "Arkanoid":
-                LoadArkanoid();
+                LoadArkanoidMenu();
                 break;
             case "Race":
-                LoadRace();
+                LoadRoadRaceMenu();
                 break;
             default:
                 LoadMenu();
@@ -68,7 +68,7 @@ public class MainGame : Game
     //------------------------------------------------------------------------------------------------------------------------
     //														LoadRace()
     //------------------------------------------------------------------------------------------------------------------------
-    private void LoadRace()
+    private void LoadRoadRaceMenu()
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Road Racer");
         Console.WriteLine("Loading Race");
@@ -87,7 +87,7 @@ public class MainGame : Game
     //------------------------------------------------------------------------------------------------------------------------
     //														LoadArkanoid()
     //------------------------------------------------------------------------------------------------------------------------
-    private void LoadArkanoid()
+    private void LoadArkanoidMenu()
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Arkanoid");
         Console.WriteLine("Loading Arkanoid");
@@ -134,6 +134,23 @@ public class MainGame : Game
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Main Hub");
         Console.WriteLine("Loading Main Hub");
+
+        RemoveInstancesForMain();
+
+        _mainMenu = null;
+
+        _mainHub = new MainHub(this);
+        LateAddChild(_mainHub);
+
+        Sound backgroundMusic = new Sound("Sounds/MainHub.mp3", true, true);
+        _backgroundMusicChannel = backgroundMusic.Play();
+        _backgroundMusicChannel.Volume = 1f;
+
+        Console.WriteLine("Main Hub Loaded!");
+    }
+
+    private void RemoveInstancesForMain()
+    {
         if (_barHub != null)
         {
             _barHub.LateRemove();
@@ -152,16 +169,5 @@ public class MainGame : Game
             _roadRacer.LateRemove();
             _roadRacer = null;
         }
-
-        _mainMenu = null;
-
-        _mainHub = new MainHub(this);
-        LateAddChild(_mainHub);
-
-        Sound backgroundMusic = new Sound("Sounds/MainHub.mp3", true, true);
-        _backgroundMusicChannel = backgroundMusic.Play();
-        _backgroundMusicChannel.Volume = 1f;
-
-        Console.WriteLine("Main Hub Loaded!");
     }
 }
