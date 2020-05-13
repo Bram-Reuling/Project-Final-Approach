@@ -1,12 +1,15 @@
 ﻿using TiledMapParser;
 
-class BarHub : Hub
+public class BarHub : Hub
 {
 	
 	private string _fileName { get; set; }
 	public bool _firstInstance { get; set; }
 
-	public BarHub(MainGame _game) : base("Sprites/Bar.png", 32, 24, "Sprites/Bar.png", 32, 24, "colors.png", 1, 1, _game)
+	MainGame _game;
+	TicketDisplay _tickets;
+
+	public BarHub(MainGame tempGame) : base("Sprites/Bar.png", 32, 24, "Sprites/Bar.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
 		_fileName = @"Screens/BarHub/BarHub.tmx";
 
@@ -17,5 +20,10 @@ class BarHub : Hub
 		SpawnOverlapTiles(_levelData);
 
 		_firstInstance = false;
+
+		_game = tempGame;
+
+		_tickets = new TicketDisplay(_game);
+		AddChild(_tickets);
 	}
 }

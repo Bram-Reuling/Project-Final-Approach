@@ -1,8 +1,8 @@
 T: Hello! and welcome to 8The Home Box Arcade!
 T: To move around use the WASD 8buttons and E to interact with the 8machines and other staff members.
-T: There is a variety of games 8available for you to enjoy and earn tickets.
-T: What are tickets you may ask? 8Well, tickets are the rewards you as 8the player will earn when you play games!
-T: You can exchange your tickets over 8at the rewards booth for coupons or vouchers.
-T: There is also a Multiplayer lounge room 8for interacting with other players, please consider 8checking it out and hanging out with others!
+T: There is a variety of games available 8for you to enjoy and earn tickets.
+T: What are tickets you may ask? 8Well, tickets are the rewards 8you as the player will earn 8when you play games!
+T: You can exchange your tickets 8over at the rewards booth 8for coupons or vouchers.
+T: There is also a Multiplayer lounge 8room for interacting with other 8players, please consider checking it 8out and hanging out with others!
 T: Well, that's all from me! 8I hope you have a wonderful time 8playing games and earning prizes!
 T: 

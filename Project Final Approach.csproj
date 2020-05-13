@@ -136,6 +136,8 @@
     <Compile Include="MainGame.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Objects\Player.cs" />
+    <Compile Include="Objects\TicketDisplay.cs" />
+    <Compile Include="Objects\TicketText.cs" />
     <Compile Include="Other\ActivityTile.cs" />
     <Compile Include="Other\BackgroundTile.cs" />
     <Compile Include="Other\CollisionPoint.cs" />
