@@ -8,7 +8,11 @@ public class MainGame : Game
 
     MainHub _mainHub;
     BarHub _barHub;
+
     MainMenuScreenArkanoid _arkanoid;
+    ArkanoidLevelScreen _aLevelOne;
+    ArkanoidDeathScreen _aDeathScreen;
+
     MainMenuRoadRacer _roadRacer;
 
     private SoundChannel _backgroundMusicChannel;
@@ -49,6 +53,12 @@ public class MainGame : Game
             case "Arkanoid":
                 LoadArkanoidMenu();
                 break;
+            case "ALevelOne":
+                LoadArkanoidLevelOne();
+                break;
+            case "ADeath":
+                LoadArkanoidDeathScreen();
+                break;
             case "Race":
                 LoadRoadRaceMenu();
                 break;
@@ -74,7 +84,7 @@ public class MainGame : Game
         Console.WriteLine("Loading Race");
         if (_mainHub != null)
         {
-            _mainHub.LateRemove();
+            _mainHub.LateDestroy();
             _mainHub = null;
             _backgroundMusicChannel.Stop();
         }
@@ -85,7 +95,7 @@ public class MainGame : Game
     }
 
     //------------------------------------------------------------------------------------------------------------------------
-    //														LoadArkanoid()
+    //														ARKANOID
     //------------------------------------------------------------------------------------------------------------------------
     private void LoadArkanoidMenu()
     {
@@ -93,14 +103,53 @@ public class MainGame : Game
         Console.WriteLine("Loading Arkanoid");
         if (_mainHub != null)
         {
-            _mainHub.LateRemove();
+            _mainHub.LateDestroy();
             _mainHub = null;
             _backgroundMusicChannel.Stop();
+        }
+
+        if (_aDeathScreen != null)
+        {
+            _aDeathScreen.LateDestroy();
+            _aDeathScreen = null;
+        }
+
+        if (_aLevelOne != null)
+        {
+            _aLevelOne.LateDestroy();
+            _aLevelOne = null;
         }
 
         _arkanoid = new MainMenuScreenArkanoid(this);
         LateAddChild(_arkanoid);
         Console.WriteLine("Arkanoid Loaded!");
+    }
+
+    private void LoadArkanoidLevelOne()
+    {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Arkanoid - Level 1");
+
+        if (_arkanoid != null)
+        {
+            _arkanoid.LateDestroy();
+            _arkanoid = null;
+        }
+
+        _aLevelOne = new ArkanoidLevelScreen("ArkanoidLevels/level1.tmx", this);
+        LateAddChild(_aLevelOne);
+    }
+
+    private void LoadArkanoidDeathScreen()
+    {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Arkanoid - Game Over");
+        if (_aLevelOne != null)
+        {
+            _aLevelOne.LateDestroy();
+            _aLevelOne = null;
+        }
+
+        _aDeathScreen = new ArkanoidDeathScreen(this);
+        LateAddChild(_aDeathScreen);
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -112,7 +161,7 @@ public class MainGame : Game
         Console.WriteLine("Loading Bar");
         if (_mainHub != null)
         {
-            _mainHub.LateRemove();
+            _mainHub.LateDestroy();
             _mainHub = null;
             _backgroundMusicChannel.Stop();
         }
@@ -153,20 +202,20 @@ public class MainGame : Game
     {
         if (_barHub != null)
         {
-            _barHub.LateRemove();
+            _barHub.LateDestroy();
             _barHub = null;
             _backgroundMusicChannel.Stop();
         }
 
         if (_arkanoid != null)
         {
-            _arkanoid.LateRemove();
+            _arkanoid.LateDestroy();
             _arkanoid = null;
         }
 
         if (_roadRacer != null)
         {
-            _roadRacer.LateRemove();
+            _roadRacer.LateDestroy();
             _roadRacer = null;
         }
     }

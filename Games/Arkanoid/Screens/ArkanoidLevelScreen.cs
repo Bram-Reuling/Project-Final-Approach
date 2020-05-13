@@ -3,7 +3,7 @@ using TiledMapParser;
 using System;
 using System.Timers;
 
-class LevelScreen : GameObject
+class ArkanoidLevelScreen : GameObject
 {
     // Declaring variables for items Block, Player and Ball to pass in the constructor of each class
     // so that they can use eachothers methods.
@@ -12,7 +12,9 @@ class LevelScreen : GameObject
     private Ball _ball;
 
     private MainMenuScreenArkanoid _mainMenu; 
-    private DeathScreen _deathScreen; 
+    private ArkanoidDeathScreen _deathScreen;
+
+    MainGame _game;
 
     private int _maxScore; // Total points you can get per level
     private String _nextLevel; 
@@ -25,18 +27,20 @@ class LevelScreen : GameObject
 
     Overlay _overlay;
 
-    public LevelScreen(string filename, MainMenuScreenArkanoid _menuInst) 
+    public ArkanoidLevelScreen(string filename, MainGame tempGame) 
     {
         Map leveldata = MapParser.ReadMap(filename); // Reads the data of the .tmx file
         spawnObjects(leveldata); // Calls SpawnObjects method to spawn the objects from the .tmx file in the level.
 
-        _mainMenu = _menuInst; // Sets variable of type MainMenuScreen to an instance of the class
+        //_mainMenu = _menuInst; // Sets variable of type MainMenuScreen to an instance of the class
 
         // Plays an audio file as background music
         Sound backgroundMusic = new Sound("ArkanoidSounds/LevelStart.mp3", false, true);
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 0.1f;
         _isLevelStarted = false;
+
+        _game = tempGame;
     }
 
     void Update()
@@ -125,15 +129,17 @@ class LevelScreen : GameObject
     // Loads the death screen if the player has no lives anymore
     public void LoadDeathScreen()
     {
+
+        _game.SwitchRoom("ADeath");
         // Stops the background music
         _backgroundMusicChannel.Stop();
 
         // Creates new instance of DeathScreen
-        _deathScreen = new DeathScreen();
-        game.AddChild(_deathScreen);
+        //_deathScreen = new ArkanoidDeathScreen();
+        //game.AddChild(_deathScreen);
 
         // Destroys current level
-        destroyCurrentLevel();
+        //destroyCurrentLevel();
     }
 
     private void destroyCurrentLevel()
