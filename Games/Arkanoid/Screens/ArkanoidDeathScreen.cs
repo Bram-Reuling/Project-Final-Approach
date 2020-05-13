@@ -35,7 +35,7 @@ class ArkanoidDeathScreen : GameObject
 
         Sound backgroundMusic = new Sound("ArkanoidSounds/EndLmao.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
-        _backgroundMusicChannel.Volume = 0.2f;
+        _backgroundMusicChannel.Volume = 1f;
         _game = tempGame;
     }
 
@@ -54,8 +54,6 @@ class ArkanoidDeathScreen : GameObject
             if (_mainMenuButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
                 _game.SwitchRoom("Arkanoid");
-                //toMainMenu();
-                //hideMenu();
                 _backgroundMusicChannel.Stop();
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
@@ -65,24 +63,6 @@ class ArkanoidDeathScreen : GameObject
 
                 this.LateDestroy();
             }
-        }
-    }
-
-    private void hideMenu()
-    {
-        _mainMenuButton.visible = false;
-        _quitButton.visible = false;
-        _deathText.visible = false;
-    }
-
-    private void toMainMenu()
-    {
-        if (_isMainMenuLoaded == false)
-        {
-            _mainMenu = new MainMenuScreenArkanoid(game as MainGame);
-            game.AddChild(_mainMenu);
-            _isMainMenuLoaded = true;
-            this.LateDestroy();
         }
     }
 }

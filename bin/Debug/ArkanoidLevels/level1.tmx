@@ -557,8 +557,8 @@
     <property name="speedY" type="int" value="7"/>
    </properties>
   </object>
-  <object id="119" name="Score" x="192" y="32" width="64" height="32"/>
-  <object id="120" name="Lives" x="768" y="32" width="64" height="32"/>
+  <object id="119" name="Score" x="192" y="64" width="64" height="32"/>
+  <object id="120" name="Lives" x="768" y="64" width="64" height="32"/>
  </objectgroup>
  <objectgroup id="2" name="dd" offsetx="-1152" offsety="0">
   <object id="1" name="Block" gid="1" x="128" y="256" width="64" height="32">

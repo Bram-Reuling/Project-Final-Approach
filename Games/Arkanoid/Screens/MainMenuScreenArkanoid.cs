@@ -39,7 +39,7 @@ class MainMenuScreenArkanoid : GameObject
 
         Sound backgroundMusic = new Sound("ArkanoidSounds/MenuSound.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
-        _backgroundMusicChannel.Volume = 0.2f;
+        _backgroundMusicChannel.Volume = 1f;
 
         _game = game;
     }

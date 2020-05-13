@@ -11,15 +11,10 @@ class ArkanoidLevelScreen : GameObject
     private PlayerArkanoid _player;
     private Ball _ball;
 
-    private MainMenuScreenArkanoid _mainMenu; 
-    private ArkanoidDeathScreen _deathScreen;
-
     MainGame _game;
 
     private int _maxScore; // Total points you can get per level
     private String _nextLevel; 
-
-    private System.Timers.Timer _levelStartTimer; 
 
     private SoundChannel _backgroundMusicChannel;
 
@@ -37,7 +32,7 @@ class ArkanoidLevelScreen : GameObject
         // Plays an audio file as background music
         Sound backgroundMusic = new Sound("ArkanoidSounds/LevelStart.mp3", false, true);
         _backgroundMusicChannel = backgroundMusic.Play();
-        _backgroundMusicChannel.Volume = 0.1f;
+        _backgroundMusicChannel.Volume = 1f;
         _isLevelStarted = false;
 
         _game = tempGame;
@@ -142,17 +137,12 @@ class ArkanoidLevelScreen : GameObject
         //destroyCurrentLevel();
     }
 
-    private void destroyCurrentLevel()
-    {
-        this.LateDestroy();
-    }
-
     private void loadNewLevelOnMaxScore()
     {
         if (_player.score >= _maxScore)
         {
             _backgroundMusicChannel.Stop();
-            _mainMenu.LoadNewLevel(_nextLevel);
+            //_mainMenu.LoadNewLevel(_nextLevel);
         }
     }
 
