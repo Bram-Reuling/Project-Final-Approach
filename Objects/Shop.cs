@@ -81,17 +81,17 @@ public class Shop : Sprite
 
 	private void CheckForHover()
 	{
-		_costume.BrighterOnHoverOther();
-		_giftcard.BrighterOnHoverOther();
-		_tshirt.BrighterOnHoverOther();
-		_plushie.BrighterOnHoverOther();
-		_foodVoucher.BrighterOnHoverOther();
-		_headphones.BrighterOnHoverOther();
-		_nintendoSwitch.BrighterOnHoverOther();
-		_xBox.BrighterOnHoverOther();
-		_playstation.BrighterOnHoverOther();
+		_costume.BrighterOnHoverOther("","");
+		_giftcard.BrighterOnHoverOther("", "");
+		_tshirt.BrighterOnHoverOther("", "");
+		_plushie.BrighterOnHoverOther("", "");
+		_foodVoucher.BrighterOnHoverOther("", "");
+		_headphones.BrighterOnHoverOther("", "");
+		_nintendoSwitch.BrighterOnHoverOther("", "");
+		_xBox.BrighterOnHoverOther("", "");
+		_playstation.BrighterOnHoverOther("", "");
 
-		_order.BrighterOnHoverOther();
-		_back.BrighterOnHoverOther();
+		_order.BrighterOnHoverBack();
+		_back.BrighterOnHoverBack();
 	}
 }

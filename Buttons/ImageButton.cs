@@ -24,11 +24,31 @@ class ImageButton : AnimationSprite
         }
     }
 
-    public void BrighterOnHoverOther()
+    public void BrighterOnHoverOther(string imageFile, string textFile)
     {
         if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
             SetFrame(0);
+            if (Input.GetMouseButton(0))
+            {
+                
+            }
+        }
+        else
+        {
+            SetFrame(1);
+        }
+    }
+
+    public void BrighterOnHoverBack()
+    {
+        if (HitTestPoint(Input.mouseX, Input.mouseY))
+        {
+            SetFrame(0);
+            if (Input.GetMouseButton(0))
+            {
+
+            }
         }
         else
         {

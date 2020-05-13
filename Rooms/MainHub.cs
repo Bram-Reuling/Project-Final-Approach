@@ -43,8 +43,8 @@ class MainHub : Hub
 
 		_firstInstance = false;
 
-		_shop = new Shop();
-		AddChild(_shop);
+		//_shop = new Shop();
+		//AddChild(_shop);
 	}
 
 	public void DeleteTut()
