@@ -201,6 +201,7 @@ public class MainGame : Game
             _roadRacer = null;
         }
 
+        SubtrackTickets(10);
         _rLevel = new LevelRoadRacer(this);
         LateAddChild(_rLevel);
     }
@@ -257,6 +258,8 @@ public class MainGame : Game
             _arkanoid.LateDestroy();
             _arkanoid = null;
         }
+
+        SubtrackTickets(10);
 
         _aLevelOne = new ArkanoidLevelScreen("ArkanoidLevels/level1.tmx", this);
         LateAddChild(_aLevelOne);

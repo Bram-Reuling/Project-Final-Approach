@@ -1,1 +1,1 @@
-T: Press E to start Arkanoid 8
+T: Press E to start Arkanoid 8Cost: 10 Tickets

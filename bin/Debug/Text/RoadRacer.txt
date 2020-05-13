@@ -1,1 +1,1 @@
-T: Press E to start Road Racer 8
+T: Press E to start Road Racer 8Cost: 10 Tickets
