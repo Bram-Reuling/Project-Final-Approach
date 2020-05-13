@@ -8,6 +8,7 @@ class DeathScreenRoad : GameObject
     private ImageButton _quitButton;
 
     private MainMenuRoadRacer _mainMenu;
+    MainGame _game;
 
     private DeathText _deathText;
 
@@ -15,7 +16,7 @@ class DeathScreenRoad : GameObject
 
     private SoundChannel _backgroundMusicChannel;
 
-    public DeathScreenRoad() : base()
+    public DeathScreenRoad(MainGame tempGame) : base()
     {
         _mainMenuButton = new ImageButton("Road Racer Buttons/Menu.png", 2, 1);
         _mainMenuButton.scale = 0.6f;
@@ -35,6 +36,8 @@ class DeathScreenRoad : GameObject
         Sound backgroundMusic = new Sound("ArkanoidSounds/EndLmao.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 0.2f;
+
+        _game = tempGame;
     }
 
     void Update()
@@ -49,8 +52,9 @@ class DeathScreenRoad : GameObject
         {
             if (_mainMenuButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                toMainMenu();
-                hideMenu();
+                //toMainMenu();
+                //hideMenu();
+                _game.SwitchRoom("Race");
                 _backgroundMusicChannel.Stop();
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))

@@ -14,6 +14,8 @@ public class MainGame : Game
     ArkanoidDeathScreen _aDeathScreen;
 
     MainMenuRoadRacer _roadRacer;
+    LevelRoadRacer _rLevel;
+    DeathScreenRoad _rDeathScreen;
 
     private SoundChannel _backgroundMusicChannel;
 
@@ -62,6 +64,12 @@ public class MainGame : Game
             case "Race":
                 LoadRoadRaceMenu();
                 break;
+            case "RLevel":
+                LoadRoadRacerLevel();
+                break;
+            case "RDeath":
+                LoadRoadRacerDeathScreen();
+                break;
             default:
                 LoadMenu();
                 break;
@@ -76,7 +84,7 @@ public class MainGame : Game
     }
 
     //------------------------------------------------------------------------------------------------------------------------
-    //														LoadRace()
+    //														ROAD RACER
     //------------------------------------------------------------------------------------------------------------------------
     private void LoadRoadRaceMenu()
     {
@@ -89,9 +97,39 @@ public class MainGame : Game
             _backgroundMusicChannel.Stop();
         }
 
+        if (_rDeathScreen != null)
+        {
+            _rDeathScreen.LateDestroy();
+            _rDeathScreen = null;
+        }
+
         _roadRacer = new MainMenuRoadRacer(this);
         LateAddChild(_roadRacer);
         Console.WriteLine("Race Loaded!");
+    }
+
+    private void LoadRoadRacerLevel()
+    {
+        if(_roadRacer != null)
+        {
+            _roadRacer.LateRemove();
+            _roadRacer = null;
+        }
+
+        _rLevel = new LevelRoadRacer(this);
+        LateAddChild(_rLevel);
+    }
+
+    private void LoadRoadRacerDeathScreen()
+    {
+        if(_rLevel != null)
+        {
+            _rLevel.LateRemove();
+            _rLevel = null;
+        }
+
+        _rDeathScreen = new DeathScreenRoad(this);
+        LateAddChild(_rDeathScreen);
     }
 
     //------------------------------------------------------------------------------------------------------------------------

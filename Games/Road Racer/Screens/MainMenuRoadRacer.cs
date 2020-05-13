@@ -50,32 +50,13 @@ class MainMenuRoadRacer : GameObject
         {
             if (_startButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                startGame();
-                hideMenu();
+                _game.SwitchRoom("RLevel");
                 //_backgroundMusicChannel.Stop();
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
                 _game.SwitchRoom("Main");
             }
-        }
-    }
-
-    private void hideMenu()
-    {
-        //_arkanoidLogo.visible = false;
-        _startButton.visible = false;
-        _quitButton.visible = false;
-    }
-
-    private void startGame()
-    {
-        if (_isLevelLoaded == false)
-        {
-            _level = new LevelRoadRacer();
-            game.AddChild(_level);
-            this.LateDestroy();
-            _isLevelLoaded = true;
         }
     }
 }
