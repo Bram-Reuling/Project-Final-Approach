@@ -110,7 +110,9 @@ class ConversationBox : GameObject
 			if (index == _numberOfLines - 1 && _mainHub != null)
 			{
 				_endTutorial = true;
+
 				//Console.WriteLine("End");
+				lineChanger("DisplayTutorial = false", "Text/Settings.txt", 1);
 			}
 			else
 			{
@@ -118,4 +120,12 @@ class ConversationBox : GameObject
 			}
 		}
 	}
+	
+	static void lineChanger(string newText, string fileName, int line_to_edit)
+	{
+		string[] arrLine = File.ReadAllLines(fileName);
+		arrLine[line_to_edit - 1] = newText;
+		File.WriteAllLines(fileName, arrLine);
+	}
+
 }
