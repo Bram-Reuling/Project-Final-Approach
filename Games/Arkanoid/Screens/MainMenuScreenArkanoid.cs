@@ -11,7 +11,7 @@ class MainMenuScreenArkanoid : GameObject
 
     private SoundChannel _backgroundMusicChannel;
 
-    private LevelScreen _level;
+    private ArkanoidLevelScreen _level;
     private String _levelFileName = "ArkanoidLevels/level1.tmx";
 
     private bool _isLevelLoaded;
@@ -56,8 +56,7 @@ class MainMenuScreenArkanoid : GameObject
         {
             if (_startButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                startGame();
-                hideMenu();
+                _game.SwitchRoom("ALevelOne");
                 _backgroundMusicChannel.Stop();
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
@@ -68,33 +67,12 @@ class MainMenuScreenArkanoid : GameObject
         }
     }
 
-    private void hideMenu()
-    {
-        _arkanoidLogo.visible = false;
-        _startButton.visible = false;
-        //_quitButton.visible = false;
-        _overlay.visible = false;
-    }
-
-    private void startGame()
-    {
-        if (_isLevelLoaded == false)
-        {
-
-            _level = new LevelScreen(_levelFileName, this);
-            game.AddChild(_level);
-            _isLevelLoaded = true;
-
-            this.LateDestroy();
-        }
-    }
-
     public void LoadNewLevel(String _nextLevel)
     {
-        _level.LateDestroy();
+        //_level.LateDestroy();
 
-        _level = new LevelScreen(_nextLevel, this);
-        AddChild(_level);
+        //_level = new ArkanoidLevelScreen(_nextLevel);
+        //AddChild(_level);
     }
 
 }

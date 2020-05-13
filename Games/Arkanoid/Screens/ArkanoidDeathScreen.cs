@@ -2,12 +2,13 @@
 using System.Drawing;
 using GXPEngine;
 
-class DeathScreen : GameObject
+class ArkanoidDeathScreen : GameObject
 {
     private ImageButton _mainMenuButton;
     private ImageButton _quitButton;
 
     private MainMenuScreenArkanoid _mainMenu;
+    MainGame _game;
 
     private DeathText _deathText;
 
@@ -15,7 +16,7 @@ class DeathScreen : GameObject
 
     private SoundChannel _backgroundMusicChannel;
 
-    public DeathScreen() : base()
+    public ArkanoidDeathScreen(MainGame tempGame) : base()
     {
         _mainMenuButton = new ImageButton("Arkanoid Buttons/Menu.png", 2, 1);
         _mainMenuButton.scale = 0.6f;
@@ -35,6 +36,7 @@ class DeathScreen : GameObject
         Sound backgroundMusic = new Sound("ArkanoidSounds/EndLmao.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 0.2f;
+        _game = tempGame;
     }
 
     void Update()
@@ -49,13 +51,13 @@ class DeathScreen : GameObject
         {
             if (_mainMenuButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                toMainMenu();
-                hideMenu();
+                _game.SwitchRoom("Arkanoid");
+                //toMainMenu();
+                //hideMenu();
                 _backgroundMusicChannel.Stop();
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                MainGame _game = game as MainGame;
                 _game.SwitchRoom("Main");
                 _backgroundMusicChannel.Stop();
 

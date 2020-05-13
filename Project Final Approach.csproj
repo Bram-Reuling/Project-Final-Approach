@@ -81,8 +81,8 @@
     <Compile Include="Games\Arkanoid\Items\PowerUpHealth.cs" />
     <Compile Include="Games\Arkanoid\Items\PowerUpLarge.cs" />
     <Compile Include="Games\Arkanoid\Misc\TrailBall.cs" />
-    <Compile Include="Games\Arkanoid\Screens\DeathScreen.cs" />
-    <Compile Include="Games\Arkanoid\Screens\LevelScreen.cs" />
+    <Compile Include="Games\Arkanoid\Screens\ArkanoidDeathScreen.cs" />
+    <Compile Include="Games\Arkanoid\Screens\ArkanoidLevelScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\MainMenuScreenArkanoid.cs" />
     <Compile Include="Games\Road Racer\Items\Obstacles.cs" />
     <Compile Include="Games\Road Racer\Items\PlayerRoadRacer.cs" />

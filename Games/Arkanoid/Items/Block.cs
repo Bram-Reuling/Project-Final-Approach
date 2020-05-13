@@ -9,7 +9,7 @@ class Block : AnimationSprite
 {
 
     private int _blockHealth;
-    private LevelScreen _level;
+    private ArkanoidLevelScreen _level;
     private PlayerArkanoid _player;
 
     private bool _canBlockBeDestroyed;
@@ -18,7 +18,7 @@ class Block : AnimationSprite
     private Sound _destroyableBlockSound;
     private SoundChannel _destroyableBlockChannel;
 
-    public Block(LevelScreen _levelInst, TiledObject _obj, PlayerArkanoid _playerInst) : base("ArkanoidSprites/Breakout-006-A.png", 5, 5)
+    public Block(ArkanoidLevelScreen _levelInst, TiledObject _obj, PlayerArkanoid _playerInst) : base("ArkanoidSprites/Breakout-006-A.png", 5, 5)
     {
         SetXY(_obj.X, _obj.Y);
         _blockHealth = _obj.GetIntProperty("health");

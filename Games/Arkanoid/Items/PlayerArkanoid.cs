@@ -10,12 +10,12 @@ class PlayerArkanoid : Sprite
     public int score;
     private int _lives;
 
-    private LevelScreen _level;
+    private ArkanoidLevelScreen _level;
 
     private Sound _playerHitSound;
     private SoundChannel _playerHitChannel;
 
-    public PlayerArkanoid(TiledObject _obj, LevelScreen _levelInst) : base("ArkanoidSprites/paddle.png")
+    public PlayerArkanoid(TiledObject _obj, ArkanoidLevelScreen _levelInst) : base("ArkanoidSprites/paddle.png")
     {
         this.scale = 0.2f;
         SetXY(_obj.X, _obj.Y);
