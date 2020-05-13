@@ -12,6 +12,7 @@ class MainHub : Hub
 	ConversationBox _c;
 	MainGame _game;
 	TicketDisplay _tickets;
+	Clock _clock;
 
 	public MainHub(MainGame tempGame) : base("Sprites/MainHub.png", 32, 24, "Sprites/MainHub.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
@@ -25,8 +26,12 @@ class MainHub : Hub
 
 		_game = tempGame;
 		_displayTut = _game._displayTutorial;
+
 		_tickets = new TicketDisplay(_game);
 		AddChild(_tickets);
+
+		_clock = new Clock();
+		AddChild(_clock);
 
 		if (_displayTut)
 		{
