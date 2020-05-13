@@ -91,10 +91,11 @@ public class Player : AnimationSprite
 
         _hub._aArkanoid.visible = false;
         _hub._aRoadRacer.visible = false;
+        _hub._dance.visible = false;
 
         danceAnim();
 
-        Console.WriteLine(currentFrame);
+        //Console.WriteLine(currentFrame);
     }
 
     private void danceAnim()
@@ -312,6 +313,11 @@ public class Player : AnimationSprite
             if (activity == "Race")
             {
                 _hub._aRoadRacer.visible = true;
+            }
+
+            if (activity == "Dance")
+            {
+                _hub._dance.visible = true;
             }
 
             if (Input.GetKey('E'))

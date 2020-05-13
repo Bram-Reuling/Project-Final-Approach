@@ -8,8 +8,11 @@ class Obstacles : GameObject
 
 	Random rnd = new Random();
 
-	public Obstacles()
+	MainGame _game;
+
+	public Obstacles(MainGame tempGame)
 	{
+		_game = tempGame;
 		TimerForTickets();
 		TimerForOtherCars();
 	}
@@ -53,7 +56,7 @@ class Obstacles : GameObject
 	{
 		int lane = rnd.Next(4);
 		Console.WriteLine(lane);
-		_obOne = new TicketsRoadRacer();
+		_obOne = new TicketsRoadRacer(_game);
 
 		if (lane == 1)
 		{
@@ -82,6 +85,15 @@ class Obstacles : GameObject
 			{
 				_obOne.LateDestroy();
 				_obOne = null;
+			}
+		}
+
+		if (_opCar != null)
+		{
+			if (_opCar.y >= game.height)
+			{
+				_opCar.LateDestroy();
+				_opCar = null;
 			}
 		}
 	}

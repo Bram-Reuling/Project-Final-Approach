@@ -153,6 +153,8 @@ public class MainGame : Game
             case "RDeath":
                 LoadRoadRacerDeathScreen();
                 break;
+            case "Dance":
+                break;
             default:
                 LoadMenu();
                 break;

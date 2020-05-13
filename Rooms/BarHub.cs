@@ -12,6 +12,8 @@ public class BarHub : Hub
 
 	DJ _dj;
 	BarMan _barMan;
+	DevilNPC _devil;
+	CatManNPC _cat;
 
 	public BarHub(MainGame tempGame) : base("Sprites/Bar.png", 32, 24, "Sprites/Bar.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
@@ -38,5 +40,11 @@ public class BarHub : Hub
 
 		_barMan = new BarMan();
 		LateAddChild(_barMan);
+
+		_devil = new DevilNPC();
+		LateAddChild(_devil);
+
+		_cat = new CatManNPC();
+		LateAddChild(_cat);
 	}
 }

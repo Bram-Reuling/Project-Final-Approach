@@ -4,11 +4,13 @@ using GXPEngine;
 class TicketsRoadRacer : Sprite
 {
 
+	MainGame _game;
 
-	public TicketsRoadRacer() : base("circle.png")
+	public TicketsRoadRacer(MainGame tempGame) : base("Sprites/Ticket.png")
 	{
 		SetOrigin(width / 2, height / 2);
 		scale = 0.5f;
+		_game = tempGame;
 	}
 
 	void Update()
@@ -20,6 +22,7 @@ class TicketsRoadRacer : Sprite
 	{
 		if (other is PlayerRoadRacer)
 		{
+			_game.AddTickets(5);
 			LateDestroy();
 		}
 	}

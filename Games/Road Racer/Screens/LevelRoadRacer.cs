@@ -24,7 +24,7 @@ class LevelRoadRacer : GameObject
 		Map _levelData = MapParser.ReadMap(_fileName);
 		spawnRoad(_levelData);
 
-		_obst = new Obstacles();
+		_obst = new Obstacles(tempGame);
 		_obst.SetXY(game.width / 2, 0);
 		AddChild(_obst);
 

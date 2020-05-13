@@ -136,11 +136,14 @@
     <Compile Include="MainGame.cs" />
     <Compile Include="MainMenu.cs" />
     <Compile Include="Objects\BarMan.cs" />
+    <Compile Include="Objects\CatManNPC.cs" />
     <Compile Include="Objects\Clock.cs" />
     <Compile Include="Objects\ClockText.cs" />
+    <Compile Include="Objects\DevilNPC.cs" />
     <Compile Include="Objects\DJ.cs" />
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Objects\Shop.cs" />
+    <Compile Include="Objects\ShopKeeper.cs" />
     <Compile Include="Objects\TicketDisplay.cs" />
     <Compile Include="Objects\TicketText.cs" />
     <Compile Include="Other\ActivityTile.cs" />

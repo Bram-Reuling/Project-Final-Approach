@@ -13,6 +13,7 @@ class MainHub : Hub
 	MainGame _game;
 	TicketDisplay _tickets;
 	Clock _clock;
+	ShopKeeper _shopKeeper;
 
 	Shop _shop;
 
@@ -45,6 +46,9 @@ class MainHub : Hub
 
 		//_shop = new Shop();
 		//AddChild(_shop);
+
+		_shopKeeper = new ShopKeeper();
+		AddChild(_shopKeeper);
 	}
 
 	public void DeleteTut()

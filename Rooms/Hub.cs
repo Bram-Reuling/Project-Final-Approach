@@ -29,6 +29,7 @@ public class Hub : GameObject
 
 	public ActivityBox _aArkanoid;
 	public ActivityBox _aRoadRacer;
+	public ActivityBox _dance;
 
 	Player _player;
 
@@ -156,6 +157,10 @@ public class Hub : GameObject
 		_aRoadRacer = new ActivityBox("Text/RoadRacer.txt");
 		AddChild(_aRoadRacer);
 		_aRoadRacer.visible = false;
+
+		_dance = new ActivityBox("Text/Dance.txt");
+		AddChild(_dance);
+		_dance.visible = false;
 	}
 
 	//------------------------------------------------------------------------------------------------------------------------
