@@ -36,5 +36,8 @@ class MainMenu : GameObject
 		}
 
 		_quit.ExitMode();
+
+		_start.BrighterOnHover();
+		_quit.BrighterOnHover();
 	}
 }

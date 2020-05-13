@@ -42,6 +42,8 @@ class MainMenuRoadRacer : GameObject
     void Update()
     {
         mouseInputButtons();
+        _startButton.BrighterOnHover();
+        _quitButton.BrighterOnHover();
     }
 
     private void mouseInputButtons()

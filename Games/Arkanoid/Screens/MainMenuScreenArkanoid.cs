@@ -47,6 +47,8 @@ class MainMenuScreenArkanoid : GameObject
     void Update()
     {
         mouseInputButtons();
+        _startButton.BrighterOnHover();
+        _quitButton.BrighterOnHover();
     }
 
     // Checks for a mouse button press on the button

@@ -10,7 +10,6 @@ class ImageButton : AnimationSprite
 
     void Update()
     {
-        BrighterOnHover();
     }
 
     public void BrighterOnHover()
@@ -22,6 +21,18 @@ class ImageButton : AnimationSprite
         else
         {
             SetFrame(0);
+        }
+    }
+
+    public void BrighterOnHoverOther()
+    {
+        if (HitTestPoint(Input.mouseX, Input.mouseY))
+        {
+            SetFrame(0);
+        }
+        else
+        {
+            SetFrame(1);
         }
     }
 
