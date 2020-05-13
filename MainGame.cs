@@ -1,6 +1,7 @@
 using System;
 using GXPEngine;
 using System.Drawing;
+using System.IO;
 using System.Collections.Generic;
 
 public class MainGame : Game
@@ -23,12 +24,51 @@ public class MainGame : Game
 
     MainMenu _mainMenu;
 
+    StreamReader reader;
+    List<string> _textLines;
+
+    int tickets;
+
     public MainGame() : base(1024, 768, false, true)
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
+
+        ReadSettingsFile();
+
         // Start of the game
-        _displayTutorial = true;
         SwitchRoom("");
+    }
+
+    private void ReadSettingsFile()
+    {
+        reader = File.OpenText("Text/Settings.txt");
+        _textLines = new List<string>();
+        string line;
+
+        while ((line = reader.ReadLine()) != null)
+        {
+            string[] items = line.Split('\n');
+
+            foreach (string item in items)
+            {
+                if (item.StartsWith("DisplayTutorial = "))
+                {
+                    string newString = item.Substring(18);
+                    Console.WriteLine(newString);
+                    _displayTutorial = Convert.ToBoolean(newString);
+                }
+
+                if (item.StartsWith("Tickets = "))
+                {
+                    string newString = item.Substring(10);
+                    Console.WriteLine(newString);
+
+                    tickets = Int32.Parse(newString);
+                }
+            }
+        }
+
+        reader.Close();
     }
 
     //------------------------------------------------------------------------------------------------------------------------
