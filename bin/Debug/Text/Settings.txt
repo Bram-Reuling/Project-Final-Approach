@@ -1,2 +1,2 @@
 DisplayTutorial = false
-Tickets = 99750
+Tickets = 99650

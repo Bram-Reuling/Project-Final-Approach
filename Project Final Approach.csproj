@@ -135,6 +135,8 @@
     <Compile Include="GXPEngine\Vec2.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="MainMenu.cs" />
+    <Compile Include="Objects\Clock.cs" />
+    <Compile Include="Objects\ClockText.cs" />
     <Compile Include="Objects\Player.cs" />
     <Compile Include="Objects\TicketDisplay.cs" />
     <Compile Include="Objects\TicketText.cs" />

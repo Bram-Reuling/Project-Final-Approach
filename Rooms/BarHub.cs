@@ -8,6 +8,7 @@ public class BarHub : Hub
 
 	MainGame _game;
 	TicketDisplay _tickets;
+	Clock _clock;
 
 	public BarHub(MainGame tempGame) : base("Sprites/Bar.png", 32, 24, "Sprites/Bar.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
@@ -25,5 +26,8 @@ public class BarHub : Hub
 
 		_tickets = new TicketDisplay(_game);
 		AddChild(_tickets);
+
+		_clock = new Clock();
+		AddChild(_clock);
 	}
 }
