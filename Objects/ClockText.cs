@@ -5,11 +5,10 @@ using System.Drawing.Text;
 
 public class ClockText : Canvas
 {
-	private StringFormat _stringFormatCenter;
-	private Font _font;
-	private string _text;
+	readonly private StringFormat _stringFormatCenter;
+	readonly private Font _font;
 
-	PrivateFontCollection pfc = new PrivateFontCollection();
+	readonly private PrivateFontCollection pfc = new PrivateFontCollection();
 
 	public ClockText(int tempWidth, int tempHeight) : base(tempWidth, tempHeight)
 	{
@@ -19,11 +18,11 @@ public class ClockText : Canvas
 
 		_font = new Font(pfc.Families[0], 25, FontStyle.Regular);
 
-		_text = "Null";
-
-		_stringFormatCenter = new StringFormat();
-		_stringFormatCenter.Alignment = StringAlignment.Center;
-		_stringFormatCenter.LineAlignment = StringAlignment.Center;
+		_stringFormatCenter = new StringFormat
+		{
+			Alignment = StringAlignment.Center,
+			LineAlignment = StringAlignment.Center
+		};
 	}
 
 	void Update()

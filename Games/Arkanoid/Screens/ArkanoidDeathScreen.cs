@@ -4,35 +4,35 @@ using GXPEngine;
 
 class ArkanoidDeathScreen : GameObject
 {
-    private ImageButton _mainMenuButton;
-    private ImageButton _quitButton;
+    readonly private ImageButton _mainMenuButton;
+    readonly private ImageButton _quitButton;
+    readonly private MainGame _game;
 
-    private MainMenuScreenArkanoid _mainMenu;
-    MainGame _game;
+    readonly private DeathText _deathText;
 
-    private DeathText _deathText;
-
-    private bool _isMainMenuLoaded;
-
-    private SoundChannel _backgroundMusicChannel;
+    readonly private SoundChannel _backgroundMusicChannel;
 
     public ArkanoidDeathScreen(MainGame tempGame) : base()
     {
         _game = tempGame;
-        _mainMenuButton = new ImageButton("Arkanoid Buttons/Menu.png", 2, 1);
-        _mainMenuButton.scale = 0.6f;
+        _mainMenuButton = new ImageButton("Arkanoid Buttons/Menu.png", 2, 1)
+        {
+            scale = 0.6f
+        };
+
         _mainMenuButton.SetXY(game.width / 2, game.height / 2 - 50);
         AddChild(_mainMenuButton);
 
-        _quitButton = new ImageButton("Arkanoid Buttons/Exit.png", 2, 1);
-        _quitButton.scale = 0.6f;
+        _quitButton = new ImageButton("Arkanoid Buttons/Exit.png", 2, 1)
+        {
+            scale = 0.6f
+        };
+
         _quitButton.SetXY(game.width / 2, game.height / 2 + 50);
         AddChild(_quitButton);
 
         _deathText = new DeathText(game.width / 2, game.height / 2 - 150, _game.ticketsReceived);
         AddChild(_deathText);
-
-        _isMainMenuLoaded = false;
 
         Sound backgroundMusic = new Sound("ArkanoidSounds/EndLmao.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
@@ -41,13 +41,13 @@ class ArkanoidDeathScreen : GameObject
 
     void Update()
     {
-        mouseInputButtons();
+        MouseInputButtons();
         _mainMenuButton.BrighterOnHover();
         _quitButton.BrighterOnHover();
     }
 
     // Checks for mouse input for the buttons.
-    private void mouseInputButtons()
+    private void MouseInputButtons()
     {
         if (Input.GetMouseButtonDown(0))
         {

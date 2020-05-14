@@ -21,12 +21,11 @@ public class MainGame : Game
 
     private SoundChannel _backgroundMusicChannel;
 
-    public bool _displayTutorial { get; set; }
+    public bool DisplayTutorial { get; set; }
 
     MainMenu _mainMenu;
 
     StreamReader reader;
-    List<string> _textLines;
 
     public int tickets;
     public int ticketsReceived;
@@ -37,7 +36,7 @@ public class MainGame : Game
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
 
         ReadSettingsFile();
-        ticketCheck(tickets);
+        TicketCheck(tickets);
         ticketsReceived = 0;
         // Start of the game
         SwitchRoom("");
@@ -47,9 +46,9 @@ public class MainGame : Game
     {
         int newTickets = tickets + numberOfTickets;
 
-        ticketCheck(newTickets);
+        TicketCheck(newTickets);
 
-        lineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
+        LineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
 
         ReadSettingsFile();
     }
@@ -58,14 +57,14 @@ public class MainGame : Game
     {
         int newTickets = tickets - numberOfTickets;
 
-        ticketCheck(newTickets);
+        TicketCheck(newTickets);
 
-        lineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
+        LineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
 
         ReadSettingsFile();
     }
 
-    private void ticketCheck(int tempTickets)
+    private void TicketCheck(int tempTickets)
     {
         if (tempTickets > 0)
         {
@@ -77,7 +76,7 @@ public class MainGame : Game
         }
     }
 
-    static void lineChanger(string newText, string fileName, int line_to_edit)
+    static void LineChanger(string newText, string fileName, int line_to_edit)
     {
         string[] arrLine = File.ReadAllLines(fileName);
         arrLine[line_to_edit - 1] = newText;
@@ -87,7 +86,6 @@ public class MainGame : Game
     private void ReadSettingsFile()
     {
         reader = File.OpenText("Text/Settings.txt");
-        _textLines = new List<string>();
         string line;
 
         while ((line = reader.ReadLine()) != null)
@@ -100,7 +98,7 @@ public class MainGame : Game
                 {
                     string newString = item.Substring(18);
                     Console.WriteLine(newString);
-                    _displayTutorial = Convert.ToBoolean(newString);
+                    DisplayTutorial = Convert.ToBoolean(newString);
                 }
 
                 if (item.StartsWith("Tickets = "))

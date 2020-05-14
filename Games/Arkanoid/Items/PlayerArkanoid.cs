@@ -5,19 +5,17 @@ using GXPEngine;
 
 class PlayerArkanoid : Sprite
 {
-    private int _moveSpeedPlayer;
+    readonly private int _moveSpeedPlayer;
 
     public int score;
     private int _lives;
 
-    private ArkanoidLevelScreen _level;
+    readonly private ArkanoidLevelScreen _level;
 
-    private Sound _playerHitSound;
+    readonly private Sound _playerHitSound;
     private SoundChannel _playerHitChannel;
 
-    MainGame _game;
-
-    public int _ticketsReceived;
+    readonly MainGame _game;
 
     public PlayerArkanoid(TiledObject _obj, ArkanoidLevelScreen _levelInst, MainGame tempGame) : base("ArkanoidSprites/paddle.png")
     {
@@ -39,11 +37,11 @@ class PlayerArkanoid : Sprite
 
     void Update()
     {
-        livesCheck();
-        playerMove();
+        LivesCheck();
+        PlayerMove();
     }
 
-    private void playerMove()
+    private void PlayerMove()
     {
         //Movement of Player
 
@@ -71,7 +69,7 @@ class PlayerArkanoid : Sprite
         }
     }
 
-    private void livesCheck()
+    private void LivesCheck()
     {
         if (_lives == 0)
         {
@@ -116,7 +114,7 @@ class PlayerArkanoid : Sprite
 
             // Timer
 
-            LateAddChild(new Timer(10000, timerOver));
+            LateAddChild(new Timer(10000, TimerOver));
         } 
         else if (other is PowerUpHealth)
         {
@@ -130,7 +128,7 @@ class PlayerArkanoid : Sprite
         }
     }
 
-    private void timerOver()
+    private void TimerOver()
     {
         this.scaleX = 0.2f;
     }

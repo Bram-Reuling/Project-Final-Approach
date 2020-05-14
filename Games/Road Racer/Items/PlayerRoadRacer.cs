@@ -8,11 +8,9 @@ class PlayerRoadRacer : AnimationSprite
 	private bool _keyIsPressed;
     private int _leftrightcount=0;
 
-	private LevelRoadRacer _level;
+	readonly private LevelRoadRacer _level;
 
-	public int _ticketsReceived;
-
-	MainGame _game;
+	readonly MainGame _game;
 
 	public PlayerRoadRacer(LevelRoadRacer _levelInst, MainGame tempGame) : base("RoadRacerSprites/Car.png", 4, 1)
 	{

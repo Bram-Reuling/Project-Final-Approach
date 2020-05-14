@@ -4,16 +4,13 @@ using GXPEngine;
 
 class MainMenuRoadRacer : GameObject
 {
-    private ImageButton _startButton;
-    private ImageButton _quitButton;
-    private Logo _roadRaceLogo;
-    private LevelRoadRacer _level;
+    readonly private ImageButton _startButton;
+    readonly private ImageButton _quitButton;
+    readonly private Logo _roadRaceLogo;
 
-    private Overlay _overlay;
+    readonly private Overlay _overlay;
 
-    private bool _isLevelLoaded;
-
-    MainGame _game;
+    readonly MainGame _game;
 
     public MainMenuRoadRacer(MainGame game) : base()
     {
@@ -21,32 +18,36 @@ class MainMenuRoadRacer : GameObject
         _roadRaceLogo = new Logo(game.width / 2, game.height / 2, "RoadRacerSprites/logo.png");
         AddChild(_roadRaceLogo);
 
-        _startButton = new ImageButton("Road Racer Buttons/Start.png", 2, 1);
-        _startButton.scale = 0.6f;
+        _startButton = new ImageButton("Road Racer Buttons/Start.png", 2, 1)
+        {
+            scale = 0.6f
+        };
+
         _startButton.SetXY(game.width / 2, game.height / 2 - 50);
         AddChild(_startButton);
 
-        _quitButton = new ImageButton("Road Racer Buttons/Exit.png", 2, 1);
-        _quitButton.scale = 0.6f;
+        _quitButton = new ImageButton("Road Racer Buttons/Exit.png", 2, 1)
+        {
+            scale = 0.6f
+        };
+
         _quitButton.SetXY(game.width / 2, game.height / 2 + 50);
         AddChild(_quitButton);
 
         _overlay = new Overlay();
         AddChild(_overlay);
 
-        _isLevelLoaded = false;
-
         _game = game;
     }
 
     void Update()
     {
-        mouseInputButtons();
+        MouseInputButtons();
         _startButton.BrighterOnHover();
         _quitButton.BrighterOnHover();
     }
 
-    private void mouseInputButtons()
+    private void MouseInputButtons()
     {
         if (Input.GetMouseButtonDown(0))
         {

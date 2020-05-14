@@ -6,9 +6,9 @@ class Obstacles : GameObject
 	TicketsRoadRacer _obOne;
 	OpponentCars _opCar;
 
-	Random rnd = new Random();
+	readonly Random rnd = new Random();
 
-	MainGame _game;
+	readonly MainGame _game;
 
 	public Obstacles(MainGame tempGame)
 	{

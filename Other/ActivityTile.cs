@@ -11,9 +11,7 @@ namespace GXPEngine
 
         public string Activity { get; set; }
 
-        private readonly MainGame _game;
-
-        public ActivityTile(string filename, int cols, int rows, TiledObject obj, MainGame tempGame) : base(filename, cols, rows)
+        public ActivityTile(string filename, int cols, int rows, TiledObject obj) : base(filename, cols, rows)
         {
             width = (int)obj.Width;
             height = (int)obj.Height;

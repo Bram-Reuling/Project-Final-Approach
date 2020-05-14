@@ -4,10 +4,10 @@ using GXPEngine;
 class MainMenu : GameObject
 {
 
-	Logo _logoThing;
-	ImageButton _start;
-	ImageButton _quit;
-	MainGame _game;
+	readonly private Logo _logoThing;
+	readonly private ImageButton _start;
+	readonly private ImageButton _quit;
+	readonly private MainGame _game;
 
 	public MainMenu(MainGame gameTemp)
 	{

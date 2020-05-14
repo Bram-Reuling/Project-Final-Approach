@@ -6,21 +6,21 @@ public class Hub : GameObject
 {
 
 	// Tileset files
-	private string _bgSpriteSheet { get; set; }
-	private string _colSpriteSheet { get; set; }
-	private string _objSpriteSheet { get; set; }
+	private string BgSpriteSheet { get; set; }
+	private string ColSpriteSheet { get; set; }
+	private string ObjSpriteSheet { get; set; }
 
 	// Tileset rows and cols
-	private int _bgCols { get; set; }
-	private int _bgRows { get; set; }
+	private int BgCols { get; set; }
+	private int BgRows { get; set; }
 	
-	private int _colCols { get; set; }
-	private int _colRows { get; set; }
+	private int ColCols { get; set; }
+	private int ColRows { get; set; }
 
-	private int _objCols { get; set; }
-	private int _objRows { get; set; }
+	private int ObjCols { get; set; }
+	private int ObjRows { get; set; }
 
-	MainGame _game { get; set; }
+	MainGame Game { get; set; }
 
 	BackgroundTile bgTile;
 	CollisionTile cTile;
@@ -39,20 +39,20 @@ public class Hub : GameObject
 
 	public Hub(string bgSpriteSheet, int bgCols, int bgRows, string colSpriteSheet, int colCols, int colRows, string objSpriteSheet, int objCols, int objRows, MainGame tempGame)
 	{
-		_bgSpriteSheet = bgSpriteSheet;
-		_colSpriteSheet = colSpriteSheet;
-		_objSpriteSheet = objSpriteSheet;
+		BgSpriteSheet = bgSpriteSheet;
+		ColSpriteSheet = colSpriteSheet;
+		ObjSpriteSheet = objSpriteSheet;
 
-		_bgCols = bgCols;
-		_bgRows = bgRows;
+		BgCols = bgCols;
+		BgRows = bgRows;
 
-		_colCols = colCols;
-		_colRows = colRows;
+		ColCols = colCols;
+		ColRows = colRows;
 
-		_objCols = objCols;
-		_objRows = objRows;
+		ObjCols = objCols;
+		ObjRows = objRows;
 
-		_game = tempGame;
+		Game = tempGame;
 	}
 
 	//------------------------------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ public class Hub : GameObject
 				int tileNumber = tileNumbers[col, row];
 				if (tileNumber > 0)
 				{
-					bgTile = new BackgroundTile(_bgSpriteSheet, _bgCols, _bgRows);
+					bgTile = new BackgroundTile(BgSpriteSheet, BgCols, BgRows);
 					if (mainHub)
 					{
 						bgTile.SetFrame(tileNumber - 4);
@@ -113,7 +113,7 @@ public class Hub : GameObject
 				int tileNumber = tileNumbers[col, row];
 				if (tileNumber > 0)
 				{
-					cTile = new CollisionTile(_colSpriteSheet, _colCols, _colRows);
+					cTile = new CollisionTile(ColSpriteSheet, ColCols, ColRows);
 					cTile.SetFrame(tileNumber - 1);
 					cTile.x = col * cTile.width + cTile.width / 2;
 					cTile.y = row * cTile.height + cTile.height / 2;
@@ -144,7 +144,7 @@ public class Hub : GameObject
 				int tileNumber = tileNumbers[col, row];
 				if (tileNumber > 0)
 				{
-					bgTile = new BackgroundTile(_bgSpriteSheet, _bgCols, _bgRows);
+					bgTile = new BackgroundTile(BgSpriteSheet, BgCols, BgRows);
 					bgTile.SetFrame(tileNumber - 4);
 					bgTile.x = col * bgTile.width + bgTile.width / 2;
 					bgTile.y = row * bgTile.height + bgTile.height / 2;
@@ -195,18 +195,18 @@ public class Hub : GameObject
 			switch (obj.Name)
 			{
 				case "Door":
-					_door = new DoorTile(_objSpriteSheet, _objCols, _objRows, obj);
+					_door = new DoorTile(ObjSpriteSheet, ObjCols, ObjRows, obj);
 					_door.SetFrame(obj.GetIntProperty("Type") - 1);
 					_door.x = obj.X + _door.width / 2;
 					_door.y = obj.Y - _door.height / 2;
 					AddChild(_door);
 					break;
 				case "Player":
-					_player = new Player(obj.X, obj.Y, _game, this);
+					_player = new Player(obj.X, obj.Y, Game, this);
 					AddChild(_player);
 					break;
 				case "Activity":
-					_activity = new ActivityTile(_objSpriteSheet, _objCols, _objRows, obj, _game);
+					_activity = new ActivityTile(ObjSpriteSheet, ObjCols, ObjRows, obj);
 					_activity.SetFrame(obj.GetIntProperty("Type") - 1);
 					_activity.x = obj.X + _activity.width;
 					_activity.y = obj.Y + _activity.height;

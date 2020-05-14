@@ -44,7 +44,7 @@ public class Player : AnimationSprite
     private readonly MainGame _game;
 
     private bool _activityIsLoading;
-    Hub _hub;
+    readonly private Hub _hub;
 
     public Player(float x, float y, MainGame tempGame, Hub _tempHub) : base("Sprites/Packy.png", 6, 18)
     {
@@ -96,10 +96,10 @@ public class Player : AnimationSprite
         _hub._barBox.visible = false;
         _hub._noTickets.visible = false;
 
-        danceAnim();
+        DanceAnim();
     }
 
-    private void danceAnim()
+    private void DanceAnim()
     {
         if (Input.GetKey(Key.R) && _dance == false)
         {
@@ -280,7 +280,7 @@ public class Player : AnimationSprite
     {
         collisionTile(_other);
         collisionDoor(_other);
-        collisionActivity(_other);
+        CollisionActivity(_other);
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -298,7 +298,7 @@ public class Player : AnimationSprite
     //------------------------------------------------------------------------------------------------------------------------
     //														collisionActivity()
     //------------------------------------------------------------------------------------------------------------------------
-    private void collisionActivity(GameObject other)
+    private void CollisionActivity(GameObject other)
     {
         if (other is ActivityTile)
         {

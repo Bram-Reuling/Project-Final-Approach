@@ -9,46 +9,38 @@ class Block : AnimationSprite
 {
 
     private int _blockHealth;
-    private ArkanoidLevelScreen _level;
-    private PlayerArkanoid _player;
+    readonly private ArkanoidLevelScreen _level;
 
-    private bool _canBlockBeDestroyed;
-    private int _points;
+    readonly private bool _canBlockBeDestroyed;
 
-    private Sound _destroyableBlockSound;
+    readonly private Sound _destroyableBlockSound;
     private SoundChannel _destroyableBlockChannel;
 
-    public Block(ArkanoidLevelScreen _levelInst, TiledObject _obj, PlayerArkanoid _playerInst) : base("ArkanoidSprites/Breakout-006-A.png", 5, 5)
+    public Block(ArkanoidLevelScreen _levelInst, TiledObject _obj) : base("ArkanoidSprites/Breakout-006-A.png", 5, 5)
     {
         SetXY(_obj.X, _obj.Y);
         _blockHealth = _obj.GetIntProperty("health");
 
         _level = _levelInst;
-        _player = _playerInst;
-
-        Console.WriteLine(_playerInst);
 
         _canBlockBeDestroyed = _obj.GetBoolProperty("canBeDestroyed");
         SetFrame(_obj.GetIntProperty("type"));
-        _points = _obj.GetIntProperty("points");
-
-        _level.TotalScore(_points);
 
         _destroyableBlockSound = new Sound("ArkanoidSounds/BallHitBox.mp3");
     }
 
     void Update()
     {
-        blockHealthCheck();
+        BlockHealthCheck();
     }
 
-    private void blockHealthCheck()
+    private void BlockHealthCheck()
     {
         if (_blockHealth == 0)
         {
             //_player.score += _points;
 
-            destroyBlock();
+            DestroyBlock();
         }
     }
 
@@ -62,15 +54,15 @@ class Block : AnimationSprite
         }
     }
 
-    private void destroyBlock()
+    private void DestroyBlock()
     {
         _level._blocks.Remove(this);
-        generatePowerUp();
+        GeneratePowerUp();
 
         this.LateDestroy();
     }
 
-    private void generatePowerUp()
+    private void GeneratePowerUp()
     {
         var _rnd = new Random();
 
