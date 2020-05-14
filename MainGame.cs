@@ -131,40 +131,31 @@ public class MainGame : Game
         {
             case "Main":
                 LoadMain();
-                GC.Collect(2);
                 break;
             case "Bar":
                 LoadBar();
-                GC.Collect(2);
                 break;
             case "Arkanoid":
                 LoadArkanoidMenu();
-                GC.Collect(2);
                 break;
             case "ALevelOne":
                 LoadArkanoidLevelOne();
-                GC.Collect(2);
                 break;
             case "ADeath":
                 LoadArkanoidDeathScreen();
-                GC.Collect(2);
                 break;
             case "Race":
                 LoadRoadRaceMenu();
-                GC.Collect(2);
                 break;
             case "RLevel":
                 LoadRoadRacerLevel();
-                GC.Collect(2);
                 break;
             case "RDeath":
                 LoadRoadRacerDeathScreen();
-                GC.Collect(2);
                 break;
             case "Dance":
                 break;
             case "OpenShop":
-                //Console.WriteLine("YES");
                 OpenShop();
                 break;
             case "CloseShop":
@@ -172,7 +163,6 @@ public class MainGame : Game
                 break;
             default:
                 LoadMenu();
-                GC.Collect(2);
                 break;
         }
     }

@@ -142,7 +142,8 @@
     <Compile Include="Objects\DevilNPC.cs" />
     <Compile Include="Objects\DJ.cs" />
     <Compile Include="Objects\Player.cs" />
-    <Compile Include="Objects\Shop.cs" />
+    <Compile Include="ShopItems\ItemText.cs" />
+    <Compile Include="ShopItems\Shop.cs" />
     <Compile Include="Objects\ShopKeeper.cs" />
     <Compile Include="Objects\TicketDisplay.cs" />
     <Compile Include="Objects\TicketText.cs" />
@@ -161,6 +162,7 @@
     <Compile Include="Rooms\BarHub.cs" />
     <Compile Include="Rooms\Hub.cs" />
     <Compile Include="Rooms\MainHub.cs" />
+    <Compile Include="ShopItems\ShopItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">

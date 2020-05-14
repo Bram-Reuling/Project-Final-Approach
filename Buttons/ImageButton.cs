@@ -3,13 +3,26 @@ using GXPEngine;
 
 class ImageButton : AnimationSprite
 {
+
+    string _productImg;
+    string _productText;
+
 	public ImageButton(string filename, int cols, int rows) : base(filename, cols, rows)
 	{
         SetOrigin(width / 2, height / 2);
 	}
 
+    public ImageButton(string filename, int cols, int rows, string productImg, string productText, Shop tempshop) : base(filename, cols, rows)
+    {
+        SetOrigin(width / 2, height / 2);
+
+        _productImg = productImg;
+        _productText = productText;
+    }
+
     void Update()
     {
+
     }
 
     public void BrighterOnHover()
@@ -24,31 +37,11 @@ class ImageButton : AnimationSprite
         }
     }
 
-    public void BrighterOnHoverOther(string imageFile, string textFile)
+    public void BrighterOnHoverShop()
     {
         if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
             SetFrame(0);
-            if (Input.GetMouseButton(0))
-            {
-                
-            }
-        }
-        else
-        {
-            SetFrame(1);
-        }
-    }
-
-    public void BrighterOnHoverBack()
-    {
-        if (HitTestPoint(Input.mouseX, Input.mouseY))
-        {
-            SetFrame(0);
-            if (Input.GetMouseButton(0))
-            {
-
-            }
         }
         else
         {

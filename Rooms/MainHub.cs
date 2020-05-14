@@ -66,6 +66,7 @@ class MainHub : Hub
 
 	public void CloseShop()
 	{
+		_shop.DestroyShop();
 		_shop.LateDestroy();
 		_shop = null;
 	}
