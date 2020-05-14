@@ -13,6 +13,7 @@ public class MainGame : Game
     MainMenuScreenArkanoid _arkanoid;
     ArkanoidLevelScreen _aLevelOne;
     ArkanoidDeathScreen _aDeathScreen;
+    ArkanoidWinScreen _aWinScreen;
 
     MainMenuRoadRacer _roadRacer;
     LevelRoadRacer _rLevel;
@@ -28,6 +29,7 @@ public class MainGame : Game
     List<string> _textLines;
 
     public int tickets;
+    public int ticketsReceived;
     public bool _sufficientTickets;
 
     public MainGame() : base(1024, 768, false, true)
@@ -36,7 +38,7 @@ public class MainGame : Game
 
         ReadSettingsFile();
         ticketCheck(tickets);
-
+        ticketsReceived = 0;
         // Start of the game
         SwitchRoom("");
     }
@@ -143,6 +145,9 @@ public class MainGame : Game
                 break;
             case "ADeath":
                 LoadArkanoidDeathScreen();
+                break;
+            case "AWin":
+                LoadArkanoidWinScreen();
                 break;
             case "Race":
                 LoadRoadRaceMenu();
@@ -288,6 +293,12 @@ public class MainGame : Game
             _aLevelOne = null;
         }
 
+        if (_aWinScreen != null)
+        {
+            _aWinScreen.LateDestroy();
+            _aWinScreen = null;
+        }
+
         _arkanoid = new MainMenuScreenArkanoid(this);
         LateAddChild(_arkanoid);
         Console.WriteLine("Arkanoid Loaded!");
@@ -318,8 +329,27 @@ public class MainGame : Game
             _aLevelOne = null;
         }
 
+        if (_aWinScreen != null)
+        {
+            _aWinScreen.LateDestroy();
+            _aWinScreen = null;
+        }
+
         _aDeathScreen = new ArkanoidDeathScreen(this);
         LateAddChild(_aDeathScreen);
+    }
+
+    private void LoadArkanoidWinScreen()
+    {
+        GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade - Arkanoid - Win!");
+        if (_aLevelOne != null)
+        {
+            _aLevelOne.LateDestroy();
+            _aLevelOne = null;
+        }
+
+        _aWinScreen = new ArkanoidWinScreen(this);
+        LateAddChild(_aWinScreen);
     }
 
     //------------------------------------------------------------------------------------------------------------------------

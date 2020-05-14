@@ -1,7 +1,7 @@
 ﻿using GXPEngine;
 using TiledMapParser;
 using System;
-using System.Timers;
+using System.Collections.Generic;
 
 class ArkanoidLevelScreen : GameObject
 {
@@ -10,6 +10,8 @@ class ArkanoidLevelScreen : GameObject
     private Block _block;
     private PlayerArkanoid _player;
     private Ball _ball;
+
+    public List<Block> _blocks;
 
     MainGame _game;
 
@@ -24,6 +26,8 @@ class ArkanoidLevelScreen : GameObject
 
     public ArkanoidLevelScreen(string filename, MainGame tempGame) 
     {
+        _game = tempGame;
+        _blocks = new List<Block>();
         Map leveldata = MapParser.ReadMap(filename); // Reads the data of the .tmx file
         spawnObjects(leveldata); // Calls SpawnObjects method to spawn the objects from the .tmx file in the level.
 
@@ -34,8 +38,6 @@ class ArkanoidLevelScreen : GameObject
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 1f;
         _isLevelStarted = false;
-
-        _game = tempGame;
     }
 
     void Update()
@@ -50,6 +52,13 @@ class ArkanoidLevelScreen : GameObject
                 _isLevelStarted = true;
             }
         }
+
+        if (_blocks.Count <= 16)
+        {
+            _game.SwitchRoom("AWin");
+        }
+
+        //Console.WriteLine(_blocks.Count);
     }
 
     private void startLevel()
@@ -91,12 +100,13 @@ class ArkanoidLevelScreen : GameObject
             {
                 case "Player":
                     // Creating the player
-                    _player = new PlayerArkanoid(obj, this);
+                    _player = new PlayerArkanoid(obj, this, _game);
                     //Console.WriteLine(_player);
                     AddChild(_player);
                     break;
                 case "Block":
                     _block = new Block(this, obj, _player);
+                    _blocks.Add(_block);
                     AddChild(_block);
                     break;
                 case "Ball":
@@ -142,7 +152,6 @@ class ArkanoidLevelScreen : GameObject
         if (_player.score >= _maxScore)
         {
             _backgroundMusicChannel.Stop();
-            //_mainMenu.LoadNewLevel(_nextLevel);
         }
     }
 

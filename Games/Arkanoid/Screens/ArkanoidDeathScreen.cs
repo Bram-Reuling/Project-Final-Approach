@@ -18,6 +18,7 @@ class ArkanoidDeathScreen : GameObject
 
     public ArkanoidDeathScreen(MainGame tempGame) : base()
     {
+        _game = tempGame;
         _mainMenuButton = new ImageButton("Arkanoid Buttons/Menu.png", 2, 1);
         _mainMenuButton.scale = 0.6f;
         _mainMenuButton.SetXY(game.width / 2, game.height / 2 - 50);
@@ -28,7 +29,7 @@ class ArkanoidDeathScreen : GameObject
         _quitButton.SetXY(game.width / 2, game.height / 2 + 50);
         AddChild(_quitButton);
 
-        _deathText = new DeathText(game.width / 2, game.height / 2 - 150);
+        _deathText = new DeathText(game.width / 2, game.height / 2 - 150, _game.ticketsReceived);
         AddChild(_deathText);
 
         _isMainMenuLoaded = false;
@@ -36,7 +37,6 @@ class ArkanoidDeathScreen : GameObject
         Sound backgroundMusic = new Sound("ArkanoidSounds/EndLmao.mp3", true, true);
         _backgroundMusicChannel = backgroundMusic.Play();
         _backgroundMusicChannel.Volume = 1f;
-        _game = tempGame;
     }
 
     void Update()

@@ -96,8 +96,6 @@ public class Player : AnimationSprite
         _hub._barBox.visible = false;
 
         danceAnim();
-
-        //Console.WriteLine(currentFrame);
     }
 
     private void danceAnim()

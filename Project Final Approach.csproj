@@ -74,6 +74,7 @@
     <Compile Include="Games\Arkanoid\HUD Items\Lives.cs" />
     <Compile Include="Games\Arkanoid\HUD Items\Logo.cs" />
     <Compile Include="Games\Arkanoid\HUD Items\Score.cs" />
+    <Compile Include="Games\Arkanoid\HUD Items\WinText.cs" />
     <Compile Include="Games\Arkanoid\Items\Ball.cs" />
     <Compile Include="Games\Arkanoid\Items\Block.cs" />
     <Compile Include="Games\Arkanoid\Items\PlayerArkanoid.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="Games\Arkanoid\Misc\TrailBall.cs" />
     <Compile Include="Games\Arkanoid\Screens\ArkanoidDeathScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\ArkanoidLevelScreen.cs" />
+    <Compile Include="Games\Arkanoid\Screens\ArkanoidWinScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\MainMenuScreenArkanoid.cs" />
     <Compile Include="Games\Road Racer\Items\Obstacles.cs" />
     <Compile Include="Games\Road Racer\Items\PlayerRoadRacer.cs" />

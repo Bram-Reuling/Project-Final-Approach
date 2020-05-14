@@ -12,7 +12,7 @@ class LevelRoadRacer : GameObject
 
 	Obstacles _obst;
 
-	private DeathScreenRoad _deathScreen;
+	private SoundChannel _backgroundMusicChannel;
 
 	MainGame _game;
 
@@ -34,6 +34,10 @@ class LevelRoadRacer : GameObject
 		AddChild(_player);
 
 		_game = tempGame;
+
+		Sound backgroundMusic = new Sound("Sounds/RoadRacerSong.mp3", true, true);
+		_backgroundMusicChannel = backgroundMusic.Play();
+		_backgroundMusicChannel.Volume = 1f;
 	}
 
 	void Update()
@@ -70,11 +74,7 @@ class LevelRoadRacer : GameObject
 
 	public void LoadDeathScreen()
 	{
-
+		_backgroundMusicChannel.Stop();
 		_game.SwitchRoom("RDeath");
-		//_deathScreen = new DeathScreenRoad();
-		//game.LateAddChild(_deathScreen);
-
-		//this.LateDestroy();
 	}
 }

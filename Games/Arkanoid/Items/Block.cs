@@ -64,6 +64,7 @@ class Block : AnimationSprite
 
     private void destroyBlock()
     {
+        _level._blocks.Remove(this);
         generatePowerUp();
 
         this.LateDestroy();

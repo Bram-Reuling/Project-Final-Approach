@@ -15,7 +15,11 @@ class PlayerArkanoid : Sprite
     private Sound _playerHitSound;
     private SoundChannel _playerHitChannel;
 
-    public PlayerArkanoid(TiledObject _obj, ArkanoidLevelScreen _levelInst) : base("ArkanoidSprites/paddle.png")
+    MainGame _game;
+
+    public int _ticketsReceived;
+
+    public PlayerArkanoid(TiledObject _obj, ArkanoidLevelScreen _levelInst, MainGame tempGame) : base("ArkanoidSprites/paddle.png")
     {
         this.scale = 0.2f;
         SetXY(_obj.X, _obj.Y);
@@ -28,6 +32,9 @@ class PlayerArkanoid : Sprite
         _level = _levelInst;
 
         _playerHitSound = new Sound("ArkanoidSounds/BallHitPaddle.mp3");
+
+        _game = tempGame;
+        _game.ticketsReceived = 0;
     }
 
     void Update()
@@ -117,6 +124,9 @@ class PlayerArkanoid : Sprite
             {
                 PlusLives();
             }
+
+            _game.AddTickets(10);
+            _game.ticketsReceived += 10;
         }
     }
 

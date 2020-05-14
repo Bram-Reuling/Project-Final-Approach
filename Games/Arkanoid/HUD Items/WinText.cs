@@ -5,13 +5,13 @@ using System.Text;
 using GXPEngine;
 using System.Drawing;
 
-class DeathText : Canvas
+class WinText : Canvas
 {
     private StringFormat _stringFormatCenter;
     private Font _font;
     int _tickets;
 
-    public DeathText(int _xPos, int _yPos, int tickets) : base(500, 500)
+    public WinText(int _xPos, int _yPos, int tickets) : base(500, 500)
     {
         SetOrigin(this.width / 2, this.height / 2);
         SetXY(_xPos, _yPos);
@@ -21,7 +21,6 @@ class DeathText : Canvas
         _stringFormatCenter = new StringFormat();
         _stringFormatCenter.Alignment = StringAlignment.Center;
         _stringFormatCenter.LineAlignment = StringAlignment.Center;
-
         _tickets = tickets;
     }
 
@@ -30,6 +29,6 @@ class DeathText : Canvas
 
         graphics.Clear(Color.Empty);
 
-        graphics.DrawString("GAME  OVER \nTickets Received: " + _tickets, _font, Brushes.White, width / 2, height / 2, _stringFormatCenter);
+        graphics.DrawString("YOU WIN! \nMORE LEVELS COMING SOON! \nTickets Received: " + _tickets, _font, Brushes.White, width / 2, height / 2, _stringFormatCenter);
     }
 }
