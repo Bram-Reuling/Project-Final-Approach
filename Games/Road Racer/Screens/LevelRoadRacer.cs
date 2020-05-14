@@ -30,7 +30,7 @@ class LevelRoadRacer : GameObject
 
 		_overlay = new Overlay();
 		AddChild(_overlay);
-		_player = new PlayerRoadRacer(this);
+		_player = new PlayerRoadRacer(this, tempGame);
 		AddChild(_player);
 
 		_game = tempGame;

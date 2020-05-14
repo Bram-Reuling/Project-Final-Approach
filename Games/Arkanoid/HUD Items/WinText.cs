@@ -11,7 +11,7 @@ class WinText : Canvas
     private Font _font;
     int _tickets;
 
-    public WinText(int _xPos, int _yPos, int tickets) : base(500, 500)
+    public WinText(int _xPos, int _yPos, int tickets) : base(700, 500)
     {
         SetOrigin(this.width / 2, this.height / 2);
         SetXY(_xPos, _yPos);

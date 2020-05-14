@@ -125,8 +125,8 @@ class PlayerArkanoid : Sprite
                 PlusLives();
             }
 
-            _game.AddTickets(10);
-            _game.ticketsReceived += 10;
+            _game.AddTickets(5);
+            _game.ticketsReceived += 5;
         }
     }
 

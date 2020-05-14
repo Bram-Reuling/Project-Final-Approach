@@ -10,13 +10,19 @@ class PlayerRoadRacer : AnimationSprite
 
 	private LevelRoadRacer _level;
 
-	public PlayerRoadRacer(LevelRoadRacer _levelInst) : base("RoadRacerSprites/Car.png", 4, 1)
+	public int _ticketsReceived;
+
+	MainGame _game;
+
+	public PlayerRoadRacer(LevelRoadRacer _levelInst, MainGame tempGame) : base("RoadRacerSprites/Car.png", 4, 1)
 	{
 		SetOrigin(width / 2, height / 2);
 		SetXY(game.width / 2, game.height / 2 + 250);
 		_keyIsPressed = false;
 
 		_level = _levelInst;
+		_game = tempGame;
+		_game.ticketsReceived = 0;
 	}
 
 	void Update()

@@ -23,6 +23,7 @@ class TicketsRoadRacer : Sprite
 		if (other is PlayerRoadRacer)
 		{
 			_game.AddTickets(5);
+			_game.ticketsReceived += 5;
 			LateDestroy();
 		}
 	}
