@@ -29,6 +29,6 @@ public class ClockText : Canvas
 	{
 		graphics.Clear(Color.Empty);
 
-		graphics.DrawString(DateTime.Now.ToString("t"), _font, Brushes.White, width / 2 - 5, height / 2 + 4, _stringFormatCenter);
+		graphics.DrawString(DateTime.Now.ToString("t"), _font, Brushes.White, width / 2, height / 2 + 4, _stringFormatCenter);
 	}
 }

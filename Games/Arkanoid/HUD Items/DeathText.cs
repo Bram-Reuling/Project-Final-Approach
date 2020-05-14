@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 using System.Drawing;
+using System.Drawing.Text;
 
 public class DeathText : Canvas
 {
@@ -11,12 +12,16 @@ public class DeathText : Canvas
     private readonly Font _font;
     private readonly int _tickets;
 
-    public DeathText(int _xPos, int _yPos, int tickets) : base(500, 500)
+    private readonly PrivateFontCollection pfc = new PrivateFontCollection();
+
+    public DeathText(int _xPos, int _yPos, int tickets) : base(700, 500)
     {
         SetOrigin(this.width / 2, this.height / 2);
         SetXY(_xPos, _yPos);
 
-        _font = new Font("Arial", 30, FontStyle.Bold);
+        pfc.AddFontFile("Fonts/ARCADE_N.TTF");
+
+        _font = new Font(pfc.Families[0], 20, FontStyle.Bold);
 
         _stringFormatCenter = new StringFormat
         {
