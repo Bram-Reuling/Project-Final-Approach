@@ -1,1 +1,1 @@
-T: FoodVoucher Desc 8Price: 1 Ticket 8OUT OF STOCK
+T: For food/drinks at local gamebox! 8Price: 250 Ticket 8OUT OF STOCK

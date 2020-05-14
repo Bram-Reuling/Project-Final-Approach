@@ -1,1 +1,1 @@
-T: Juice Desc 8Price: 1 Ticket 8OUT OF STOCK
+T: Fruit juice 8Price: 10 Ticket 8OUT OF STOCK

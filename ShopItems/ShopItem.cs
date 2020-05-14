@@ -40,7 +40,7 @@ class ShopItem : Sprite
 			}
 		}
 
-		_text = new Text(game.width / 2 - 525, game.height / 2 + 30, 450, 150, false, 20);
+		_text = new Text(game.width / 2 - 525, game.height / 2 + 30, 1000, 350, false, 20);
 		LateAddChild(_text);
 	}
 
