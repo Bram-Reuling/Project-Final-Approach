@@ -1,7 +1,7 @@
 ﻿using System;
 using GXPEngine;
 
-public class Shop : Sprite
+public class ShopAndBar : Sprite
 {
 
     ImageButton _costume;
@@ -15,7 +15,7 @@ public class Shop : Sprite
     ImageButton _playstation;
 
     ImageButton _order;
-    ImageButton _back;
+    ImageButton _backShop;
 
     ShopItem _costumeImg;
     ShopItem _giftcardImg;
@@ -27,24 +27,309 @@ public class Shop : Sprite
     ShopItem _xBoxImg;
     ShopItem _playstationImg;
 
+    ImageButton _beer;
+    ImageButton _cubaLibre;
+    ImageButton _juice;
+    ImageButton _margarita;
+    ImageButton _soda;
+    ImageButton _water;
+    ImageButton _wine;
+
+    ShopItem _beerImg;
+    ShopItem _cubaLibreImg;
+    ShopItem _juiceImg;
+    ShopItem _margaritaImg;
+    ShopItem _sodaImg;
+    ShopItem _waterImg;
+    ShopItem _wineImg;
+
+    ImageButton _backBar;
+
     readonly MainGame _game;
 
-    public Shop(MainGame tempGame) : base("Sprites/ShopOverlay.png")
+    bool _isShop;
+
+    public ShopAndBar(MainGame tempGame, bool isShop, string overlay) : base(overlay)
     {
-        LoadInstances();
-        LoadShopImages();
 
-        SetPositions();
-
-        AddToTheGame();
-        AddImgToGame();
-
+        _isShop = isShop;
         _game = tempGame;
 
-        SwitchProduct("Costume");
+        if (_isShop)
+        {
+            LoadInstancesShop();
+            LoadShopImages();
+            SetPositionsShop();
+            AddToTheGameShop();
+            AddImgToGameShop();
+            SwitchProductShop("Costume");
+        }
+
+        if (!_isShop)
+        {
+            LoadInstancesBar();
+            LoadBarImages();
+            SetPositionsBar();
+            AddToTheGameBar();
+            AddImgToGameBar();
+            SwitchProductBar("Beer");
+        }
+
     }
 
-    private void LoadInstances()
+    void Update()
+    {
+        if (_isShop)
+        {
+            CheckForHoverShop();
+            CheckForClickShop();
+        }
+
+        if (!_isShop)
+        {
+            CheckForHoverBar();
+            CheckForClickBar();
+        }
+    }
+
+    private void LoadInstancesBar()
+    {
+        _beer = new ImageButton("Sprites/Beer.png", 2, 1, "ShopItems/Costume.png", "", this);
+        _cubaLibre = new ImageButton("Sprites/CubaLibre.png", 2, 1, "ShopItems/10EuroGift.png", "", this);
+        _juice = new ImageButton("Sprites/Juice.png", 2, 1, "ShopItems/TShirt.png", "", this);
+        _margarita = new ImageButton("Sprites/Margarita.png", 2, 1, "ShopItems/Plushie.png", "", this);
+        _soda = new ImageButton("Sprites/Soda.png", 2, 1, "ShopItems/FoodVoucher.png", "", this);
+        _water = new ImageButton("Sprites/Water.png", 2, 1, "ShopItems/Headphones.png", "", this);
+        _wine = new ImageButton("Sprites/Wine.png", 2, 1, "ShopItems/Switch.png", "", this);
+
+        _order = new ImageButton("Sprites/Order.png", 2, 1);
+        _backBar = new ImageButton("Sprites/Back.png", 2, 1);
+    }
+
+    private void LoadBarImages()
+    {
+        _beerImg = new ShopItem("ShopItems/Beer.png", "ShopDesc/Beer.txt");
+        _cubaLibreImg = new ShopItem("ShopItems/CubaLibre.png", "ShopDesc/CubaLibre.txt");
+        _juiceImg = new ShopItem("ShopItems/Juice.png", "ShopDesc/Juice.txt");
+        _margaritaImg = new ShopItem("ShopItems/Margarita.png", "ShopDesc/Margarita.txt");
+        _sodaImg = new ShopItem("ShopItems/Soda.png", "ShopDesc/Soda.txt");
+        _waterImg = new ShopItem("ShopItems/Water.png", "ShopDesc/Water.txt");
+        _wineImg = new ShopItem("ShopItems/Wine.png", "ShopDesc/Wine.txt");
+    }
+
+    private void SetPositionsBar()
+    {
+        _beer.SetXY(265, 220);
+        _cubaLibre.SetXY(265, 270);
+        _juice.SetXY(265, 320);
+        _margarita.SetXY(265, 370);
+        _soda.SetXY(265, 420);
+        _water.SetXY(265, 470);
+        _wine.SetXY(265, 520);
+
+        _order.SetXY(width - 225, height - 150);
+        _backBar.SetXY(220, 125);
+    }
+
+    private void AddToTheGameBar()
+    {
+        AddChild(_beer);
+        AddChild(_cubaLibre);
+        AddChild(_juice);
+        AddChild(_margarita);
+        AddChild(_soda);
+        AddChild(_water);
+        AddChild(_wine);
+
+        AddChild(_order);
+        AddChild(_backBar);
+    }
+
+    private void AddImgToGameBar()
+    {
+        AddChild(_beerImg);
+        AddChild(_cubaLibreImg);
+        AddChild(_juiceImg);
+        AddChild(_margaritaImg);
+        AddChild(_sodaImg);
+        AddChild(_waterImg);
+        AddChild(_wineImg);
+    }
+
+    public void DestroyBar()
+    {
+        _beer.LateDestroy();
+        _cubaLibre.LateDestroy();
+        _juice.LateDestroy();
+        _margarita.LateDestroy();
+        _soda.LateDestroy();
+        _water.LateDestroy();
+        _wine.LateDestroy();
+    }
+
+    private void SwitchProductBar(string productToSwitchTo)
+    {
+        switch (productToSwitchTo)
+        {
+            default:
+                BeerVisible();
+                break;
+            case "CubaLibre":
+                CubaLibreVisible();
+                break;
+            case "Juice":
+                JuiceVisible();
+                break;
+            case "Margarita":
+                MargaritaVisible();
+                break;
+            case "Soda":
+                SodaVisible();
+                break;
+            case "Water":
+                WaterVisible();
+                break;
+            case "Wine":
+                WineVisible();
+                break;
+        }
+    }
+
+    private void BeerVisible()
+    {
+        _beerImg.visible = true;
+        _cubaLibreImg.visible = false;
+        _juiceImg.visible = false;
+        _margaritaImg.visible = false;
+        _sodaImg.visible = false;
+        _waterImg.visible = false;
+        _wineImg.visible = false;
+    }
+
+    private void CubaLibreVisible()
+    {
+        _beerImg.visible = false;
+        _cubaLibreImg.visible = true;
+        _juiceImg.visible = false;
+        _margaritaImg.visible = false;
+        _sodaImg.visible = false;
+        _waterImg.visible = false;
+        _wineImg.visible = false;
+    }
+
+    private void JuiceVisible()
+    {
+        _beerImg.visible = false;
+        _cubaLibreImg.visible = false;
+        _juiceImg.visible = true;
+        _margaritaImg.visible = false;
+        _sodaImg.visible = false;
+        _waterImg.visible = false;
+        _wineImg.visible = false;
+    }
+
+    private void MargaritaVisible()
+    {
+        _beerImg.visible = false;
+        _cubaLibreImg.visible = false;
+        _juiceImg.visible = false;
+        _margaritaImg.visible = true;
+        _sodaImg.visible = false;
+        _waterImg.visible = false;
+        _wineImg.visible = false;
+    }
+
+    private void SodaVisible()
+    {
+        _beerImg.visible = false;
+        _cubaLibreImg.visible = false;
+        _juiceImg.visible = false;
+        _margaritaImg.visible = false;
+        _sodaImg.visible = true;
+        _waterImg.visible = false;
+        _wineImg.visible = false;
+    }
+
+    private void WaterVisible()
+    {
+        _beerImg.visible = false;
+        _cubaLibreImg.visible = false;
+        _juiceImg.visible = false;
+        _margaritaImg.visible = false;
+        _sodaImg.visible = false;
+        _waterImg.visible = true;
+        _wineImg.visible = false;
+    }
+
+    private void WineVisible()
+    {
+        _beerImg.visible = false;
+        _cubaLibreImg.visible = false;
+        _juiceImg.visible = false;
+        _margaritaImg.visible = false;
+        _sodaImg.visible = false;
+        _waterImg.visible = false;
+        _wineImg.visible = true;
+    }
+
+    private void CheckForHoverBar()
+    {
+        _beer.BrighterOnHoverShop();
+        _cubaLibre.BrighterOnHoverShop();
+        _juice.BrighterOnHoverShop();
+        _margarita.BrighterOnHoverShop();
+        _soda.BrighterOnHoverShop();
+        _water.BrighterOnHoverShop();
+        _wine.BrighterOnHoverShop();
+
+        _order.BrighterOnHover();
+        _backBar.BrighterOnHover();
+    }
+
+    private void CheckForClickBar()
+    {
+        if (_backBar.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            _game.SwitchRoom("CloseBar");
+        }
+        ItemButtonsClickBar();
+
+    }
+
+    private void ItemButtonsClickBar()
+    {
+        if (_beer.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            SwitchProductBar("Beer");
+        }
+        if (_cubaLibre.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            SwitchProductBar("CubaLibre");
+        }
+        if (_juice.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            SwitchProductBar("Juice");
+        }
+        if (_margarita.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            Console.WriteLine("YEET");
+            SwitchProductBar("Margarita");
+        }
+        if (_soda.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            SwitchProductBar("Soda");
+        }
+        if (_water.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            SwitchProductBar("Water");
+        }
+        if (_wine.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        {
+            SwitchProductBar("Wine");
+        }
+    }
+
+    private void LoadInstancesShop()
     {
         _costume = new ImageButton("Sprites/IngameCostume.png", 2, 1, "ShopItems/Costume.png", "", this);
         _giftcard = new ImageButton("Sprites/TenEuroGiftCard.png", 2, 1, "ShopItems/10EuroGift.png", "", this);
@@ -57,7 +342,7 @@ public class Shop : Sprite
         _playstation = new ImageButton("Sprites/Playstation.png", 2, 1, "ShopItems/Playstation.png", "", this);
 
         _order = new ImageButton("Sprites/Order.png", 2, 1);
-        _back = new ImageButton("Sprites/Back.png", 2, 1);
+        _backShop = new ImageButton("Sprites/Back.png", 2, 1);
     }
 
     private void LoadShopImages()
@@ -73,7 +358,7 @@ public class Shop : Sprite
         _playstationImg = new ShopItem("ShopItems/Playstation.png", "ShopDesc/Playstation.txt");
     }
 
-    private void SetPositions()
+    private void SetPositionsShop()
     {
         _costume.SetXY(265, 220);
         _giftcard.SetXY(265, 270);
@@ -86,10 +371,10 @@ public class Shop : Sprite
         _playstation.SetXY(265, 620);
 
         _order.SetXY(width - 225, height - 150);
-        _back.SetXY(220, 125);
+        _backShop.SetXY(220, 125);
     }
 
-    private void AddToTheGame()
+    private void AddToTheGameShop()
     {
         AddChild(_costume);
         AddChild(_giftcard);
@@ -102,10 +387,10 @@ public class Shop : Sprite
         AddChild(_playstation);
 
         AddChild(_order);
-        AddChild(_back);
+        AddChild(_backShop);
     }
 
-    private void AddImgToGame()
+    private void AddImgToGameShop()
     {
         AddChild(_costumeImg);
         AddChild(_giftcardImg);
@@ -118,13 +403,7 @@ public class Shop : Sprite
         AddChild(_playstationImg);
     }
 
-    void Update()
-    {
-        CheckForHover();
-        CheckForClick();
-    }
-
-    private void CheckForHover()
+    private void CheckForHoverShop()
     {
         _costume.BrighterOnHoverShop();
         _giftcard.BrighterOnHoverShop();
@@ -137,56 +416,56 @@ public class Shop : Sprite
         _playstation.BrighterOnHoverShop();
 
         _order.BrighterOnHover();
-        _back.BrighterOnHover();
+        _backShop.BrighterOnHover();
     }
 
-    private void CheckForClick()
+    private void CheckForClickShop()
     {
-        if (_back.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
+        if (_backShop.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
             _game.SwitchRoom("CloseShop");
         }
-        ItemButtonsClick();
+        ItemButtonsClickShop();
 
     }
 
-    private void ItemButtonsClick()
+    private void ItemButtonsClickShop()
     {
         if (_costume.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("Costume");
+            SwitchProductShop("Costume");
         }
         if (_giftcard.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("Giftcard");
+            SwitchProductShop("Giftcard");
         }
         if (_tshirt.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("TShirt");
+            SwitchProductShop("TShirt");
         }
         if (_plushie.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("Plushie");
+            SwitchProductShop("Plushie");
         }
         if (_foodVoucher.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("FoodVoucher");
+            SwitchProductShop("FoodVoucher");
         }
         if (_headphones.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("Headphones");
+            SwitchProductShop("Headphones");
         }
         if (_nintendoSwitch.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("Switch");
+            SwitchProductShop("Switch");
         }
         if (_xBox.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("XBox");
+            SwitchProductShop("XBox");
         }
         if (_playstation.HitTestPoint(Input.mouseX, Input.mouseY) && Input.GetMouseButton(0))
         {
-            SwitchProduct("Playstation");
+            SwitchProductShop("Playstation");
         }
     }
 
@@ -203,7 +482,7 @@ public class Shop : Sprite
         _playstation.LateDestroy();
     }
 
-    private void SwitchProduct(string productToSwitchTo)
+    private void SwitchProductShop(string productToSwitchTo)
     {
         switch (productToSwitchTo)
         {

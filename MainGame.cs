@@ -161,6 +161,12 @@ public class MainGame : Game
             case "CloseShop":
                 CloseShop();
                 break;
+            case "OpenBar":
+                OpenBar();
+                break;
+            case "CloseBar":
+                CloseBar();
+                break;
             default:
                 LoadMenu();
                 break;
@@ -172,6 +178,22 @@ public class MainGame : Game
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
         _mainMenu = new MainMenu(this);
         LateAddChild(_mainMenu);
+    }
+
+    private void OpenBar()
+    {
+        if (_barHub != null)
+        {
+            _barHub.OpenBar();
+        }
+    }
+
+    private void CloseBar()
+    {
+        if (_barHub != null)
+        {
+            _barHub.CloseShop();
+        }
     }
 
     private void OpenShop()

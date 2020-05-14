@@ -15,6 +15,8 @@ public class BarHub : Hub
 	DevilNPC _devil;
 	CatManNPC _cat;
 
+	ShopAndBar _bar;
+
 	public BarHub(MainGame tempGame) : base("Sprites/Bar.png", 32, 24, "Sprites/Bar.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
 		_fileName = @"Screens/BarHub/BarHub.tmx";
@@ -46,5 +48,21 @@ public class BarHub : Hub
 
 		_cat = new CatManNPC();
 		LateAddChild(_cat);
+	}
+
+	public void OpenBar()
+	{
+		if (_bar == null)
+		{
+			_bar = new ShopAndBar(_game, false, "Sprites/BarOverlay.png");
+			LateAddChild(_bar);
+		}
+	}
+
+	public void CloseShop()
+	{
+		_bar.DestroyBar();
+		_bar.LateDestroy();
+		_bar = null;
 	}
 }

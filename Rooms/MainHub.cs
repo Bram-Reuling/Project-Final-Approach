@@ -15,7 +15,7 @@ class MainHub : Hub
 	Clock _clock;
 	ShopKeeper _shopKeeper;
 
-	Shop _shop;
+	ShopAndBar _shop;
 
 	public MainHub(MainGame tempGame) : base("Sprites/MainHub.png", 32, 24, "Sprites/MainHub.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
@@ -59,7 +59,7 @@ class MainHub : Hub
 	{
 		if (_shop == null)
 		{
-			_shop = new Shop(_game);
+			_shop = new ShopAndBar(_game, true, "Sprites/ShopOverlay.png");
 			LateAddChild(_shop);
 		}
 	}

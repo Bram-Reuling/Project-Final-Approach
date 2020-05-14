@@ -12,7 +12,7 @@ class ImageButton : AnimationSprite
         SetOrigin(width / 2, height / 2);
 	}
 
-    public ImageButton(string filename, int cols, int rows, string productImg, string productText, Shop tempshop) : base(filename, cols, rows)
+    public ImageButton(string filename, int cols, int rows, string productImg, string productText, ShopAndBar tempshop) : base(filename, cols, rows)
     {
         SetOrigin(width / 2, height / 2);
 
