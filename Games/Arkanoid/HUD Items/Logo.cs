@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 
-class Logo : Sprite
+public class Logo : Sprite
 {
     public Logo(int _xPos, int _yPos, string logo) : base(logo)
     {

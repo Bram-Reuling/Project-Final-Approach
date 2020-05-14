@@ -4,7 +4,7 @@ using GXPEngine;
 public class Timer : GameObject
 {
     private int _time;
-    private Action _onTimeout;
+    private readonly Action _onTimeout;
 
     public Timer(int time, Action onTimeout)
     {
@@ -15,7 +15,6 @@ public class Timer : GameObject
     public void Update()
     {
         _time -= Time.deltaTime;
-        //Console.WriteLine(_time);
         if (_time <= 0)
         {
             _onTimeout();

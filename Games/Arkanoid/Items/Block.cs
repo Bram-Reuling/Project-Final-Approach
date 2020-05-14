@@ -38,8 +38,6 @@ class Block : AnimationSprite
     {
         if (_blockHealth == 0)
         {
-            //_player.score += _points;
-
             DestroyBlock();
         }
     }

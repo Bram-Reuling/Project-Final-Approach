@@ -6,7 +6,7 @@ using TiledMapParser;
 
 namespace GXPEngine
 {
-    class ActivityTile : AnimationSprite
+    public class ActivityTile : AnimationSprite
     {
 
         public string Activity { get; set; }

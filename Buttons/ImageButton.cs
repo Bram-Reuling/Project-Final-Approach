@@ -1,29 +1,13 @@
 ﻿using System;
 using GXPEngine;
 
-class ImageButton : AnimationSprite
+public class ImageButton : AnimationSprite
 {
-
-    string _productImg;
-    string _productText;
 
 	public ImageButton(string filename, int cols, int rows) : base(filename, cols, rows)
 	{
         SetOrigin(width / 2, height / 2);
 	}
-
-    public ImageButton(string filename, int cols, int rows, string productImg, string productText, ShopAndBar tempshop) : base(filename, cols, rows)
-    {
-        SetOrigin(width / 2, height / 2);
-
-        _productImg = productImg;
-        _productText = productText;
-    }
-
-    void Update()
-    {
-
-    }
 
     public void BrighterOnHover()
     {

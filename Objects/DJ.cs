@@ -1,10 +1,10 @@
 ﻿using System;
 using GXPEngine;
 
-class DJ : AnimationSprite
+public class DJ : AnimationSprite
 {
 
-	int animationDrawsBetweenFrames;
+	private readonly int animationDrawsBetweenFrames;
 	int step;
 
 	public DJ() : base("Sprites/Employee.png", 6, 2)
@@ -19,7 +19,7 @@ class DJ : AnimationSprite
 
 	public void Update()
 	{
-		step = step + 1;
+		step += 1;
 		if (step > animationDrawsBetweenFrames)
 		{
 			if (currentFrame < 5)

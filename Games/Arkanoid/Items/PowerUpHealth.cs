@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 
-class PowerUpHealth : PowerUp
+public class PowerUpHealth : PowerUp
 {
     public PowerUpHealth(float xPos, float yPos) : base("Sprites/Ticket.png", "ArkanoidSounds/HealthBoi.mp3", xPos, yPos, 2)
     {

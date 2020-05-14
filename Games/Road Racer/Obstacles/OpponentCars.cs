@@ -1,7 +1,7 @@
 ﻿using System;
 using GXPEngine;
 
-class OpponentCars : AnimationSprite
+public class OpponentCars : AnimationSprite
 {
 	public OpponentCars() : base("RoadRacerSprites/CarEnemy.png",4,1)
 	{

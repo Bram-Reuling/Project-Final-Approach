@@ -81,7 +81,6 @@
     <Compile Include="Games\Arkanoid\Items\PowerUp.cs" />
     <Compile Include="Games\Arkanoid\Items\PowerUpHealth.cs" />
     <Compile Include="Games\Arkanoid\Items\PowerUpLarge.cs" />
-    <Compile Include="Games\Arkanoid\Misc\TrailBall.cs" />
     <Compile Include="Games\Arkanoid\Screens\ArkanoidDeathScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\ArkanoidLevelScreen.cs" />
     <Compile Include="Games\Arkanoid\Screens\ArkanoidWinScreen.cs" />
@@ -144,7 +143,6 @@
     <Compile Include="Objects\DevilNPC.cs" />
     <Compile Include="Objects\DJ.cs" />
     <Compile Include="Objects\Player.cs" />
-    <Compile Include="ShopItems\ItemText.cs" />
     <Compile Include="ShopItems\ShopAndBar.cs" />
     <Compile Include="Objects\ShopKeeper.cs" />
     <Compile Include="Objects\TicketDisplay.cs" />

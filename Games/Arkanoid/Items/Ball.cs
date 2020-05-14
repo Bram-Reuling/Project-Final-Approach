@@ -11,20 +11,19 @@ class Ball : Sprite
     private float _moveSpeedY;
 
     // I use these variables for the properties of the ball in Tiled
-    private int _ballSpeedX;
-    private int _ballSpeedY;
+    private readonly int _ballSpeedX;
+    private readonly int _ballSpeedY;
 
     // The starting X and Y position of the ball. The X and Y inherit the properties X and Y of the ball in Tiled 
-    private float xPos;
-    private float yPos;
+    private readonly float xPos;
+    private readonly float yPos;
 
     // Declaring the Block and Player variables, so that I can call certain methods from those to classes in the Ball Class.
-    private Block _block;
-    private PlayerArkanoid _player;
+    private readonly PlayerArkanoid _player;
 
     // Constructor that needs an instance of type Block, a TiledObject instance and a Level instance.
     // Again this is used so I can call certain methods from those classes and get property information of Ball from Tiled.
-    public Ball(Block _tempBlock, TiledObject _obj, PlayerArkanoid _playerInst) : base("ArkanoidSprites/ball.png", addCollider: true)
+    public Ball(TiledObject _obj, PlayerArkanoid _playerInst) : base("ArkanoidSprites/ball.png", addCollider: true)
     {
         // Scales the sprite of Ball to 25% of its original width and height.
         this.scale = 0.25f;
@@ -41,8 +40,6 @@ class Ball : Sprite
         _ballSpeedX = -_obj.GetIntProperty("speedX");
         _ballSpeedY = -_obj.GetIntProperty("speedY");
 
-        _block = _tempBlock;
-
         _player = _playerInst;
     }
 
@@ -55,12 +52,12 @@ class Ball : Sprite
 
     void Update()
     {
-        updateBallPosition();
+        UpdateBallPosition();
 
-        collisionWithWalls();
+        CollisionWithWalls();
     }
 
-    private void collisionWithWalls()
+    private void CollisionWithWalls()
     {
         //Collision with walls
         if (x <= 0)
@@ -85,7 +82,7 @@ class Ball : Sprite
         }
     }
 
-    private void updateBallPosition()
+    private void UpdateBallPosition()
     {
         // Updating the x and y pos with the movespeed
         x += _moveSpeedX;

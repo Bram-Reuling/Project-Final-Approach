@@ -4,12 +4,12 @@ using TiledMapParser;
 
 class Score : Canvas
 {
-    private StringFormat _stringFormatCenter;
-    private Font _font;
+    private readonly StringFormat _stringFormatCenter;
+    private readonly Font _font;
 
     private int _playerScore;
 
-    private PlayerArkanoid _player;
+    private readonly PlayerArkanoid _player;
 
     public Score(PlayerArkanoid _playerInst, TiledObject _obj) : base(200, 50)
     {

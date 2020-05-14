@@ -4,7 +4,7 @@ using GXPEngine;
 public class Clock : Sprite
 {
 
-	ClockText _text;
+	private readonly ClockText _text;
 
 	public Clock() : base("Sprites/Clock.png")
 	{

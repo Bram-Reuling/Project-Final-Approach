@@ -1,11 +1,11 @@
 ﻿using System;
 using GXPEngine;
 
-class ShopKeeper : AnimationSprite
+public class ShopKeeper : AnimationSprite
 {
 
-	int animationDrawsBetweenFrames;
-	int step;
+	private readonly int animationDrawsBetweenFrames;
+	private int step;
 
 	public ShopKeeper() : base("Sprites/Quebert.png", 6, 1)
 	{

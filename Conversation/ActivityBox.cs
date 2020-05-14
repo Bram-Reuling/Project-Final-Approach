@@ -7,10 +7,10 @@ using GXPEngine;
 
 public class ActivityBox : GameObject
 {
-    StreamReader reader;
-    List<string> _textLines;
+    private StreamReader reader;
+    private List<string> _textLines;
 
-    Text _text;
+    private Text _text;
 
     public ActivityBox(string file)
     {

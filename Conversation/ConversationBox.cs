@@ -8,16 +8,16 @@ using GXPEngine;
 
 class ConversationBox : GameObject
 {
-	StreamReader reader;
-	List<string> _textLines;
+	private StreamReader reader;
+	private List<string> _textLines;
 
-	int index;
-	Text _text;
+	private int index;
+	private Text _text;
 
-	bool _buttonIsPressed;
-	bool _endTutorial;
+	private bool _buttonIsPressed;
+	private bool _endTutorial;
 
-	MainHub _mainHub;
+	private readonly MainHub _mainHub;
 
 	public ConversationBox(string file, MainHub _tempHub)
 	{
@@ -110,7 +110,7 @@ class ConversationBox : GameObject
 			if (index == _numberOfLines - 1 && _mainHub != null)
 			{
 				_endTutorial = true;
-				lineChanger("DisplayTutorial = false", "Text/Settings.txt", 1);
+				LineChanger("DisplayTutorial = false", "Text/Settings.txt", 1);
 			}
 			else
 			{
@@ -119,7 +119,7 @@ class ConversationBox : GameObject
 		}
 	}
 	
-	static void lineChanger(string newText, string fileName, int line_to_edit)
+	static void LineChanger(string newText, string fileName, int line_to_edit)
 	{
 		string[] arrLine = File.ReadAllLines(fileName);
 		arrLine[line_to_edit - 1] = newText;

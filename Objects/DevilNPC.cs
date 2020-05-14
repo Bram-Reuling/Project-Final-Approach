@@ -4,7 +4,7 @@ using GXPEngine;
 class DevilNPC : AnimationSprite
 {
 
-	int animationDrawsBetweenFrames;
+	private readonly int animationDrawsBetweenFrames;
 	int step;
 
 	public DevilNPC() : base("Sprites/SideChar.png", 6, 3)

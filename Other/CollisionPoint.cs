@@ -6,7 +6,7 @@ using GXPEngine;
 
 namespace GXPEngine
 {
-    class CollisionPoint : Sprite
+    public class CollisionPoint : Sprite
     {
         public bool isColliding = false;
 

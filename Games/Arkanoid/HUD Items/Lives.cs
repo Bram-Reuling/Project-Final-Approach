@@ -8,10 +8,10 @@ using TiledMapParser;
 
 class Lives : Canvas
 {
-    private StringFormat _stringFormatCenter;
-    private Font _font;
+    private readonly StringFormat _stringFormatCenter;
+    private readonly Font _font;
 
-    PlayerArkanoid _player;
+    private readonly PlayerArkanoid _player;
 
     public Lives(PlayerArkanoid _playerInst, TiledObject _obj) : base(200, 50)
     {

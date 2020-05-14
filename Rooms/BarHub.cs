@@ -3,31 +3,31 @@
 public class BarHub : Hub
 {
 	
-	private string _fileName { get; set; }
-	public bool _firstInstance { get; set; }
+	private string FileName { get; set; }
+	public bool FirstInstance { get; set; }
 
-	MainGame _game;
-	TicketDisplay _tickets;
-	Clock _clock;
+	private readonly MainGame _game;
+	private readonly TicketDisplay _tickets;
+	private readonly Clock _clock;
 
-	DJ _dj;
-	BarMan _barMan;
-	DevilNPC _devil;
-	CatManNPC _cat;
+	private readonly DJ _dj;
+	private readonly BarMan _barMan;
+	private readonly DevilNPC _devil;
+	private readonly CatManNPC _cat;
 
-	ShopAndBar _bar;
+	private ShopAndBar _bar;
 
 	public BarHub(MainGame tempGame) : base("Sprites/Bar.png", 32, 24, "Sprites/Bar.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
-		_fileName = @"Screens/BarHub/BarHub.tmx";
+		FileName = @"Screens/BarHub/BarHub.tmx";
 
-		Map _levelData = MapParser.ReadMap(_fileName);
+		Map _levelData = MapParser.ReadMap(FileName);
 		SpawnCollisionTiles(_levelData);
 		SpawnBackgroundTiles(_levelData, false);
 		SpawnObjects(_levelData);
 		SpawnOverlapTiles(_levelData);
 
-		_firstInstance = false;
+		FirstInstance = false;
 
 		_game = tempGame;
 

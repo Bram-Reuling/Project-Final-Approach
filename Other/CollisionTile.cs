@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GXPEngine
 {
-    class CollisionTile : AnimationSprite
+    public class CollisionTile : AnimationSprite
     {
         public CollisionTile(string filename, int cols, int rows) : base(filename, cols, rows)
         {

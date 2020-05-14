@@ -7,41 +7,43 @@ using System.Collections.Generic;
 public class MainGame : Game
 {
 
-    MainHub _mainHub;
-    BarHub _barHub;
+    public bool DisplayTutorial { get; set; }
+    public int tickets;
+    public int ticketsReceived;
+    public bool sufficientTickets;
 
-    MainMenuScreenArkanoid _arkanoid;
-    ArkanoidLevelScreen _aLevelOne;
-    ArkanoidDeathScreen _aDeathScreen;
-    ArkanoidWinScreen _aWinScreen;
+    private MainHub _mainHub;
+    private BarHub _barHub;
 
-    MainMenuRoadRacer _roadRacer;
-    LevelRoadRacer _rLevel;
-    DeathScreenRoad _rDeathScreen;
+    private MainMenuScreenArkanoid _arkanoid;
+    private ArkanoidLevelScreen _aLevelOne;
+    private ArkanoidDeathScreen _aDeathScreen;
+    private ArkanoidWinScreen _aWinScreen;
+
+    private MainMenuRoadRacer _roadRacer;
+    private LevelRoadRacer _rLevel;
+    private DeathScreenRoad _rDeathScreen;
 
     private SoundChannel _backgroundMusicChannel;
 
-    public bool DisplayTutorial { get; set; }
+    private MainMenu _mainMenu;
 
-    MainMenu _mainMenu;
-
-    StreamReader reader;
-
-    public int tickets;
-    public int ticketsReceived;
-    public bool _sufficientTickets;
+    private StreamReader _reader;
 
     public MainGame() : base(1024, 768, false, true)
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
 
-        ReadSettingsFile();
+        ReadVariableFile();
         TicketCheck(tickets);
         ticketsReceived = 0;
         // Start of the game
         SwitchRoom("");
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
+    //														AddTickets()
+    //------------------------------------------------------------------------------------------------------------------------
     public void AddTickets(int numberOfTickets)
     {
         int newTickets = tickets + numberOfTickets;
@@ -50,10 +52,13 @@ public class MainGame : Game
 
         LineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
 
-        ReadSettingsFile();
+        ReadVariableFile();
     }
 
-    public void SubtrackTickets(int numberOfTickets)
+    //------------------------------------------------------------------------------------------------------------------------
+    //														SubtracktTickets()
+    //------------------------------------------------------------------------------------------------------------------------
+    public void SubtracktTickets(int numberOfTickets)
     {
         int newTickets = tickets - numberOfTickets;
 
@@ -61,21 +66,27 @@ public class MainGame : Game
 
         LineChanger("Tickets = " + newTickets.ToString(), "Text/Settings.txt", 2);
 
-        ReadSettingsFile();
+        ReadVariableFile();
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
+    //														TicketCheck()
+    //------------------------------------------------------------------------------------------------------------------------
     private void TicketCheck(int tempTickets)
     {
         if (tempTickets > 0)
         {
-            _sufficientTickets = true;
+            sufficientTickets = true;
         }
         else
         {
-            _sufficientTickets = false;
+            sufficientTickets = false;
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
+    //														LineChanger()
+    //------------------------------------------------------------------------------------------------------------------------
     static void LineChanger(string newText, string fileName, int line_to_edit)
     {
         string[] arrLine = File.ReadAllLines(fileName);
@@ -83,12 +94,15 @@ public class MainGame : Game
         File.WriteAllLines(fileName, arrLine);
     }
 
-    private void ReadSettingsFile()
+    //------------------------------------------------------------------------------------------------------------------------
+    //														ReadVariableFile()
+    //------------------------------------------------------------------------------------------------------------------------
+    private void ReadVariableFile()
     {
-        reader = File.OpenText("Text/Settings.txt");
+        _reader = File.OpenText("Text/Settings.txt");
         string line;
 
-        while ((line = reader.ReadLine()) != null)
+        while ((line = _reader.ReadLine()) != null)
         {
             string[] items = line.Split('\n');
 
@@ -111,7 +125,7 @@ public class MainGame : Game
             }
         }
 
-        reader.Close();
+        _reader.Close();
     }
 
     //------------------------------------------------------------------------------------------------------------------------
@@ -176,6 +190,9 @@ public class MainGame : Game
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
+    //														LoadMenu()
+    //------------------------------------------------------------------------------------------------------------------------
     private void LoadMenu()
     {
         GXPEngine.OpenGL.GL.glfwSetWindowTitle("The Homebox Arcade");
@@ -183,6 +200,9 @@ public class MainGame : Game
         LateAddChild(_mainMenu);
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
+    //														BAR MENU
+    //------------------------------------------------------------------------------------------------------------------------
     private void OpenBar()
     {
         if (_barHub != null)
@@ -199,6 +219,9 @@ public class MainGame : Game
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------------
+    //														SHOP MENU
+    //------------------------------------------------------------------------------------------------------------------------
     private void OpenShop()
     {
         if (_mainHub != null)
@@ -248,7 +271,7 @@ public class MainGame : Game
             _roadRacer = null;
         }
 
-        SubtrackTickets(10);
+        SubtracktTickets(10);
         _rLevel = new LevelRoadRacer(this);
         LateAddChild(_rLevel);
     }
@@ -312,7 +335,7 @@ public class MainGame : Game
             _arkanoid = null;
         }
 
-        SubtrackTickets(10);
+        SubtracktTickets(10);
 
         _aLevelOne = new ArkanoidLevelScreen("ArkanoidLevels/level1.tmx", this);
         LateAddChild(_aLevelOne);

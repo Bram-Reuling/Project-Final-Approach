@@ -112,8 +112,6 @@ class PlayerArkanoid : Sprite
         {
             this.scaleX = 0.3f;
 
-            // Timer
-
             LateAddChild(new Timer(10000, TimerOver));
         } 
         else if (other is PowerUpHealth)
@@ -136,7 +134,7 @@ class PlayerArkanoid : Sprite
     public void GotHit()
     {
         _playerHitChannel = _playerHitSound.Play();
-        _playerHitChannel.Volume = 0.1f;
+        _playerHitChannel.Volume = 1f;
     }
 }
 

@@ -1,6 +1,6 @@
 ﻿using GXPEngine;
 using System.Drawing;
-class QuitButton : Button
+public class QuitButton : Button
 {
     public QuitButton(int _xPos, int _yPos) : base (200, 50, 24, "QUIT")
     {

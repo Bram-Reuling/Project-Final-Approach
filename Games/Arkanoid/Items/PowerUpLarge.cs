@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 
-class PowerUpLarge : PowerUp
+public class PowerUpLarge : PowerUp
 {
     public PowerUpLarge(float xPos, float yPos) : base("Arcanoid_Enlargement.png", "ArkanoidSounds/BigBoiPowerUp.mp3", xPos, yPos, 2)
     {

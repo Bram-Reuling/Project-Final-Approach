@@ -4,8 +4,8 @@ using GXPEngine;
 public class TicketDisplay : Sprite
 {
 
-	TicketText _ticketText;
-	MainGame _game;
+	private readonly TicketText _ticketText;
+	private readonly MainGame _game;
 
 	public TicketDisplay(MainGame tempGame) : base("Sprites/Ticket.png")
 	{

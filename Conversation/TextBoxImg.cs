@@ -1,7 +1,7 @@
 ﻿using System;
 using GXPEngine;
 
-class TextBoxImg : Sprite
+public class TextBoxImg : Sprite
 {
 	public TextBoxImg(float xPos, float yPos) : base("Sprites/TextBox.png")
 	{

@@ -3,16 +3,16 @@ using GXPEngine;
 using System.Drawing;
 using System.Drawing.Text;
 
-class Text : Canvas
+public class Text : Canvas
 {
-	private StringFormat _stringFormatCenter;
-	private Font _font;
+	private readonly StringFormat _stringFormatCenter;
+	private readonly Font _font;
 	private string _text;
-	private bool _isConversation;
+	private readonly bool _isConversation;
 
 	public int FontSize { get; set; }
 
-	PrivateFontCollection pfc = new PrivateFontCollection();
+	private readonly PrivateFontCollection pfc = new PrivateFontCollection();
 
 	public Text(int _xPos, int _yPos, int tempWidth, int tempHeight, bool isConv) : base(tempWidth, tempHeight)
 	{
@@ -27,9 +27,11 @@ class Text : Canvas
 
 		_text = "Null";
 
-		_stringFormatCenter = new StringFormat();
-		_stringFormatCenter.Alignment = StringAlignment.Center;
-		_stringFormatCenter.LineAlignment = StringAlignment.Center;
+		_stringFormatCenter = new StringFormat
+		{
+			Alignment = StringAlignment.Center,
+			LineAlignment = StringAlignment.Center
+		};
 
 		_isConversation = isConv;
 	}
@@ -47,9 +49,11 @@ class Text : Canvas
 
 		_text = "Null";
 
-		_stringFormatCenter = new StringFormat();
-		_stringFormatCenter.Alignment = StringAlignment.Center;
-		_stringFormatCenter.LineAlignment = StringAlignment.Center;
+		_stringFormatCenter = new StringFormat
+		{
+			Alignment = StringAlignment.Center,
+			LineAlignment = StringAlignment.Center
+		};
 
 		_isConversation = isConv;
 	}

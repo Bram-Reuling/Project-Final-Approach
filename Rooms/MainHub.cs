@@ -4,24 +4,24 @@ using TiledMapParser;
 class MainHub : Hub
 {
 
-	private string _fileName { get; set; }
-	public bool _firstInstance { get; set; }
+	private string FileName { get; set; }
+	public bool FirstInstance { get; set; }
 
-	bool _displayTut;
+	private readonly bool _displayTut;
 
-	ConversationBox _c;
-	MainGame _game;
-	TicketDisplay _tickets;
-	Clock _clock;
-	ShopKeeper _shopKeeper;
+	private ConversationBox _c;
+	private readonly MainGame _game;
+	private readonly TicketDisplay _tickets;
+	private readonly Clock _clock;
+	private readonly ShopKeeper _shopKeeper;
 
 	ShopAndBar _shop;
 
 	public MainHub(MainGame tempGame) : base("Sprites/MainHub.png", 32, 24, "Sprites/MainHub.png", 32, 24, "colors.png", 1, 1, tempGame)
 	{
-		_fileName = @"Screens/MainHub/MainHub.tmx";
+		FileName = @"Screens/MainHub/MainHub.tmx";
 
-		Map _levelData = MapParser.ReadMap(_fileName);
+		Map _levelData = MapParser.ReadMap(FileName);
 		SpawnCollisionTiles(_levelData);
 		SpawnBackgroundTiles(_levelData, true);
 		SpawnObjects(_levelData);
@@ -42,7 +42,7 @@ class MainHub : Hub
 			AddChild(_c);
 		}
 
-		_firstInstance = false;
+		FirstInstance = false;
 
 		_shopKeeper = new ShopKeeper();
 		AddChild(_shopKeeper);

@@ -1,6 +1,6 @@
 ﻿using GXPEngine;
 using System.Drawing;
-class StartButton : Button
+public class StartButton : Button
 {
     public StartButton(int _xPos, int _yPos) : base(200, 50, 24, "START")
     {

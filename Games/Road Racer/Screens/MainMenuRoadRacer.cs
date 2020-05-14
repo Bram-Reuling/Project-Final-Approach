@@ -2,7 +2,7 @@
 using System.Drawing;
 using GXPEngine;
 
-class MainMenuRoadRacer : GameObject
+public class MainMenuRoadRacer : GameObject
 {
     readonly private ImageButton _startButton;
     readonly private ImageButton _quitButton;

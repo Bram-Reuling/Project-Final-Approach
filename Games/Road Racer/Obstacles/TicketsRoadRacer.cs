@@ -1,10 +1,10 @@
 ﻿using System;
 using GXPEngine;
 
-class TicketsRoadRacer : Sprite
+public class TicketsRoadRacer : Sprite
 {
 
-	readonly MainGame _game;
+	private readonly MainGame _game;
 
 	public TicketsRoadRacer(MainGame tempGame) : base("Sprites/Ticket.png")
 	{

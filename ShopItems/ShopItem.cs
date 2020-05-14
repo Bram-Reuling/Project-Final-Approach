@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.IO;
 using GXPEngine;
 
-class ShopItem : Sprite
+public class ShopItem : Sprite
 {
-	StreamReader reader;
-	List<string> _textLines;
+	private StreamReader _reader;
+	private List<string> _textLines;
 
-	Text _text;
+	private Text _text;
 
 	public ShopItem(string file, string textFile) : base(file)
 	{
@@ -21,11 +21,11 @@ class ShopItem : Sprite
 
 	private void TextInit(string file)
 	{
-		reader = File.OpenText(file);
+		_reader = File.OpenText(file);
 		_textLines = new List<string>();
 		string line;
 
-		while ((line = reader.ReadLine()) != null)
+		while ((line = _reader.ReadLine()) != null)
 		{
 			string[] items = line.Split('\n');
 

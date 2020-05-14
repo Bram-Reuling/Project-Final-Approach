@@ -1,14 +1,14 @@
 ﻿using System;
 using GXPEngine;
 
-class Obstacles : GameObject
+public class Obstacles : GameObject
 {
-	TicketsRoadRacer _obOne;
-	OpponentCars _opCar;
+	private TicketsRoadRacer _obOne;
+	private OpponentCars _opCar;
 
-	readonly Random rnd = new Random();
+	private readonly Random rnd = new Random();
 
-	readonly MainGame _game;
+	private readonly MainGame _game;
 
 	public Obstacles(MainGame tempGame)
 	{

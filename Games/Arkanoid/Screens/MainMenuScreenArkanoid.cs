@@ -2,16 +2,16 @@
 using System.Drawing;
 using GXPEngine;
 
-class MainMenuScreenArkanoid : GameObject
+public class MainMenuScreenArkanoid : GameObject
 {
-    readonly ImageButton _startButton;
-    readonly ImageButton _quitButton;
-    readonly Logo _arkanoidLogo;
-    readonly Overlay _overlay;
+    private readonly ImageButton _startButton;
+    private readonly ImageButton _quitButton;
+    private readonly Logo _arkanoidLogo;
+    private readonly Overlay _overlay;
 
-    readonly private SoundChannel _backgroundMusicChannel;
+    private readonly SoundChannel _backgroundMusicChannel;
 
-    readonly MainGame _game;
+    private readonly MainGame _game;
     public MainMenuScreenArkanoid(MainGame game) : base()
     {
         _arkanoidLogo = new Logo(game.width / 2, game.height / 2, "ArkanoidSprites/logo.png");
@@ -69,15 +69,4 @@ class MainMenuScreenArkanoid : GameObject
             }
         }
     }
-
-#pragma warning disable IDE0060 // Remove unused parameter
-    public void LoadNewLevel(String _nextLevel)
-#pragma warning restore IDE0060 // Remove unused parameter
-    {
-        //_level.LateDestroy();
-
-        //_level = new ArkanoidLevelScreen(_nextLevel);
-        //AddChild(_level);
-    }
-
 }

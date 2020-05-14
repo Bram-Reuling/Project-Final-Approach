@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using GXPEngine;
 
-class PowerUp : Sprite
+public class PowerUp : Sprite
 {
-    private Sound _powerUpSound;
+    private readonly Sound _powerUpSound;
     private SoundChannel _soundChannel;
 
-    private int _dropSpeed;
+    private readonly int _dropSpeed;
 
     public PowerUp(string _imageFileName, string _soundFileName, float _xPos, float _yPos, int _dropSpeedPowerUp) : base(_imageFileName)
     {
@@ -40,7 +40,7 @@ class PowerUp : Sprite
     public void PlaySoundOnCollision()
     {
         _soundChannel = _powerUpSound.Play();
-        _soundChannel.Volume = 0.1f;
+        _soundChannel.Volume = 1f;
     }
 }
 

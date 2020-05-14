@@ -2,15 +2,15 @@
 using System.Drawing.Text;
 using GXPEngine;
 
-class PlayerRoadRacer : AnimationSprite
+public class PlayerRoadRacer : AnimationSprite
 {
 
 	private bool _keyIsPressed;
     private int _leftrightcount=0;
 
-	readonly private LevelRoadRacer _level;
+	private readonly LevelRoadRacer _level;
 
-	readonly MainGame _game;
+	private readonly MainGame _game;
 
 	public PlayerRoadRacer(LevelRoadRacer _levelInst, MainGame tempGame) : base("RoadRacerSprites/Car.png", 4, 1)
 	{

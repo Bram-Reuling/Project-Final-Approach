@@ -4,7 +4,7 @@ using GXPEngine;
 class CatManNPC : AnimationSprite
 {
 
-	int animationDrawsBetweenFrames;
+	private readonly int animationDrawsBetweenFrames;
 	int step;
 
 	public CatManNPC() : base("Sprites/SideChar.png", 6, 3)

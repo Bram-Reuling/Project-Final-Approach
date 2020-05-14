@@ -2,7 +2,7 @@
 using System.Drawing;
 using GXPEngine;
 
-class ArkanoidWinScreen : GameObject
+public class ArkanoidWinScreen : GameObject
 {
     readonly private ImageButton _mainMenuButton;
     readonly private ImageButton _quitButton;

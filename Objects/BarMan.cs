@@ -4,7 +4,7 @@ using GXPEngine;
 class BarMan : AnimationSprite
 {
 
-	int animationDrawsBetweenFrames;
+	private readonly int animationDrawsBetweenFrames;
 	int step;
 
 	public BarMan() : base("Sprites/Employee.png", 6, 2)
@@ -19,7 +19,7 @@ class BarMan : AnimationSprite
 
 	public void Update()
 	{
-		step = step + 1;
+		step += 1;
 		if (step > animationDrawsBetweenFrames)
 		{
 			if (currentFrame > 5 && currentFrame < 9)

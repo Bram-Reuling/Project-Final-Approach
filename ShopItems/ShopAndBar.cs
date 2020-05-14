@@ -4,50 +4,50 @@ using GXPEngine;
 public class ShopAndBar : Sprite
 {
 
-    ImageButton _costume;
-    ImageButton _giftcard;
-    ImageButton _tshirt;
-    ImageButton _plushie;
-    ImageButton _foodVoucher;
-    ImageButton _headphones;
-    ImageButton _nintendoSwitch;
-    ImageButton _xBox;
-    ImageButton _playstation;
+    private ImageButton _costume;
+    private ImageButton _giftcard;
+    private ImageButton _tshirt;
+    private ImageButton _plushie;
+    private ImageButton _foodVoucher;
+    private ImageButton _headphones;
+    private ImageButton _nintendoSwitch;
+    private ImageButton _xBox;
+    private ImageButton _playstation;
 
-    ImageButton _order;
-    ImageButton _backShop;
+    private ImageButton _order;
+    private ImageButton _backShop;
 
-    ShopItem _costumeImg;
-    ShopItem _giftcardImg;
-    ShopItem _tShirtImg;
-    ShopItem _plushieImg;
-    ShopItem _foodVoucherImg;
-    ShopItem _headphonesImg;
-    ShopItem _nintendoImg;
-    ShopItem _xBoxImg;
-    ShopItem _playstationImg;
+    private ShopItem _costumeImg;
+    private ShopItem _giftcardImg;
+    private ShopItem _tShirtImg;
+    private ShopItem _plushieImg;
+    private ShopItem _foodVoucherImg;
+    private ShopItem _headphonesImg;
+    private ShopItem _nintendoImg;
+    private ShopItem _xBoxImg;
+    private ShopItem _playstationImg;
 
-    ImageButton _beer;
-    ImageButton _cubaLibre;
-    ImageButton _juice;
-    ImageButton _margarita;
-    ImageButton _soda;
-    ImageButton _water;
-    ImageButton _wine;
+    private ImageButton _beer;
+    private ImageButton _cubaLibre;
+    private ImageButton _juice;
+    private ImageButton _margarita;
+    private ImageButton _soda;
+    private ImageButton _water;
+    private ImageButton _wine;
 
-    ShopItem _beerImg;
-    ShopItem _cubaLibreImg;
-    ShopItem _juiceImg;
-    ShopItem _margaritaImg;
-    ShopItem _sodaImg;
-    ShopItem _waterImg;
-    ShopItem _wineImg;
+    private ShopItem _beerImg;
+    private ShopItem _cubaLibreImg;
+    private ShopItem _juiceImg;
+    private ShopItem _margaritaImg;
+    private ShopItem _sodaImg;
+    private ShopItem _waterImg;
+    private ShopItem _wineImg;
 
-    ImageButton _backBar;
+    private ImageButton _backBar;
 
-    readonly MainGame _game;
+    readonly private MainGame _game;
 
-    bool _isShop;
+    readonly private bool _isShop;
 
     public ShopAndBar(MainGame tempGame, bool isShop, string overlay) : base(overlay)
     {
@@ -94,13 +94,13 @@ public class ShopAndBar : Sprite
 
     private void LoadInstancesBar()
     {
-        _beer = new ImageButton("Sprites/Beer.png", 2, 1, "ShopItems/Costume.png", "", this);
-        _cubaLibre = new ImageButton("Sprites/CubaLibre.png", 2, 1, "ShopItems/10EuroGift.png", "", this);
-        _juice = new ImageButton("Sprites/Juice.png", 2, 1, "ShopItems/TShirt.png", "", this);
-        _margarita = new ImageButton("Sprites/Margarita.png", 2, 1, "ShopItems/Plushie.png", "", this);
-        _soda = new ImageButton("Sprites/Soda.png", 2, 1, "ShopItems/FoodVoucher.png", "", this);
-        _water = new ImageButton("Sprites/Water.png", 2, 1, "ShopItems/Headphones.png", "", this);
-        _wine = new ImageButton("Sprites/Wine.png", 2, 1, "ShopItems/Switch.png", "", this);
+        _beer = new ImageButton("Sprites/Beer.png", 2, 1);
+        _cubaLibre = new ImageButton("Sprites/CubaLibre.png", 2, 1);
+        _juice = new ImageButton("Sprites/Juice.png", 2, 1);
+        _margarita = new ImageButton("Sprites/Margarita.png", 2, 1);
+        _soda = new ImageButton("Sprites/Soda.png", 2, 1);
+        _water = new ImageButton("Sprites/Water.png", 2, 1);
+        _wine = new ImageButton("Sprites/Wine.png", 2, 1);
 
         _order = new ImageButton("Sprites/Order.png", 2, 1);
         _backBar = new ImageButton("Sprites/Back.png", 2, 1);
@@ -331,15 +331,15 @@ public class ShopAndBar : Sprite
 
     private void LoadInstancesShop()
     {
-        _costume = new ImageButton("Sprites/IngameCostume.png", 2, 1, "ShopItems/Costume.png", "", this);
-        _giftcard = new ImageButton("Sprites/TenEuroGiftCard.png", 2, 1, "ShopItems/10EuroGift.png", "", this);
-        _tshirt = new ImageButton("Sprites/TShirt.png", 2, 1, "ShopItems/TShirt.png", "", this);
-        _plushie = new ImageButton("Sprites/Plushie.png", 2, 1, "ShopItems/Plushie.png", "", this);
-        _foodVoucher = new ImageButton("Sprites/FoodDrinkVoucher.png", 2, 1, "ShopItems/FoodVoucher.png", "", this);
-        _headphones = new ImageButton("Sprites/Headphones.png", 2, 1, "ShopItems/Headphones.png", "", this);
-        _nintendoSwitch = new ImageButton("Sprites/NintendoSwitch.png", 2, 1, "ShopItems/Switch.png", "", this);
-        _xBox = new ImageButton("Sprites/XboxOneX.png", 2, 1, "ShopItems/Xbox.png", "", this);
-        _playstation = new ImageButton("Sprites/Playstation.png", 2, 1, "ShopItems/Playstation.png", "", this);
+        _costume = new ImageButton("Sprites/IngameCostume.png", 2, 1);
+        _giftcard = new ImageButton("Sprites/TenEuroGiftCard.png", 2, 1);
+        _tshirt = new ImageButton("Sprites/TShirt.png", 2, 1);
+        _plushie = new ImageButton("Sprites/Plushie.png", 2, 1);
+        _foodVoucher = new ImageButton("Sprites/FoodDrinkVoucher.png", 2, 1);
+        _headphones = new ImageButton("Sprites/Headphones.png", 2, 1);
+        _nintendoSwitch = new ImageButton("Sprites/NintendoSwitch.png", 2, 1);
+        _xBox = new ImageButton("Sprites/XboxOneX.png", 2, 1);
+        _playstation = new ImageButton("Sprites/Playstation.png", 2, 1);
 
         _order = new ImageButton("Sprites/Order.png", 2, 1);
         _backShop = new ImageButton("Sprites/Back.png", 2, 1);

@@ -1,7 +1,7 @@
 ﻿using System;
 using GXPEngine;
 
-class MainMenu : GameObject
+public class MainMenu : GameObject
 {
 
 	readonly private Logo _logoThing;

@@ -5,11 +5,11 @@ using System.Text;
 using GXPEngine;
 using System.Drawing;
 
-class DeathText : Canvas
+public class DeathText : Canvas
 {
-    private StringFormat _stringFormatCenter;
-    private Font _font;
-    int _tickets;
+    private readonly StringFormat _stringFormatCenter;
+    private readonly Font _font;
+    private readonly int _tickets;
 
     public DeathText(int _xPos, int _yPos, int tickets) : base(500, 500)
     {
@@ -18,9 +18,11 @@ class DeathText : Canvas
 
         _font = new Font("Arial", 30, FontStyle.Bold);
 
-        _stringFormatCenter = new StringFormat();
-        _stringFormatCenter.Alignment = StringAlignment.Center;
-        _stringFormatCenter.LineAlignment = StringAlignment.Center;
+        _stringFormatCenter = new StringFormat
+        {
+            Alignment = StringAlignment.Center,
+            LineAlignment = StringAlignment.Center
+        };
 
         _tickets = tickets;
     }

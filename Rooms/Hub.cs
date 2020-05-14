@@ -20,12 +20,12 @@ public class Hub : GameObject
 	private int ObjCols { get; set; }
 	private int ObjRows { get; set; }
 
-	MainGame Game { get; set; }
+	private MainGame Game { get; set; }
 
-	BackgroundTile bgTile;
-	CollisionTile cTile;
-	DoorTile _door;
-	ActivityTile _activity;
+	private BackgroundTile bgTile;
+	private CollisionTile cTile;
+	private DoorTile _door;
+	private ActivityTile _activity;
 
 	public ActivityBox _aArkanoid;
 	public ActivityBox _aRoadRacer;
@@ -34,7 +34,7 @@ public class Hub : GameObject
 	public ActivityBox _barBox;
 	public ActivityBox _noTickets;
 
-	Player _player;
+	private Player _player;
 
 
 	public Hub(string bgSpriteSheet, int bgCols, int bgRows, string colSpriteSheet, int colCols, int colRows, string objSpriteSheet, int objCols, int objRows, MainGame tempGame)
@@ -153,6 +153,14 @@ public class Hub : GameObject
 			}
 		}
 
+		AddActivityBoxes();
+	}
+
+	//------------------------------------------------------------------------------------------------------------------------
+	//														AddActivityBoxes()
+	//------------------------------------------------------------------------------------------------------------------------
+	private void AddActivityBoxes()
+	{
 		_aArkanoid = new ActivityBox("Text/Arkanoid.txt");
 		AddChild(_aArkanoid);
 		_aArkanoid.visible = false;

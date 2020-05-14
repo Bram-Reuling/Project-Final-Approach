@@ -5,7 +5,7 @@ using System.Text;
 using TiledMapParser;
 using GXPEngine;
 
-class RoadTile : AnimationSprite
+public class RoadTile : AnimationSprite
 {
 	readonly private int _moveSpeed;
 

@@ -5,11 +5,11 @@ using System.Text;
 using GXPEngine;
 using System.Drawing;
 
-class Button : Canvas
+public class Button : Canvas
 {
-    private StringFormat _stringFormatCenter;
-    private Font _font;
-    private string _buttonText;
+    private readonly StringFormat _stringFormatCenter;
+    private readonly Font _font;
+    private readonly string _buttonText;
 
     public Button(int _width, int _height, int _fontSize, string _buttonName) : base(_width, _height)
     {

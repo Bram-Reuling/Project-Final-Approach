@@ -21,7 +21,7 @@ class ArkanoidLevelScreen : GameObject
 
     private bool _isLevelStarted;
 
-    Overlay _overlay;
+    private Overlay _overlay;
 
     public ArkanoidLevelScreen(string filename, MainGame tempGame) 
     {
@@ -29,8 +29,6 @@ class ArkanoidLevelScreen : GameObject
         _blocks = new List<Block>();
         Map leveldata = MapParser.ReadMap(filename); // Reads the data of the .tmx file
         SpawnObjects(leveldata); // Calls SpawnObjects method to spawn the objects from the .tmx file in the level.
-
-        //_mainMenu = _menuInst; // Sets variable of type MainMenuScreen to an instance of the class
 
         // Plays an audio file as background music
         Sound backgroundMusic = new Sound("ArkanoidSounds/LevelStart.mp3", false, true);
@@ -54,8 +52,6 @@ class ArkanoidLevelScreen : GameObject
         {
             _game.SwitchRoom("AWin");
         }
-
-        //Console.WriteLine(_blocks.Count);
     }
 
     private void StartLevel()
@@ -102,7 +98,7 @@ class ArkanoidLevelScreen : GameObject
                     break;
                 case "Ball":
                     // Creating the ball
-                    _ball = new Ball(_block, obj, _player);
+                    _ball = new Ball(obj, _player);
                     AddChild(_ball);
                     _overlay = new Overlay();
                     AddChild(_overlay);

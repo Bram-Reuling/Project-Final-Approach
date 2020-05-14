@@ -3,9 +3,9 @@ using System.CodeDom;
 using GXPEngine;
 using TiledMapParser;
 
-class LevelRoadRacer : GameObject
+public class LevelRoadRacer : GameObject
 {
-    RoadTile _rTile;
+    private RoadTile _rTile;
 	readonly Overlay _overlay;
 
 	readonly PlayerRoadRacer _player;
@@ -37,10 +37,6 @@ class LevelRoadRacer : GameObject
 		Sound backgroundMusic = new Sound("Sounds/RoadRacerSong.mp3", true, true);
 		_backgroundMusicChannel = backgroundMusic.Play();
 		_backgroundMusicChannel.Volume = 1f;
-	}
-
-	void Update()
-	{
 	}
 
 	private void SpawnRoad(Map levelData)
