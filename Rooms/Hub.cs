@@ -31,6 +31,7 @@ public class Hub : GameObject
 	public ActivityBox _aRoadRacer;
 	public ActivityBox _dance;
 	public ActivityBox _shopBox;
+	public ActivityBox _barBox;
 
 	Player _player;
 
@@ -166,6 +167,10 @@ public class Hub : GameObject
 		_shopBox = new ActivityBox("Text/Shop.txt");
 		AddChild(_shopBox);
 		_shopBox.visible = false;
+
+		_barBox = new ActivityBox("Text/Bar.txt");
+		AddChild(_barBox);
+		_barBox.visible = false;
 	}
 
 	//------------------------------------------------------------------------------------------------------------------------

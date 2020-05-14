@@ -93,6 +93,7 @@ public class Player : AnimationSprite
         _hub._aRoadRacer.visible = false;
         _hub._dance.visible = false;
         _hub._shopBox.visible = false;
+        _hub._barBox.visible = false;
 
         danceAnim();
 
@@ -306,25 +307,7 @@ public class Player : AnimationSprite
 
             string activity = aTile.Activity;
 
-            if (activity == "Arkanoid")
-            {
-                _hub._aArkanoid.visible = true;
-            }
-
-            if (activity == "Race")
-            {
-                _hub._aRoadRacer.visible = true;
-            }
-
-            if (activity == "Dance")
-            {
-                _hub._dance.visible = true;
-            }
-
-            if (activity == "OpenShop")
-            {
-                _hub._shopBox.visible = true;
-            }
+            ShowActivityBox(activity);
 
             if (Input.GetKey('E'))
             {
@@ -339,6 +322,34 @@ public class Player : AnimationSprite
             {
                 _activityIsLoading = false;
             }
+        }
+    }
+
+    private void ShowActivityBox(string activity)
+    {
+        if (activity == "Arkanoid")
+        {
+            _hub._aArkanoid.visible = true;
+        }
+
+        if (activity == "Race")
+        {
+            _hub._aRoadRacer.visible = true;
+        }
+
+        if (activity == "Dance")
+        {
+            _hub._dance.visible = true;
+        }
+
+        if (activity == "OpenShop")
+        {
+            _hub._shopBox.visible = true;
+        }
+
+        if (activity == "OpenBar")
+        {
+            _hub._barBox.visible = true;
         }
     }
 
