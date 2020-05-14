@@ -32,6 +32,7 @@ public class Hub : GameObject
 	public ActivityBox _dance;
 	public ActivityBox _shopBox;
 	public ActivityBox _barBox;
+	public ActivityBox _noTickets;
 
 	Player _player;
 
@@ -171,6 +172,10 @@ public class Hub : GameObject
 		_barBox = new ActivityBox("Text/Bar.txt");
 		AddChild(_barBox);
 		_barBox.visible = false;
+
+		_noTickets = new ActivityBox("Text/NoTickets.txt");
+		AddChild(_noTickets);
+		_noTickets.visible = false;
 	}
 
 	//------------------------------------------------------------------------------------------------------------------------

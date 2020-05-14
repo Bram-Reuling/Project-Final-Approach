@@ -52,8 +52,11 @@ class MainMenuRoadRacer : GameObject
         {
             if (_startButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                _game.SwitchRoom("RLevel");
-                //_backgroundMusicChannel.Stop();
+                if (_game.tickets - 5 > 0)
+                {
+                    _game.SwitchRoom("RLevel");
+                    //_backgroundMusicChannel.Stop();
+                }
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {

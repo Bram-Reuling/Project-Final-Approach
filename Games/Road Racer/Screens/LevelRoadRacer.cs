@@ -20,6 +20,7 @@ class LevelRoadRacer : GameObject
 
 	public LevelRoadRacer(MainGame tempGame)
 	{
+		_game = tempGame;
 		_fileName = @"RoadRacerLevel/RoadRacer.tmx";
 		Map _levelData = MapParser.ReadMap(_fileName);
 		spawnRoad(_levelData);
@@ -32,8 +33,6 @@ class LevelRoadRacer : GameObject
 		AddChild(_overlay);
 		_player = new PlayerRoadRacer(this, tempGame);
 		AddChild(_player);
-
-		_game = tempGame;
 
 		Sound backgroundMusic = new Sound("Sounds/RoadRacerSong.mp3", true, true);
 		_backgroundMusicChannel = backgroundMusic.Play();
@@ -62,7 +61,7 @@ class LevelRoadRacer : GameObject
 				int tileNumber = tileNumbers[col, row];
 				if (tileNumber > 0)
 				{
-					_rTile = new RoadTile();
+					_rTile = new RoadTile(_game);
 					_rTile.SetFrame(tileNumber - 1);
 					_rTile.x = col * _rTile.width + _rTile.width / 2;
 					_rTile.y = row * _rTile.height + _rTile.height / 2;

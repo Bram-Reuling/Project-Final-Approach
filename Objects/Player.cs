@@ -94,6 +94,7 @@ public class Player : AnimationSprite
         _hub._dance.visible = false;
         _hub._shopBox.visible = false;
         _hub._barBox.visible = false;
+        _hub._noTickets.visible = false;
 
         danceAnim();
     }
@@ -320,6 +321,7 @@ public class Player : AnimationSprite
             {
                 _activityIsLoading = false;
             }
+
         }
     }
 
@@ -327,12 +329,26 @@ public class Player : AnimationSprite
     {
         if (activity == "Arkanoid")
         {
-            _hub._aArkanoid.visible = true;
+            if (_game.tickets - 5 > 0)
+            {
+                _hub._aArkanoid.visible = true;
+            }
+            else
+            {
+                _hub._noTickets.visible = true;
+            }
         }
 
         if (activity == "Race")
         {
-            _hub._aRoadRacer.visible = true;
+            if (_game.tickets - 5 > 0)
+            {
+                _hub._aRoadRacer.visible = true;
+            }
+            else
+            {
+                _hub._noTickets.visible = true;
+            }
         }
 
         if (activity == "Dance")

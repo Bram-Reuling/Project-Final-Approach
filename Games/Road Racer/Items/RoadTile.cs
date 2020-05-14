@@ -8,11 +8,13 @@ using GXPEngine;
 class RoadTile : AnimationSprite
 {
 	private int _moveSpeed;
+	MainGame _game;
 
-	public RoadTile() : base("RoadRacerSprites/RacingGameSpriteSheet.png", 32, 24)
+	public RoadTile(MainGame tempGame) : base("RoadRacerSprites/RacingGameSpriteSheet.png", 32, 24)
 	{
+		_game = tempGame;
 		SetOrigin(width / 2, height / 2);
-		_moveSpeed = 8;
+		_moveSpeed = 16;
 	}
 
 	void Update()

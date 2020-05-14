@@ -56,8 +56,11 @@ class MainMenuScreenArkanoid : GameObject
         {
             if (_startButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
-                _game.SwitchRoom("ALevelOne");
-                _backgroundMusicChannel.Stop();
+                if (_game.tickets - 5 > 0)
+                {
+                    _game.SwitchRoom("ALevelOne");
+                    _backgroundMusicChannel.Stop();
+                }
             }
             else if (_quitButton.HitTestPoint(Input.mouseX, Input.mouseY))
             {
