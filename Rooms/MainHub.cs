@@ -28,7 +28,7 @@ class MainHub : Hub
 		SpawnOverlapTiles(_levelData);
 
 		_game = tempGame;
-		_displayTut = _game._displayTutorial;
+		_displayTut = _game.DisplayTutorial;
 
 		_tickets = new TicketDisplay(_game);
 		AddChild(_tickets);
@@ -50,7 +50,7 @@ class MainHub : Hub
 
 	public void DeleteTut()
 	{
-		_game._displayTutorial = false;
+		_game.DisplayTutorial = false;
 		_c.LateDestroy();
 		_c = null;
 	}

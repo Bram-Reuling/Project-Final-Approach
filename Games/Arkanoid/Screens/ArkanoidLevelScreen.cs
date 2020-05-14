@@ -13,12 +13,11 @@ class ArkanoidLevelScreen : GameObject
 
     public List<Block> _blocks;
 
-    MainGame _game;
+    readonly MainGame _game;
 
-    private int _maxScore; // Total points you can get per level
     private String _nextLevel; 
 
-    private SoundChannel _backgroundMusicChannel;
+    readonly private SoundChannel _backgroundMusicChannel;
 
     private bool _isLevelStarted;
 
@@ -29,7 +28,7 @@ class ArkanoidLevelScreen : GameObject
         _game = tempGame;
         _blocks = new List<Block>();
         Map leveldata = MapParser.ReadMap(filename); // Reads the data of the .tmx file
-        spawnObjects(leveldata); // Calls SpawnObjects method to spawn the objects from the .tmx file in the level.
+        SpawnObjects(leveldata); // Calls SpawnObjects method to spawn the objects from the .tmx file in the level.
 
         //_mainMenu = _menuInst; // Sets variable of type MainMenuScreen to an instance of the class
 
@@ -42,13 +41,11 @@ class ArkanoidLevelScreen : GameObject
 
     void Update()
     {
-        loadNewLevelOnMaxScore();
-
         if (_backgroundMusicChannel.IsPlaying == false)
         {
             if (!_isLevelStarted)
             {
-                startLevel();
+                StartLevel();
                 _isLevelStarted = true;
             }
         }
@@ -61,20 +58,14 @@ class ArkanoidLevelScreen : GameObject
         //Console.WriteLine(_blocks.Count);
     }
 
-    private void startLevel()
+    private void StartLevel()
     {
         // Activates the ball
         _ball.BallReset();
     }
 
-    // Adds all the points of the blocks to _maxScore
-    public void TotalScore(int _points)
-    {
-        _maxScore += _points;
-    }
-
     // Spawns all the objects from the object layer from Tiled
-    private void spawnObjects(Map leveldata)
+    private void SpawnObjects(Map leveldata)
     {
         if (leveldata.ObjectGroups == null || leveldata.ObjectGroups.Length == 0) // Check if there are ObjectGroups in the level data
             return;
@@ -88,11 +79,11 @@ class ArkanoidLevelScreen : GameObject
         if (_nextLevel == null)
             _nextLevel = "ArkanoidLevels/level1.tmx";
 
-        objectCheck(objectGroup);
+        ObjectCheck(objectGroup);
     }
 
     // Checks which object is being loaded from Tiled and creates the appropriate instance for it.
-    private void objectCheck(ObjectGroup objectGroup)
+    private void ObjectCheck(ObjectGroup objectGroup)
     {
         foreach (TiledObject obj in objectGroup.Objects)
         {
@@ -105,7 +96,7 @@ class ArkanoidLevelScreen : GameObject
                     AddChild(_player);
                     break;
                 case "Block":
-                    _block = new Block(this, obj, _player);
+                    _block = new Block(this, obj);
                     _blocks.Add(_block);
                     AddChild(_block);
                     break;
@@ -138,21 +129,6 @@ class ArkanoidLevelScreen : GameObject
         _game.SwitchRoom("ADeath");
         // Stops the background music
         _backgroundMusicChannel.Stop();
-
-        // Creates new instance of DeathScreen
-        //_deathScreen = new ArkanoidDeathScreen();
-        //game.AddChild(_deathScreen);
-
-        // Destroys current level
-        //destroyCurrentLevel();
-    }
-
-    private void loadNewLevelOnMaxScore()
-    {
-        if (_player.score >= _maxScore)
-        {
-            _backgroundMusicChannel.Stop();
-        }
     }
 
     // Random generator for the power ups

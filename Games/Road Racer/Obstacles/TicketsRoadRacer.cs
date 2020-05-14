@@ -4,7 +4,7 @@ using GXPEngine;
 class TicketsRoadRacer : Sprite
 {
 
-	MainGame _game;
+	readonly MainGame _game;
 
 	public TicketsRoadRacer(MainGame tempGame) : base("Sprites/Ticket.png")
 	{

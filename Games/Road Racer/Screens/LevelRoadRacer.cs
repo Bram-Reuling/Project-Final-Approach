@@ -6,24 +6,24 @@ using TiledMapParser;
 class LevelRoadRacer : GameObject
 {
     RoadTile _rTile;
-	Overlay _overlay;
+	readonly Overlay _overlay;
 
-	PlayerRoadRacer _player;
+	readonly PlayerRoadRacer _player;
 
-	Obstacles _obst;
+	readonly Obstacles _obst;
 
-	private SoundChannel _backgroundMusicChannel;
+	readonly private SoundChannel _backgroundMusicChannel;
 
-	MainGame _game;
+	readonly MainGame _game;
 
-	private string _fileName { get; set; }
+	private string FileName { get; set; }
 
 	public LevelRoadRacer(MainGame tempGame)
 	{
 		_game = tempGame;
-		_fileName = @"RoadRacerLevel/RoadRacer.tmx";
-		Map _levelData = MapParser.ReadMap(_fileName);
-		spawnRoad(_levelData);
+		FileName = @"RoadRacerLevel/RoadRacer.tmx";
+		Map _levelData = MapParser.ReadMap(FileName);
+		SpawnRoad(_levelData);
 
 		_obst = new Obstacles(tempGame);
 		_obst.SetXY(game.width / 2, 0);
@@ -43,7 +43,7 @@ class LevelRoadRacer : GameObject
 	{
 	}
 
-	private void spawnRoad(Map levelData)
+	private void SpawnRoad(Map levelData)
 	{
 		// Check if there are layers
 		if (levelData.Layers == null || levelData.Layers.Length == 0)
@@ -61,7 +61,7 @@ class LevelRoadRacer : GameObject
 				int tileNumber = tileNumbers[col, row];
 				if (tileNumber > 0)
 				{
-					_rTile = new RoadTile(_game);
+					_rTile = new RoadTile();
 					_rTile.SetFrame(tileNumber - 1);
 					_rTile.x = col * _rTile.width + _rTile.width / 2;
 					_rTile.y = row * _rTile.height + _rTile.height / 2;
